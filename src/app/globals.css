@@ -198,3 +198,70 @@
     transition: none;
   }
 }
+
+/* Hero lock screen: the one orchestrated moment. Runs once on load. */
+@keyframes lockscreen-clock {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes lockscreen-notif {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.97);
+  }
+}
+
+.lockscreen-clock {
+  animation: lockscreen-clock 0.6s var(--ease-spring) both;
+}
+
+.lockscreen-notif {
+  animation: lockscreen-notif 0.55s var(--ease-spring) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lockscreen-clock,
+  .lockscreen-notif {
+    animation: none;
+  }
+}
+
+/* Horizontal rails: scroll without a visible scrollbar. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Experience timeline progress line: fills as the section scrolls through view. */
+.timeline-fill {
+  transform-origin: top;
+}
+
+@supports (animation-timeline: view()) {
+  @keyframes timeline-grow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .timeline-fill {
+    animation: timeline-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 65%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-fill {
+    animation: none;
+    transform: none;
+  }
+}
