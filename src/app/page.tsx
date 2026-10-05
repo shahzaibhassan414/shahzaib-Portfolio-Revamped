@@ -100,12 +100,6 @@ export default function Home() {
             <br /> in production.
           </h1>
 
-          <p className="max-w-[34em] text-[19px] leading-normal text-body md:text-[21px]">
-            I&apos;m Shahzaib Hassan. I build iOS and Android apps in Flutter for startups, product teams, and
-            agencies, and I take over existing Flutter apps that have become slow, unstable, or hard to change. Most
-            of my work is in the parts that break first: payments, subscriptions, real-time chat, and maps.
-          </p>
-
           <div className="flex flex-wrap gap-3">
             <ButtonLink href={primaryCta.href}>{primaryCta.label}</ButtonLink>
             <ButtonLink href="#work" variant="secondary">
