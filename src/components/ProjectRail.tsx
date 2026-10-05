@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { scrollToY } from "@/lib/scroll";
 
 // From 768px up (and without reduced motion) the section pins and vertical scrolling moves
@@ -28,7 +28,10 @@ export function ProjectRail({ header, trailing, label, children }: ProjectRailPr
   const railRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<Trigger | undefined>(undefined);
-  useEffect(() => {
+  // A layout effect, so the cleanup (which unwraps GSAP's pin) runs before React removes
+  // the page on navigation. With a plain effect React found the section still inside
+  // GSAP's pin-spacer and failed with "removeChild ... not a child of this node".
+  useLayoutEffect(() => {
     const rail = railRef.current;
     const pin = pinRef.current;
     if (!rail || !pin) return;

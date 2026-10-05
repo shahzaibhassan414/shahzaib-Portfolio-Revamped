@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 export type ProcessStep = { title: string; body: string };
 
@@ -16,7 +16,10 @@ export function ProcessSteps({ steps }: { steps: ProcessStep[] }) {
   const listRef = useRef<HTMLOListElement>(null);
   const [active, setActive] = useState<number | null>(null);
 
-  useEffect(() => {
+  // A layout effect, so the cleanup (which unwraps GSAP's pin) runs before React removes
+  // the page on navigation. With a plain effect React found the section still inside
+  // GSAP's pin-spacer and failed with "removeChild ... not a child of this node".
+  useLayoutEffect(() => {
     const list = listRef.current;
     const section = list?.closest("section");
     if (!list || !section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
