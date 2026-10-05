@@ -92,11 +92,14 @@ export const playbooks = [
     title: "How to add a heat map to Google Maps in Flutter",
     href: "https://midnight-grape-a6b.notion.site/Playbook-How-to-Add-a-Heatmap-in-Flutter-Google-Maps-2854fb3615b880538317ede1721ce16a",
     topic: "Maps and location",
+    summary:
+      "The approach I used in Zera to show where marketplace demand clusters, without freezing the map when the data gets dense.",
   },
   {
     title: "From SVG to Flutter widget",
     href: "https://midnight-grape-a6b.notion.site/Playbook-From-SVG-to-Flutter-Widget-2e94fb3615b880dd89a4fc2cc4d76f68",
     topic: "UI and widgets",
+    summary: "Turning a designer's SVG into a clean, resizable Flutter widget.",
   },
 ] as const;
 
