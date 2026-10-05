@@ -19,7 +19,7 @@ import { openSource, playbooks, primaryCta, site, storeLinks } from "@/content/s
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Senior Flutter Developer for iOS and Android | Shahzaib Hassan",
+  title: "Senior Flutter Developer for iOS & Android | Shahzaib Hassan",
   description:
     "I build new Flutter apps and fix existing ones: payments, real-time chat, maps, and App Store releases. Four years of production work.",
   path: "/",
