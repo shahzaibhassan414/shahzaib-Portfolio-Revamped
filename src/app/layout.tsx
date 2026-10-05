@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { GlowCards } from "@/components/GlowCards";
 import { Header } from "@/components/Header";
 import { MagneticButtons } from "@/components/MagneticButtons";
+import { ScrollRestore } from "@/components/ScrollRestore";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { TileMotion } from "@/components/TileMotion";
 import { TextReveal } from "@/components/TextReveal";
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <SmoothScroll />
+        <ScrollRestore />
         <MagneticButtons />
         <CursorFollower />
         <GlowCards />
