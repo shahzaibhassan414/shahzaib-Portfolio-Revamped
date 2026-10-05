@@ -560,3 +560,36 @@
     transition: none;
   }
 }
+
+/* Scroll-selected items (ScrollSelect): the active one lifts and lights up, others dim. */
+[data-step] {
+  transition:
+    opacity 0.5s var(--ease-spring),
+    translate 0.5s var(--ease-spring),
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+[data-step-badge] {
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+[data-select="on"] > [data-step] {
+  opacity: 0.45;
+}
+[data-select="on"] > [data-step][data-current] {
+  opacity: 1;
+  translate: 0 -6px;
+  border-color: var(--accent);
+  box-shadow: 0 24px 60px -24px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+[data-select="on"] > [data-step][data-current] [data-step-badge] {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-step],
+  [data-step-badge] {
+    transition: none;
+  }
+}

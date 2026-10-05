@@ -3,6 +3,7 @@ import { CTAStrip } from "@/components/CTAStrip";
 import { ArrowRight } from "@/components/icons";
 import { FAQ } from "@/components/FAQ";
 import { JsonLd } from "@/components/JsonLd";
+import { ScrollSelect } from "@/components/ScrollSelect";
 import { serviceIcons, ServiceSteps } from "@/components/ServiceParts";
 import { ButtonLink, SectionTitle } from "@/components/ui";
 import { primaryCta, site } from "@/content/site";
@@ -154,12 +155,20 @@ export default function ServicesPage() {
             Every project is quoted after a short scope call, so you pay for what your app actually needs.
           </p>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-5">
-          {engagements.map((e) => (
+        {/* Selected one by one while scrolling, like "How a project runs" (ScrollSelect). */}
+        <ScrollSelect className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-5">
+          {engagements.map((e, i) => (
             <div
               key={e.title}
-              className={`flex flex-col gap-3 rounded-3xl border p-6 md:p-8 ${e.highlight ? "border-accent" : "border-line"}`}
+              data-step
+              className={`flex flex-col gap-3 rounded-3xl border bg-surface p-6 md:p-8 ${e.highlight ? "border-accent" : "border-line"}`}
             >
+              <span
+                data-step-badge
+                className="flex size-9 items-center justify-center rounded-full bg-surface-2 text-[15px] font-bold text-accent"
+              >
+                {i + 1}
+              </span>
               <h3 className="text-2xl font-bold">{e.title}</h3>
               <p className="text-base leading-[1.6] text-body">{e.body}</p>
               <Link
@@ -173,7 +182,7 @@ export default function ServicesPage() {
               </Link>
             </div>
           ))}
-        </div>
+        </ScrollSelect>
       </section>
 
       <section aria-labelledby="faq-title" className="wrap flex flex-wrap gap-x-16 gap-y-8 pt-[88px] md:pt-[136px]">
