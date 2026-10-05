@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { AmbientBackground } from "@/components/AmbientBackground";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <AmbientBackground />
         <Header />
         <main id="main" className="flex flex-1 flex-col">
           {children}
