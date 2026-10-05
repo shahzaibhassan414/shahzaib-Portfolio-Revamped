@@ -96,13 +96,15 @@ export function FooterWordmark({ text }: { text: string }) {
         ref={lineRef}
         // pt/pb give the mask room for the glyphs (the line height is tighter than they are), and
         // keep the bottom bar below the letters instead of over them
-        className="flex overflow-hidden pt-[0.14em] pb-[0.06em] text-[clamp(36px,10.4vw,156px)] leading-[0.8] font-extrabold tracking-[-0.05em] whitespace-nowrap"
+        className="flex overflow-hidden pt-[0.18em] pb-[0.06em] text-[clamp(36px,10.4vw,156px)] leading-[0.8] font-extrabold tracking-[-0.05em] whitespace-nowrap"
       >
         {[...text].map((char, i) => (
           // Outer span: the scroll reveal (GSAP owns its transform). Inner span: the hover lift,
-          // kept separate because GSAP sets `translate: none` on elements it animates.
+          // kept separate because GSAP sets `translate: none` on elements it animates. Its
+          // pt/-mt stretch the gradient over the tops of tall letters: with a 0.8 line height
+          // the glyphs rise above the box, and background-clip text only paints inside it.
           <span key={i} data-letter className="inline-block">
-            <span className="wordmark-letter inline-block bg-clip-text text-transparent transition-[translate] duration-300 ease-spring">
+            <span className="wordmark-letter -mt-[0.16em] inline-block bg-clip-text pt-[0.16em] text-transparent transition-[translate] duration-300 ease-spring">
               {char === " " ? "\u00a0" : char}
             </span>
           </span>
