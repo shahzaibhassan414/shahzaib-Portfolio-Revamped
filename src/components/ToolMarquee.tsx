@@ -18,7 +18,7 @@ function Row({ items, outlined }: { items: string[]; outlined?: boolean }) {
         <span key={i} className="flex items-center">
           <span
             className={`px-5 text-[clamp(30px,4.4vw,60px)] leading-none font-extrabold tracking-[-0.03em] md:px-7 ${
-              outlined ? "text-transparent [-webkit-text-stroke:1.5px_var(--line-strong)]" : "text-line-strong"
+              outlined ? "text-transparent [-webkit-text-stroke:1.5px_var(--arrow)]" : "text-arrow"
             }`}
           >
             {item}
