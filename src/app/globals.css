@@ -375,12 +375,6 @@
   }
 }
 
-/* Text reveal masks (TextReveal): room for descenders so the clip never cuts "g" or "y". */
-.reveal-line-mask {
-  padding-bottom: 0.12em;
-  margin-bottom: -0.12em;
-}
-
 /* Text links outside running text: an invisible hit area of at least 44 x 44px,
    centred on the link, so the layout keeps its designed spacing. */
 @utility tap-target {

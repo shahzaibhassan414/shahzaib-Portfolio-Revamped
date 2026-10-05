@@ -3,10 +3,11 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Section headings slide up line by line, from behind a mask, in step with the scroll.
-// Only headings still below the fold when the script runs are touched, so nothing is
-// ever hidden waiting for JavaScript. Hero headings and reduced motion are left alone.
-// Headings that contain links are skipped so the link stays reachable by screen readers.
+// Scroll fade-in text: section headings (and anything marked data-reveal) start faint and
+// brighten word by word in step with the scroll. Text is never fully hidden, and only text
+// still below the fold when the script runs is touched. Hero headings and reduced motion
+// are left alone. Headings that contain links are skipped so the link stays reachable by
+// screen readers.
 const SELECTOR = "main h2:not(:has(a, button)), main [data-reveal]";
 
 // Nothing below the fold can reveal before the visitor scrolls, so GSAP waits for the
@@ -36,24 +37,21 @@ export function TextReveal() {
       gsap.registerPlugin(ScrollTrigger, SplitText);
       const targets = [...document.querySelectorAll<HTMLElement>(SELECTOR)].filter(belowFold);
       const ctx = gsap.context(() => {
-        targets.forEach((el) =>
-          SplitText.create(el, {
-            type: "lines",
-            mask: "lines",
-            linesClass: "reveal-line",
-            autoSplit: true,
-            // Returning the tween lets SplitText keep its progress when it re-splits on resize.
-            onSplit: (self) =>
-              gsap.from(self.lines, {
-                yPercent: 110,
-                ease: "power2.out",
-                stagger: 0.15,
-                // Tied to the scroll position: lines rise as the text scrolls up the screen
-                // (bottom of the window to about 60% up) and sink back when scrolling up.
-                scrollTrigger: { trigger: el, start: "top 95%", end: "top 60%", scrub: 0.6 },
-              }),
-          }),
-        );
+        targets.forEach((el) => {
+          const split = SplitText.create(el, { type: "words", wordsClass: "reveal-word" });
+          gsap.fromTo(
+            split.words,
+            { opacity: 0.2 },
+            {
+              opacity: 1,
+              ease: "none",
+              stagger: 0.1,
+              // Tied to the scroll position: words brighten in reading order as the text moves
+              // from the bottom of the window to just past the middle, and dim again going back.
+              scrollTrigger: { trigger: el, start: "top 90%", end: "bottom 55%", scrub: 0.4 },
+            },
+          );
+        });
       });
       // Reverts the splits and kills their ScrollTriggers together.
       cleanup = () => ctx.revert();
