@@ -1,4 +1,6 @@
 import { ArrowUp } from "@/components/icons";
+import { LockscreenClock } from "@/components/LockscreenClock";
+import { CLOCK_DATE_ID, CLOCK_TIME_ID, clockInlineScript } from "@/lib/clock";
 import { onWhiteText } from "@/lib/color";
 
 type Notification = {
@@ -49,8 +51,9 @@ const notifications: Notification[] = [
 ];
 
 /**
- * The hero phone. Pure CSS: the clock fades up, then each notification arrives 0.6s
- * after the last. With reduced motion, the final state shows immediately.
+ * The hero phone. The clock shows the visitor's own date and time and fades up; then the
+ * notifications rise in one by one, 0.6s apart, from the bottom (oldest) to the top
+ * (newest). Pure CSS animation; with reduced motion, the final state shows immediately.
  */
 export function HeroLockscreen({ caption }: { caption: string }) {
   return (
@@ -62,16 +65,27 @@ export function HeroLockscreen({ caption }: { caption: string }) {
       >
         <div className="flex h-full flex-col gap-2.5 overflow-hidden rounded-[43px] bg-[radial-gradient(120%_70%_at_20%_0%,#3A5BD9_0%,#1B2547_45%,#0E1220_100%)] px-3.5 pt-16 pb-5 max-[400px]:pt-12">
           <div className="lockscreen-clock mb-[22px] flex flex-col items-center gap-0.5 text-white">
-            <span className="text-[15px] font-medium opacity-85">Monday, October 5</span>
-            <span className="text-[76px] leading-none font-semibold tracking-[-0.03em] max-[400px]:text-[64px]">
+            {/* The design's 9:41 is only a no-JS fallback: the script below swaps in the real time
+                before the first paint, so React is told the text will differ on hydration. */}
+            <span id={CLOCK_DATE_ID} className="text-[15px] font-medium opacity-85" suppressHydrationWarning>
+              Monday, October 5
+            </span>
+            <span
+              id={CLOCK_TIME_ID}
+              className="text-[76px] leading-none font-semibold tracking-[-0.03em] tabular-nums max-[400px]:text-[64px]"
+              suppressHydrationWarning
+            >
               9:41
             </span>
+            <script dangerouslySetInnerHTML={{ __html: clockInlineScript }} />
+            <LockscreenClock />
           </div>
           {notifications.map((n, i) => (
             <div
               key={n.app}
               className="lockscreen-notif flex gap-2.5 rounded-[20px] bg-[rgba(245,247,250,0.86)] p-3"
-              style={{ animationDelay: `${0.5 + i * 0.6}s` }}
+              // Bottom card first, then upward: oldest to newest.
+              style={{ animationDelay: `${0.5 + (notifications.length - 1 - i) * 0.6}s` }}
             >
               <span
                 className="flex size-[34px] flex-none items-center justify-center rounded-[9px] text-[13px] font-extrabold text-white"

@@ -211,7 +211,7 @@
 @keyframes lockscreen-notif {
   from {
     opacity: 0;
-    transform: translateY(-14px) scale(0.97);
+    transform: translateY(14px) scale(0.97);
   }
 }
 
