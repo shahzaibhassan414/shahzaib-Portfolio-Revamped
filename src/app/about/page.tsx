@@ -1,10 +1,11 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { AboutMotion } from "@/components/AboutMotion";
+import { Toolkit } from "@/components/Toolkit";
 import { CTAStrip } from "@/components/CTAStrip";
 import { JsonLd } from "@/components/JsonLd";
 import { Download } from "@/components/icons";
-import { ButtonLink, Chip } from "@/components/ui";
+import { ButtonLink } from "@/components/ui";
 import { experience } from "@/content/experience";
 import { primaryCta, site } from "@/content/site";
 import { pageMetadata, personSchema } from "@/lib/seo";
@@ -291,20 +292,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`wrap flex flex-col gap-10 ${gap}`}>
-        <Heading>Toolkit</Heading>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(250px,100%),1fr))] gap-8">
-          {toolkit.map((t) => (
-            <div key={t.group} className="flex flex-col gap-3.5">
-              <h3 className="text-base font-bold text-muted">{t.group}</h3>
-              <div data-about="chips" className="flex flex-wrap gap-2">
-                {t.items.map((item) => (
-                  <Chip key={item}>{item}</Chip>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Full width so the marquee runs edge to edge; the heading and cards keep the page width. */}
+      <section className={`overflow-x-clip ${gap}`}>
+        <Toolkit groups={toolkit} heading={<Heading>Toolkit</Heading>} />
       </section>
 
       <CTAStrip
