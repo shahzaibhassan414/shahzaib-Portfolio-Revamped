@@ -9,6 +9,7 @@ import { HeatMapVisual, SvgToWidgetVisual } from "@/components/PlaybookVisuals";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectRail } from "@/components/ProjectRail";
+import { RepelGrid } from "@/components/RepelGrid";
 import { Timeline } from "@/components/Timeline";
 import { ButtonLink, SectionTitle, TextLink } from "@/components/ui";
 import { experience } from "@/content/experience";
@@ -69,47 +70,51 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="wrap flex flex-wrap items-center gap-14 pt-8 pb-16 md:pt-14 md:pb-24">
-        <div className="flex min-w-0 flex-[1_1_600px] flex-col gap-8">
-          <div className="flex items-center gap-3.5 text-[15px] font-medium text-body">
-            <span className="relative size-12 flex-none">
-              <Image
-                src="/images/avatar.webp"
-                alt=""
-                width={48}
-                height={48}
-                priority
-                className="size-12 rounded-full object-cover shadow-[0_0_0_2px_var(--line)]"
-              />
-              {site.available && (
-                <span className="absolute -right-px -bottom-px size-3 rounded-full bg-live shadow-[0_0_0_3px_var(--bg)]" />
-              )}
-            </span>
-            <span className="flex flex-col gap-0.5">
-              <span className="font-bold text-text">{site.name}</span>
-              {site.available && <span>{site.availabilityNote}</span>}
-            </span>
+      {/* Full-width wrapper so the repel grid spans the screen behind the hero. */}
+      <div className="relative isolate">
+        <RepelGrid />
+        <section className="wrap flex flex-wrap items-center gap-14 pt-8 pb-16 md:pt-14 md:pb-24">
+          <div className="flex min-w-0 flex-[1_1_600px] flex-col gap-8">
+            <div className="flex items-center gap-3.5 text-[15px] font-medium text-body">
+              <span className="relative size-12 flex-none">
+                <Image
+                  src="/images/avatar.webp"
+                  alt=""
+                  width={48}
+                  height={48}
+                  priority
+                  className="size-12 rounded-full object-cover shadow-[0_0_0_2px_var(--line)]"
+                />
+                {site.available && (
+                  <span className="absolute -right-px -bottom-px size-3 rounded-full bg-live shadow-[0_0_0_3px_var(--bg)]" />
+                )}
+              </span>
+              <span className="flex flex-col gap-0.5">
+                <span className="font-bold text-text">{site.name}</span>
+                {site.available && <span>{site.availabilityNote}</span>}
+              </span>
+            </div>
+
+            <h1 className="text-[clamp(44px,6vw,84px)] leading-none font-extrabold tracking-[-0.04em]">
+              <span className="mb-[18px] block text-xl leading-[1.2] font-semibold tracking-normal text-accent">
+                Senior Flutter Developer<span className="sr-only">:</span>
+              </span>{" "}
+              Mobile apps
+              <br /> that hold up
+              <br /> in production.
+            </h1>
+
+            <div className="flex flex-wrap gap-3">
+              <ButtonLink href={primaryCta.href}>{primaryCta.label}</ButtonLink>
+              <ButtonLink href="#work" variant="secondary">
+                See the work
+              </ButtonLink>
+            </div>
           </div>
 
-          <h1 className="text-[clamp(44px,6vw,84px)] leading-none font-extrabold tracking-[-0.04em]">
-            <span className="mb-[18px] block text-xl leading-[1.2] font-semibold tracking-normal text-accent">
-              Senior Flutter Developer<span className="sr-only">:</span>
-            </span>{" "}
-            Mobile apps
-            <br /> that hold up
-            <br /> in production.
-          </h1>
-
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href={primaryCta.href}>{primaryCta.label}</ButtonLink>
-            <ButtonLink href="#work" variant="secondary">
-              See the work
-            </ButtonLink>
-          </div>
-        </div>
-
-        <HeroLockscreen caption="Notifications from apps I've built and shipped." />
-      </section>
+          <HeroLockscreen caption="Notifications from apps I've built and shipped." />
+        </section>
+      </div>
 
       {/* Proof line */}
       <section aria-label="Background" className="wrap">
@@ -173,13 +178,16 @@ export default function Home() {
             <div className="flex max-w-[640px] flex-col gap-3.5">
               <SectionTitle id="work-title">Work</SectionTitle>
               <p className="text-[19px] leading-[1.55] text-body">
-                Nine production apps across social discovery, marketplaces, Web3 commerce, and real-time systems.
-                Each one had a part that was harder than it looked.
+                Nine production apps across social discovery, marketplaces, Web3 commerce, and real-time systems. Each
+                one had a part that was harder than it looked.
               </p>
             </div>
           }
           trailing={
-            <Link href="/work" className="tap-target ml-2.5 text-base font-semibold text-accent underline underline-offset-2 hover:no-underline">
+            <Link
+              href="/work"
+              className="tap-target ml-2.5 text-base font-semibold text-accent underline underline-offset-2 hover:no-underline"
+            >
               See all work
             </Link>
           }
@@ -195,8 +203,8 @@ export default function Home() {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] items-end gap-8">
           <SectionTitle id="capabilities-title">Shipped, not just listed</SectionTitle>
           <p className="max-w-[30em] text-[19px] leading-[1.55] text-body">
-            Every capability here is running in an app I built. If it&apos;s on this page, there&apos;s a project
-            behind it.
+            Every capability here is running in an app I built. If it&apos;s on this page, there&apos;s a project behind
+            it.
           </p>
         </div>
         <CapabilityMatrix />
@@ -216,8 +224,8 @@ export default function Home() {
         <div className="flex flex-[1_1_320px] flex-col gap-5 md:sticky md:top-[calc(var(--header-h)+24px)]">
           <SectionTitle id="experience-title">From developer to senior engineer</SectionTitle>
           <p className="text-lg leading-[1.6] text-body">
-            Four years of production Flutter work, from shipping features and fixing crashes to leading apps from
-            first design to store release.
+            Four years of production Flutter work, from shipping features and fixing crashes to leading apps from first
+            design to store release.
           </p>
           <TextLink href="/about" className="text-[17px]">
             More about me
@@ -320,15 +328,16 @@ function ResourceCard({ href, visual, badge, title, description, action, mono }:
       <span className="flex items-center gap-1.5 self-start rounded-full bg-surface-2 px-2.5 py-[5px] text-[13px] font-semibold text-muted">
         {badge}
       </span>
-      <span
-        className={`px-1 leading-[1.3] font-bold ${mono ? "font-mono text-lg tracking-[-0.02em]" : "text-[19px]"}`}
-      >
+      <span className={`px-1 leading-[1.3] font-bold ${mono ? "font-mono text-lg tracking-[-0.02em]" : "text-[19px]"}`}>
         {title}
       </span>
       {description && <span className="px-1 text-[15px] leading-normal text-muted">{description}</span>}
       <span className="mt-auto flex items-center gap-1.5 px-1 text-[15px] font-semibold text-accent">
         {action}
-        <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ArrowUpRight
+          size={16}
+          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
       </span>
     </a>
   );

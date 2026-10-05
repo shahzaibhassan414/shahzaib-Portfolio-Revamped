@@ -37,13 +37,13 @@ export function ButtonLink({
   } ${buttonStyles[variant]} ${className}`;
   if (href.startsWith("/")) {
     return (
-      <Link href={href} className={classes} {...props}>
+      <Link href={href} className={classes} data-magnetic {...props}>
         {children}
       </Link>
     );
   }
   return (
-    <a href={href} className={classes} {...props}>
+    <a href={href} className={classes} data-magnetic {...props}>
       {children}
     </a>
   );

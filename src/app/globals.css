@@ -35,6 +35,9 @@
   --cta-on-btn: #eceff4;
   --cta-btn2-line: #b5bcc8;
 
+  /* Gooey nav pill (GooeyNav): must be opaque for the goo filter */
+  --nav-blob: #262e3c;
+
   /* Ambient background glows (AmbientBackground) */
   --glow-a: rgba(123, 152, 255, 0.14);
   --glow-b: rgba(91, 73, 214, 0.13);
@@ -75,6 +78,7 @@
   --cta-muted: #c5cad3;
   --cta-btn: #ffffff;
   --cta-on-btn: #12151b;
+  --nav-blob: #dde2ea;
   --glow-a: rgba(43, 84, 232, 0.1);
   --glow-b: rgba(91, 73, 214, 0.08);
   --glow-c: rgba(47, 127, 193, 0.07);

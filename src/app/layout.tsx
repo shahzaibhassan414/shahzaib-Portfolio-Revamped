@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { MagneticButtons } from "@/components/MagneticButtons";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { TextReveal } from "@/components/TextReveal";
 import { site } from "@/content/site";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <SmoothScroll />
+        <MagneticButtons />
         <TextReveal />
       </body>
     </html>

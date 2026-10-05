@@ -203,6 +203,7 @@ export function ContactForm({
         <span className="text-sm text-muted">Your details are only used to reply to you.</span>
         <button
           type="submit"
+          data-magnetic
           disabled={status.state === "sending"}
           className="flex min-h-11 items-center gap-2.5 rounded-[14px] bg-accent px-[26px] py-4 text-[17px] font-bold text-on-accent transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-70"
         >

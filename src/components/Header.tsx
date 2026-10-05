@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useSyncExternalStore } from "react";
+import { GooeyNav } from "@/components/GooeyNav";
 import { Logo } from "@/components/Logo";
 import { nav, primaryCta, site } from "@/content/site";
 
@@ -57,24 +58,11 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Main" className="hidden items-center gap-2 lg:flex">
-          {nav.map((item) => {
-            const current = isCurrent(pathname, item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={current ? "page" : undefined}
-                className={`px-3.5 py-2.5 text-[15px] no-underline transition-colors hover:text-accent ${
-                  current ? "font-bold text-accent" : "font-medium"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          <GooeyNav items={nav} isCurrent={(href) => isCurrent(pathname, href)} />
           <Link
             href={primaryCta.href}
             aria-current={isCurrent(pathname, primaryCta.href) ? "page" : undefined}
+            data-magnetic
             className="ml-2 rounded-xl bg-btn px-[18px] py-3 text-[15px] font-semibold text-on-btn no-underline transition-opacity hover:opacity-90"
           >
             {primaryCta.label}
