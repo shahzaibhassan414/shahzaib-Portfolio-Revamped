@@ -23,63 +23,74 @@ type Props = {
 };
 
 type Gsap = typeof import("gsap").gsap;
-type FlipPlugin = typeof import("gsap/Flip").Flip;
-type FlipState = ReturnType<FlipPlugin["getState"]>;
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
  * Topic filter plus the card grid and "Coming next" list on /blog. Changing the topic
- * animates with GSAP Flip (cards glide to their new places, new ones scale in); the hero
- * word drifts and fades on scroll. Cards and rows rise in on scroll (data-tile, TileMotion).
+ * cross-fades: current items fade out with a small drift, the topic switches, and the new
+ * items fade and rise in one after another. Only opacity and transform animate, nothing is
+ * resized or taken out of the layout, so the page never jumps. The hero word drifts and
+ * fades on scroll; cards and rows rise in on scroll (data-tile, TileMotion).
  */
 export function BlogIndex({ cards, upcoming, intro }: Props) {
   const [topic, setTopic] = useState("All");
-  const gsapRef = useRef<{ gsap: Gsap; Flip: FlipPlugin } | null>(null);
-  const flipState = useRef<FlipState | null>(null);
+  const gsapRef = useRef<Gsap | null>(null);
+  const animateIn = useRef(false);
 
-  // Load GSAP + Flip when the filter is first approached, so the first click can animate.
+  // Load GSAP when the filter is first approached, so the first click can animate.
   const preload = () => {
     if (gsapRef.current || reducedMotion()) return;
-    Promise.all([import("gsap"), import("gsap/Flip")]).then(([{ gsap }, { Flip }]) => {
-      gsap.registerPlugin(Flip);
-      gsapRef.current = { gsap, Flip };
+    import("gsap").then(({ gsap }) => {
+      gsapRef.current = gsap;
     });
   };
 
   const choose = (t: string) => {
     if (t === topic) return;
-    const g = gsapRef.current;
-    // Using the filter makes the scroll entrance moot: show anything it was still hiding (it
-    // would otherwise stay hidden after moving to a new place), then record where everything
-    // is; the layout effect animates from here after React updates.
-    if (g) {
-      g.gsap.set("[data-flip]", { clearProps: "opacity,visibility,transform" });
-      flipState.current = g.Flip.getState("[data-flip]");
-    } else {
-      document.querySelectorAll<HTMLElement>("[data-flip]").forEach((el) => {
+    const gsap = gsapRef.current;
+    const items = document.querySelectorAll<HTMLElement>("[data-flip]");
+    if (!gsap || reducedMotion()) {
+      items.forEach((el) => {
         el.style.removeProperty("opacity");
         el.style.removeProperty("visibility");
         el.style.removeProperty("transform");
       });
+      setTopic(t);
+      return;
     }
-    setTopic(t);
+    // A click mid-animation: finish the switch straight away with the newest choice.
+    gsap.killTweensOf(items);
+    gsap.to(items, {
+      opacity: 0,
+      y: 8,
+      duration: 0.18,
+      ease: "power2.in",
+      overwrite: true,
+      onComplete: () => {
+        animateIn.current = true;
+        setTopic(t);
+      },
+    });
   };
 
   useLayoutEffect(() => {
-    const g = gsapRef.current;
-    const state = flipState.current;
-    flipState.current = null;
-    if (!g || !state) return;
-    g.Flip.from(state, {
-      duration: 0.6,
-      ease: "power3.inOut",
-      scale: true,
-      absolute: true,
-      targets: "[data-flip]",
-      onEnter: (els) =>
-        g.gsap.fromTo(els, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }),
-    });
+    const gsap = gsapRef.current;
+    if (!gsap || !animateIn.current) return;
+    animateIn.current = false;
+    gsap.fromTo(
+      "[data-flip]",
+      { opacity: 0, y: 16, visibility: "visible" },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.45,
+        ease: "power3.out",
+        stagger: 0.05,
+        overwrite: true,
+        clearProps: "opacity,visibility,transform",
+      },
+    );
   }, [topic]);
 
   // The hero word drifts down and fades as the page scrolls (after the first interaction).
