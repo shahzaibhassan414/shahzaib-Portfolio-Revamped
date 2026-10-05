@@ -19,6 +19,8 @@ export const site = {
   social: {
     github: "https://github.com/shahzaibhassan414",
     linkedin: "https://www.linkedin.com/in/shahzaibhassan414/",
+    // Verified publisher for both packages (pub.dev API, Oct 2026).
+    pubDev: "https://pub.dev/publishers/shahzaib-dev.site/packages",
   },
   description:
     "Senior Flutter developer who builds, fixes, and maintains production iOS and Android apps: payments, subscriptions, real-time chat, maps, and App Store and Google Play releases.",
@@ -32,6 +34,44 @@ export const nav = [
 ] as const;
 
 export const primaryCta = { href: "/contact", label: "Discuss your app" } as const;
+
+// Footer columns, from docs/copy-and-seo.md section 11.
+export const footerNav = [
+  {
+    heading: "Work",
+    links: [
+      { href: "/work/on-scene", label: "On Scene" },
+      { href: "/work/zera", label: "Zera" },
+      { href: "/work/bepay", label: "BePay" },
+      { href: "/work", label: "All projects" },
+    ],
+  },
+  {
+    heading: "Services",
+    links: [
+      { href: "/services/flutter-app-development", label: "App development" },
+      { href: "/services/flutter-app-rescue", label: "App rescue" },
+      { href: "/services/flutter-app-maintenance", label: "App maintenance" },
+    ],
+  },
+  {
+    heading: "More",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/blog", label: "Blog" },
+      { href: site.resumeUrl, label: "Resume" },
+      { href: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    heading: "Elsewhere",
+    links: [
+      { href: site.social.github, label: "GitHub" },
+      { href: site.social.linkedin, label: "LinkedIn" },
+      { href: site.social.pubDev, label: "pub.dev" },
+    ],
+  },
+] as const;
 
 export const openSource = [
   {

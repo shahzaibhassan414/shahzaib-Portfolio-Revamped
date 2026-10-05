@@ -1,49 +1,200 @@
 @import "tailwindcss";
 
-/* Launch theme: dark. Full token list in CLAUDE.md. */
+/*
+ * Launch theme: dark. Every color lives in a variable so a light theme can be
+ * added later without touching components. Full token list in CLAUDE.md.
+ */
 :root {
   --bg: #151a23;
   --surface: #1b212b;
   --surface-2: #222936;
+  --band: #141921;
+  --field: #151a23;
   --line: #2b3340;
   --line-strong: #3a4352;
   --text: #eceff4;
   --body: #c7cdd7;
   --muted: #a3abb8;
+  --arrow: #6e7889;
   --accent: #7b98ff;
   --on-accent: #0e1530;
   --live: #3dd68c;
+  --dot-off: #3a4352;
+  --phone-rim: rgba(255, 255, 255, 0.14);
+
+  /* Neutral (inverted) button and secondary button outline */
+  --btn: #eceff4;
+  --on-btn: #151a23;
+  --btn2-line: #3a4352;
+
+  /* Inverted call-to-action bands */
   --cta-bg: #eceff4;
   --cta-text: #151a23;
+  --cta-muted: #4a515d;
+  --cta-btn: #151a23;
+  --cta-on-btn: #eceff4;
+  --cta-btn2-line: #b5bcc8;
+
+  --header-h: 72px;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --header-h: 88px;
+  }
+}
+
+/* Light theme values from the design files (.t-light). Not shipped yet: no toggle. */
+:root[data-theme="light"] {
+  --bg: #e9ecf0;
+  --surface: #ffffff;
+  --surface-2: #f3f5f8;
+  --band: #e4e8ee;
+  --field: #f7f8fa;
+  --line: #cdd2da;
+  --line-strong: #cfd5de;
+  --text: #12151b;
+  --body: #3e4450;
+  --muted: #4a515d;
+  --arrow: #7b8494;
+  --accent: #2b54e8;
+  --on-accent: #ffffff;
+  --live: #12925c;
+  --dot-off: #cdd2da;
+  --phone-rim: rgba(255, 255, 255, 0.06);
+  --btn: #12151b;
+  --on-btn: #ffffff;
+  --btn2-line: #c3c9d3;
+  --cta-bg: #12151b;
+  --cta-text: #ffffff;
+  --cta-muted: #c5cad3;
+  --cta-btn: #ffffff;
+  --cta-on-btn: #12151b;
+  --cta-btn2-line: #4a515d;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-band: var(--band);
+  --color-field: var(--field);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --color-text: var(--text);
   --color-body: var(--body);
   --color-muted: var(--muted);
+  --color-arrow: var(--arrow);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);
   --color-live: var(--live);
+  --color-dot-off: var(--dot-off);
+  --color-btn: var(--btn);
+  --color-on-btn: var(--on-btn);
+  --color-btn2-line: var(--btn2-line);
+  --color-cta-bg: var(--cta-bg);
+  --color-cta-text: var(--cta-text);
+  --color-cta-muted: var(--cta-muted);
+  --color-cta-btn: var(--cta-btn);
+  --color-cta-on-btn: var(--cta-on-btn);
+  --color-cta-btn2-line: var(--cta-btn2-line);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-html {
-  color-scheme: dark;
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-padding-top: var(--header-h);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* Lock page scroll while the mobile menu sheet is open */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+@utility wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (width >= 48rem) {
+    padding-inline: 40px;
+  }
+}
+
+@utility wrap-wide {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (width >= 48rem) {
+    padding-inline: 40px;
+  }
+}
+
+/* Mobile menu sheet: fades and slides in from the top. */
+.menu-sheet {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.25s var(--ease-spring),
+    transform 0.35s var(--ease-spring),
+    overlay 0.35s allow-discrete,
+    display 0.35s allow-discrete;
+}
+
+.menu-sheet[open] {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  .menu-sheet[open] {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+.menu-sheet::backdrop {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-sheet {
+    transition: none;
+  }
 }

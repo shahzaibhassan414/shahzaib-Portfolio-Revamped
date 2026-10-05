@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -23,10 +25,28 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
+export const viewport: Viewport = {
+  themeColor: "#151A23",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${sans.variable} ${mono.variable} antialiased`}>
+      {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) add attributes to <body>. */}
+      <body id="top" className="flex min-h-dvh flex-col" suppressHydrationWarning>
+        <a
+          href="#main"
+          className="sr-only z-[60] rounded-xl bg-accent px-4 py-3 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        >
+          Skip to content
+        </a>
+        <Header />
+        <main id="main" className="flex flex-1 flex-col">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
