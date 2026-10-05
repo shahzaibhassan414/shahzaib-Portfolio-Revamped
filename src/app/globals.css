@@ -38,9 +38,6 @@
   /* Gooey nav pill (GooeyNav): must be opaque for the goo filter */
   --nav-blob: #262e3c;
 
-  /* Cursor spotlight (CursorSpotlight) */
-  --spotlight: rgba(123, 152, 255, 0.12);
-
   /* Ambient background glows (AmbientBackground) */
   --glow-a: rgba(123, 152, 255, 0.14);
   --glow-b: rgba(91, 73, 214, 0.13);
@@ -82,7 +79,6 @@
   --cta-btn: #ffffff;
   --cta-on-btn: #12151b;
   --nav-blob: #dde2ea;
-  --spotlight: rgba(43, 84, 232, 0.06);
   --glow-a: rgba(43, 84, 232, 0.1);
   --glow-b: rgba(91, 73, 214, 0.08);
   --glow-c: rgba(47, 127, 193, 0.07);
@@ -406,4 +402,40 @@
     min-height: 44px;
     transform: translate(-50%, -50%);
   }
+}
+
+/* Cards with a pointer-following glow (GlowCards sets --mx / --my). */
+.glow-card::before,
+.glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+/* The border: a 1px ring lit around the pointer. */
+.glow-card::before {
+  z-index: 3;
+  padding: 1px;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--accent), transparent 70%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+/* The surface: a faint light under the pointer. */
+.glow-card::after {
+  z-index: 1;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--accent) 9%, transparent),
+    transparent 70%
+  );
+}
+.glow-card:hover::before,
+.glow-card:hover::after {
+  opacity: 1;
 }

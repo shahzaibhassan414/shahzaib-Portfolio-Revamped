@@ -205,7 +205,7 @@ export default function Home() {
           trailing={
             <Link
               href="/work"
-              className="tap-target ml-2.5 text-base font-semibold text-accent underline underline-offset-2 hover:no-underline"
+              className="tap-target text-base font-semibold text-accent underline underline-offset-2 hover:no-underline"
             >
               See all work
             </Link>

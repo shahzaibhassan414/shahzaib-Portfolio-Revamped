@@ -1,4 +1,6 @@
 import { CTAStrip } from "@/components/CTAStrip";
+import { GlowCards } from "@/components/GlowCards";
+import { TileMotion } from "@/components/TileMotion";
 import { ProjectIndex } from "@/components/ProjectIndex";
 import { FeaturedProject, ProjectTile } from "@/components/ProjectTile";
 import { SectionTitle } from "@/components/ui";
@@ -18,14 +20,6 @@ export const metadata = pageMetadata({
 
 const numberWords = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 
-// Mixed-size tile rows from the design: large + small, then small + large.
-const tiles: { slug: string; size: "large" | "small" }[] = [
-  { slug: "zera", size: "large" },
-  { slug: "bepay", size: "small" },
-  { slug: "paw-play-love", size: "small" },
-  { slug: "lawnolu", size: "large" },
-];
-
 export default function WorkPage() {
   const featured = getProject("on-scene");
   const filters = projectFilters.map((f) => ({
@@ -44,21 +38,24 @@ export default function WorkPage() {
           <div className="flex max-w-[760px] flex-col gap-6">
             <h1 className="text-[clamp(72px,12vw,168px)] leading-[0.85] font-extrabold tracking-[-0.06em]">Work</h1>
             <p className="text-[19px] leading-normal text-body md:text-[22px]">
-              Nine production Flutter apps across social discovery, marketplaces, Web3 commerce, and real-time
-              systems. Each one had a part that was harder than it looked, and that&apos;s what each project page is
-              about.
+              Nine production Flutter apps across social discovery, marketplaces, Web3 commerce, and real-time systems.
+              Each one had a part that was harder than it looked, and that&apos;s what each project page is about.
             </p>
           </div>
         }
       >
         {featured && <FeaturedProject project={featured} />}
 
-        <section aria-label="Projects" className="wrap-wide flex flex-wrap gap-5 pt-5 md:gap-8 md:pt-8">
-          {tiles.map(({ slug, size }) => {
-            const project = getProject(slug);
-            return project ? <ProjectTile key={slug} project={project} size={size} /> : null;
-          })}
+        <section
+          aria-label="Projects"
+          className="wrap-wide grid gap-5 pt-5 sm:grid-cols-2 md:gap-6 md:pt-6 lg:grid-cols-3"
+        >
+          {publishedProjects.map((project, i) =>
+            project.slug === featured?.slug ? null : <ProjectTile key={project.slug} project={project} index={i} />,
+          )}
         </section>
+        <GlowCards />
+        <TileMotion />
 
         <section aria-labelledby="index-title" className="wrap-wide flex flex-col gap-8 pt-[88px] md:pt-[136px]">
           <div className="flex flex-wrap items-end justify-between gap-4">
