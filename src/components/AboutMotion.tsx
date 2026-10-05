@@ -94,7 +94,7 @@ export function AboutMotion() {
           });
 
         // Timeline: the line runs from the first dot's centre to the last. Its tip and every
-        // dot's trigger use the same mark (60% down the window), so each dot pops exactly as
+        // dot's trigger use the same mark (60% down the window; 85% on phones), so each dot pops exactly as
         // the tip reaches it, and both reverse together on the way back up.
         const [timeline] = $("timeline");
         const [line] = $("line");
@@ -103,6 +103,10 @@ export function AboutMotion() {
           .map((r) => r.querySelector<HTMLElement>('[data-about="dot"]'))
           .filter(Boolean) as HTMLElement[];
         if (timeline && line && dots.length > 1) {
+          // Phones: roles are tall, so reveal them as they enter (85% down) rather than at 60%,
+          // or most of the screen sits empty while a role's dot travels up to the mark.
+          const markPct = window.matchMedia("(min-width: 768px)").matches ? 60 : 85;
+          const mark = `center ${markPct}%`;
           const centre = (dot: HTMLElement) =>
             dot.getBoundingClientRect().top + dot.offsetHeight / 2 - timeline.getBoundingClientRect().top;
           const place = () => {
@@ -121,9 +125,9 @@ export function AboutMotion() {
               ease: "none",
               scrollTrigger: {
                 trigger: dots[0],
-                start: "center 60%",
+                start: mark,
                 endTrigger: dots[dots.length - 1],
-                end: "center 60%",
+                end: mark,
                 scrub: 0.3,
               },
             },
@@ -135,13 +139,13 @@ export function AboutMotion() {
             if (dot) tl.from(dot, { scale: 0, duration: 0.5, ease: "back.out(3)" }, 0);
             ScrollTrigger.create({
               trigger: dot ?? role,
-              start: "center 60%",
+              start: mark,
               onEnter: () => tl.play(),
               onLeaveBack: () => tl.reverse(),
             });
             // Already past the mark when this runs (e.g. after a reload further down): show it done.
             const r = (dot ?? role).getBoundingClientRect();
-            if (r.top + r.height / 2 < window.innerHeight * 0.6) tl.progress(1);
+            if (r.top + r.height / 2 < (window.innerHeight * markPct) / 100) tl.progress(1);
           });
         }
 
