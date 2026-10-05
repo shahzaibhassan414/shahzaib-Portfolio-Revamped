@@ -501,3 +501,18 @@
     animation: fx-ripple 1.3s ease-out infinite;
   }
 }
+
+/* Footer wordmark letters: faded fill, lighting up in the accent under the pointer. */
+.wordmark-letter {
+  background-image: linear-gradient(180deg, var(--line-strong) 0%, transparent 95%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .wordmark-letter:hover {
+    background-image: linear-gradient(180deg, var(--accent) 0%, transparent 95%);
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .wordmark-letter:hover {
+    translate: 0 -8%;
+  }
+}
