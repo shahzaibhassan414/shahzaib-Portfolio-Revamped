@@ -51,7 +51,7 @@ export function ButtonLink({
 
 /** Small accent text link, as used under sections and cards. */
 export function TextLink({ href, className = "", children }: { href: string; className?: string; children: ReactNode }) {
-  const classes = `self-start font-semibold text-accent underline underline-offset-2 hover:no-underline ${className}`;
+  const classes = `tap-target self-start font-semibold text-accent underline underline-offset-2 hover:no-underline ${className}`;
   if (href.startsWith("/") || href.startsWith("#")) {
     return (
       <Link href={href} className={classes}>

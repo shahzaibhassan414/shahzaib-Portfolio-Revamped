@@ -4,6 +4,7 @@ import { PhoneFrame } from "@/components/PhoneFrame";
 import { ProjectMorph } from "@/components/ProjectMorph";
 import { Chip } from "@/components/ui";
 import type { Project } from "@/content/projects";
+import { onWhiteText } from "@/lib/color";
 
 const fan = [
   "rotate-[-8deg] translate-x-[26px] translate-y-[30px] group-hover:rotate-[-11deg] group-hover:translate-x-[14px]",
@@ -36,7 +37,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       <div className="flex items-center gap-4">
         <span
           className="flex size-12 flex-none items-center justify-center rounded-[13px] text-lg font-extrabold text-white md:size-14 md:rounded-[15px] md:text-xl"
-          style={{ background: project.color }}
+          style={{ background: onWhiteText(project.color) }}
           aria-hidden="true"
         >
           {project.initials}

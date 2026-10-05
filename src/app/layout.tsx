@@ -20,6 +20,8 @@ const mono = localFont({
   variable: "--font-mono",
   weight: "400 500",
   display: "swap",
+  // Small labels only: don't let it compete with the main font for early bandwidth.
+  preload: false,
 });
 
 export const metadata: Metadata = {

@@ -182,7 +182,7 @@ export default function Home() {
             </div>
           }
           trailing={
-            <Link href="/work" className="ml-2.5 text-base font-semibold text-accent underline underline-offset-2 hover:no-underline">
+            <Link href="/work" className="tap-target ml-2.5 text-base font-semibold text-accent underline underline-offset-2 hover:no-underline">
               See all work
             </Link>
           }

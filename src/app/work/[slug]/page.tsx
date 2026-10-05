@@ -11,6 +11,7 @@ import { SplitSection } from "@/components/SplitSection";
 import { caseStudies, isPlaceholder, type RichItem } from "@/content/case-studies";
 import { getProject, publishedProjects } from "@/content/projects";
 import { absoluteUrl, pageMetadata } from "@/lib/seo";
+import { onWhiteText } from "@/lib/color";
 
 export const dynamicParams = false;
 
@@ -89,7 +90,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
           <span
             aria-hidden="true"
             className="flex size-14 flex-none items-center justify-center rounded-2xl text-xl font-extrabold text-white md:size-[72px] md:rounded-[20px] md:text-[26px]"
-            style={{ background: project.color }}
+            style={{ background: onWhiteText(project.color) }}
           >
             {project.initials}
           </span>
@@ -134,12 +135,12 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
               <dt className="text-sm font-semibold text-muted">Get the app</dt>
               <dd className="flex flex-wrap gap-x-4 gap-y-1.5 text-[17px] font-semibold">
                 {project.storeLinks.appStore && (
-                  <a href={project.storeLinks.appStore} className="underline underline-offset-2 hover:text-accent">
+                  <a href={project.storeLinks.appStore} className="tap-target underline underline-offset-2 hover:text-accent">
                     App Store
                   </a>
                 )}
                 {project.storeLinks.googlePlay && (
-                  <a href={project.storeLinks.googlePlay} className="underline underline-offset-2 hover:text-accent">
+                  <a href={project.storeLinks.googlePlay} className="tap-target underline underline-offset-2 hover:text-accent">
                     Google Play
                   </a>
                 )}

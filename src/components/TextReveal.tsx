@@ -9,6 +9,10 @@ import { useEffect } from "react";
 // Headings that contain links are skipped so the link stays reachable by screen readers.
 const SELECTOR = "main h2:not(:has(a, button)), main [data-reveal]";
 
+// Nothing below the fold can reveal before the visitor scrolls, so GSAP waits for the
+// first interaction and stays off the initial page load.
+const INTERACTIONS = ["scroll", "wheel", "touchstart", "keydown", "pointerdown"] as const;
+
 export function TextReveal() {
   const pathname = usePathname();
 
@@ -20,37 +24,49 @@ export function TextReveal() {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    Promise.all([import("gsap"), import("gsap/ScrollTrigger"), import("gsap/SplitText"), document.fonts.ready]).then(
-      ([{ gsap }, { ScrollTrigger }, { SplitText }]) => {
-        if (cancelled) return;
-        gsap.registerPlugin(ScrollTrigger, SplitText);
-        const targets = [...document.querySelectorAll<HTMLElement>(SELECTOR)].filter(belowFold);
-        const ctx = gsap.context(() => {
-          targets.forEach((el) =>
-            SplitText.create(el, {
-              type: "lines",
-              mask: "lines",
-              linesClass: "reveal-line",
-              autoSplit: true,
-              // Returning the tween lets SplitText keep its progress when it re-splits on resize.
-              onSplit: (self) =>
-                gsap.from(self.lines, {
-                  yPercent: 110,
-                  duration: 0.9,
-                  ease: "power4.out",
-                  stagger: 0.08,
-                  scrollTrigger: { trigger: el, start: "top 88%", once: true },
-                }),
-            }),
-          );
-        });
-        // Reverts the splits and kills their ScrollTriggers together.
-        cleanup = () => ctx.revert();
-      },
-    );
+    const reveal = async () => {
+      const [{ gsap }, { ScrollTrigger }, { SplitText }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+        import("gsap/SplitText"),
+        document.fonts.ready,
+      ]);
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger, SplitText);
+      const targets = [...document.querySelectorAll<HTMLElement>(SELECTOR)].filter(belowFold);
+      const ctx = gsap.context(() => {
+        targets.forEach((el) =>
+          SplitText.create(el, {
+            type: "lines",
+            mask: "lines",
+            linesClass: "reveal-line",
+            autoSplit: true,
+            // Returning the tween lets SplitText keep its progress when it re-splits on resize.
+            onSplit: (self) =>
+              gsap.from(self.lines, {
+                yPercent: 110,
+                duration: 0.9,
+                ease: "power4.out",
+                stagger: 0.08,
+                scrollTrigger: { trigger: el, start: "top 88%", once: true },
+              }),
+          }),
+        );
+      });
+      // Reverts the splits and kills their ScrollTriggers together.
+      cleanup = () => ctx.revert();
+    };
+
+    const stopWaiting = () => INTERACTIONS.forEach((e) => window.removeEventListener(e, start));
+    function start() {
+      stopWaiting();
+      reveal();
+    }
+    INTERACTIONS.forEach((e) => window.addEventListener(e, start, { passive: true }));
 
     return () => {
       cancelled = true;
+      stopWaiting();
       cleanup?.();
     };
   }, [pathname]);

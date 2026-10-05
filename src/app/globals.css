@@ -380,3 +380,20 @@
   padding-bottom: 0.12em;
   margin-bottom: -0.12em;
 }
+
+/* Text links outside running text: an invisible hit area of at least 44 x 44px,
+   centred on the link, so the layout keeps its designed spacing. */
+@utility tap-target {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    transform: translate(-50%, -50%);
+  }
+}

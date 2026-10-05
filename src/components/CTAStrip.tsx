@@ -34,7 +34,7 @@ export function CTAStrip({ heading, body, button, link, avatar, wide }: CTAStrip
             {link && (
               <Link
                 href={link.href}
-                className="self-start text-base font-semibold underline underline-offset-2 hover:no-underline"
+                className="tap-target self-start text-base font-semibold underline underline-offset-2 hover:no-underline"
               >
                 {link.label}
               </Link>

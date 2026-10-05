@@ -1,4 +1,5 @@
 import { ArrowUp } from "@/components/icons";
+import { onWhiteText } from "@/lib/color";
 
 type Notification = {
   app: string;
@@ -74,7 +75,7 @@ export function HeroLockscreen({ caption }: { caption: string }) {
             >
               <span
                 className="flex size-[34px] flex-none items-center justify-center rounded-[9px] text-[13px] font-extrabold text-white"
-                style={{ background: n.icon.bg }}
+                style={{ background: onWhiteText(n.icon.bg) }}
               >
                 {n.icon.initials ?? <ArrowUp size={18} />}
               </span>

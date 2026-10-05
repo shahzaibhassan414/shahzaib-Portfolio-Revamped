@@ -36,7 +36,7 @@ export function Footer() {
             </span>
           )}
           <div className="flex flex-col gap-1.5 text-[15px]">
-            <a href={`mailto:${site.email}`} className="self-start underline underline-offset-2 transition-colors hover:text-accent">
+            <a href={`mailto:${site.email}`} className="tap-target self-start underline underline-offset-2 transition-colors hover:text-accent">
               {site.email}
             </a>
             <span className="text-muted">Based in Pakistan, working remotely with teams worldwide.</span>

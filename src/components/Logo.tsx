@@ -15,9 +15,8 @@ export function Logo({ variant = "header", onNavigate }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label={`${site.name}, home`}
       onClick={onNavigate}
-      className={`flex items-center no-underline ${isFooter ? "gap-3.5" : "gap-3"}`}
+      className={`tap-target flex items-center no-underline ${isFooter ? "gap-3.5" : "gap-3"}`}
     >
       <Image src="/brand/logo-mark.svg" alt="" width={size} height={size} priority={!isFooter} />
       {isFooter ? (

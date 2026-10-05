@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "@/components/icons";
 import { getProject } from "@/content/projects";
+import { onWhiteText } from "@/lib/color";
 
 /** Compact cards linking to case studies, used on service pages. */
 export function RelatedProjects({ slugs }: { slugs: string[] }) {
@@ -17,7 +18,7 @@ export function RelatedProjects({ slugs }: { slugs: string[] }) {
             <span
               aria-hidden="true"
               className="flex size-11 flex-none items-center justify-center rounded-xl text-[15px] font-extrabold text-white"
-              style={{ background: p.color }}
+              style={{ background: onWhiteText(p.color) }}
             >
               {p.initials}
             </span>

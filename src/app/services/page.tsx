@@ -98,7 +98,7 @@ export default function ServicesPage() {
                   id={`${service.id}-title`}
                   className="text-[clamp(32px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.03em]"
                 >
-                  <Link href={service.href} className="group no-underline hover:text-accent">
+                  <Link href={service.href} className="tap-target group no-underline hover:text-accent">
                     {service.title}
                     <ArrowRight
                       size={28}

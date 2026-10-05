@@ -57,7 +57,7 @@ export function CTABand({
               )}
             </div>
             {showEmail && (
-              <a href={`mailto:${site.email}`} className="text-[17px] break-all underline underline-offset-2">
+              <a href={`mailto:${site.email}`} className="tap-target text-[17px] break-all underline underline-offset-2">
                 {site.email}
               </a>
             )}

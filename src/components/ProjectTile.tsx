@@ -5,6 +5,7 @@ import { PhoneFrame } from "@/components/PhoneFrame";
 import { ProjectMorph } from "@/components/ProjectMorph";
 import { Chip } from "@/components/ui";
 import { filterId, type Project } from "@/content/projects";
+import { onWhiteText } from "@/lib/color";
 
 const panelBg = (p: Project) =>
   `radial-gradient(70% 60% at 50% 25%, ${p.gradient[0]} 0%, ${p.gradient[1]} 45%, ${p.gradient[2]} 100%)`;
@@ -108,7 +109,7 @@ export function FeaturedProject({ project }: { project: Project }) {
             <span
               aria-hidden="true"
               className="flex size-[52px] flex-none items-center justify-center rounded-[14px] text-lg font-extrabold text-white"
-              style={{ background: project.color }}
+              style={{ background: onWhiteText(project.color) }}
             >
               {project.initials}
             </span>
