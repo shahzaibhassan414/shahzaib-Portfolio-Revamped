@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </span>
                 <span className="flex min-w-0 flex-1 flex-col gap-0.5">
                   <span className="text-[17px] font-bold group-hover:text-accent">{label}</span>
-                  <span className="truncate text-[15px] text-muted">{detail}</span>
+                  <span className="text-[15px] [overflow-wrap:anywhere] text-muted">{detail}</span>
                 </span>
                 <ArrowUpRight size={18} className="flex-none text-muted transition-colors group-hover:text-accent" />
               </a>
