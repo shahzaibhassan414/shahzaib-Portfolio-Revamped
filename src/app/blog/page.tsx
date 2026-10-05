@@ -49,7 +49,12 @@ export default function BlogPage() {
         upcoming={upcoming}
         intro={
           <>
-            <h1 className="text-[clamp(64px,10vw,140px)] leading-[0.88] font-extrabold tracking-[-0.055em]">Blog</h1>
+            <h1
+              data-blog-hero
+              className="text-[clamp(64px,10vw,140px)] leading-[0.88] font-extrabold tracking-[-0.055em]"
+            >
+              Blog
+            </h1>
             <p className="max-w-[34em] text-[19px] leading-normal text-body md:text-[22px]">
               Practical notes on the problems that show up in production Flutter apps: maps, real-time, payments,
               performance, and shipping to the stores.
