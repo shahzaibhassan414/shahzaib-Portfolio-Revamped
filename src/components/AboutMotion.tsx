@@ -93,29 +93,56 @@ export function AboutMotion() {
             scrollTrigger: { trigger: audiences[0], start: "top 95%", end: "top 55%", scrub: 0.6 },
           });
 
-        // Timeline: the line draws down; each role slides in and its dot pops.
+        // Timeline: the line runs from the first dot's centre to the last. Its tip and every
+        // dot's trigger use the same mark (60% down the window), so each dot pops exactly as
+        // the tip reaches it, and both reverse together on the way back up.
         const [timeline] = $("timeline");
         const [line] = $("line");
-        if (timeline && line) {
+        const roles = $("role");
+        const dots = roles
+          .map((r) => r.querySelector<HTMLElement>('[data-about="dot"]'))
+          .filter(Boolean) as HTMLElement[];
+        if (timeline && line && dots.length > 1) {
+          const centre = (dot: HTMLElement) =>
+            dot.getBoundingClientRect().top + dot.offsetHeight / 2 - timeline.getBoundingClientRect().top;
+          const place = () => {
+            const top = centre(dots[0]);
+            line.style.top = `${top}px`;
+            line.style.height = `${centre(dots[dots.length - 1]) - top}px`;
+          };
+          place();
+          ScrollTrigger.addEventListener("refreshInit", place);
+          removers.push(() => ScrollTrigger.removeEventListener("refreshInit", place));
           gsap.fromTo(
             line,
             { scaleY: 0 },
             {
               scaleY: 1,
               ease: "none",
-              scrollTrigger: { trigger: timeline, start: "top 65%", end: "bottom 55%", scrub: 0.5 },
+              scrollTrigger: {
+                trigger: dots[0],
+                start: "center 60%",
+                endTrigger: dots[dots.length - 1],
+                end: "center 60%",
+                scrub: 0.3,
+              },
             },
           );
-          $("role")
-            .filter(below)
-            .forEach((role) => {
-              const dot = role.querySelector('[data-about="dot"]');
-              const tl = gsap.timeline({
-                scrollTrigger: { trigger: role, start: "top 65%", toggleActions: "play none none reverse" },
-              });
-              tl.from(role.children[1] ?? role, { x: 40, opacity: 0, duration: 0.7, ease: "power3.out" });
-              if (dot) tl.from(dot, { scale: 0, duration: 0.5, ease: "back.out(3)" }, 0);
+          roles.forEach((role, i) => {
+            const dot = dots[i];
+            const tl = gsap.timeline({ paused: true });
+            tl.from(role.children[1] ?? role, { x: 40, opacity: 0, duration: 0.7, ease: "power3.out" });
+            if (dot) tl.from(dot, { scale: 0, duration: 0.5, ease: "back.out(3)" }, 0);
+            ScrollTrigger.create({
+              trigger: dot ?? role,
+              start: "center 60%",
+              onEnter: () => tl.play(),
+              onLeaveBack: () => tl.reverse(),
             });
+            // Already past the mark when this runs (e.g. after a reload further down): show it done.
+            const r = (dot ?? role).getBoundingClientRect();
+            if (r.top + r.height / 2 < window.innerHeight * 0.6) tl.progress(1);
+          });
         }
 
         // Toolkit: chips pop in per group.

@@ -242,11 +242,12 @@ export default function AboutPage() {
           <Heading>Experience</Heading>
         </div>
         <div data-about="timeline" className="relative min-w-0 flex-[1_1_560px]">
-          {/* Draws down the timeline with the scroll (AboutMotion); decorative. */}
+          {/* The progress line: drawn from the first dot to the last as the page scrolls.
+              AboutMotion sets its top and height from the dots; decorative. */}
           <span
             data-about="line"
             aria-hidden="true"
-            className="absolute top-0 bottom-0 left-[7px] w-0.5 origin-top scale-y-0 rounded-full bg-accent"
+            className="absolute top-0 left-[7px] h-0 w-0.5 origin-top scale-y-0 rounded-full bg-accent"
           />
           <ol className="flex flex-col">
             {roles.map((role, i) => {
@@ -255,9 +256,8 @@ export default function AboutPage() {
                 <li
                   key={role.title}
                   data-about="role"
-                  className={`relative ml-[7px] border-l-2 pl-9 ${last ? "border-transparent" : "pb-12"} ${
-                    role.current ? "border-accent" : last ? "" : "border-line"
-                  }`}
+                  // A plain grey track: the blue progress line draws over it.
+                  className={`relative ml-[7px] border-l-2 pl-9 ${last ? "border-transparent" : "border-line pb-12"}`}
                 >
                   <span
                     aria-hidden="true"
