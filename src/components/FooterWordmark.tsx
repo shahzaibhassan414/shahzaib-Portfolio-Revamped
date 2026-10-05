@@ -94,8 +94,9 @@ export function FooterWordmark({ text }: { text: string }) {
     <div aria-hidden="true" className="mx-auto mt-16 max-w-[1280px] px-5 select-none md:px-7">
       <div
         ref={lineRef}
-        // pt/-mb give the mask room for the cap height (the line height is tighter than the glyphs)
-        className="-mb-[0.14em] flex overflow-hidden pt-[0.14em] text-[clamp(36px,10.4vw,156px)] leading-[0.8] font-extrabold tracking-[-0.05em] whitespace-nowrap"
+        // pt/pb give the mask room for the glyphs (the line height is tighter than they are), and
+        // keep the bottom bar below the letters instead of over them
+        className="flex overflow-hidden pt-[0.14em] pb-[0.06em] text-[clamp(36px,10.4vw,156px)] leading-[0.8] font-extrabold tracking-[-0.05em] whitespace-nowrap"
       >
         {[...text].map((char, i) => (
           // Outer span: the scroll reveal (GSAP owns its transform). Inner span: the hover lift,
