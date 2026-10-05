@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { AmbientBackground } from "@/components/AmbientBackground";
+import { CursorSpotlight } from "@/components/CursorSpotlight";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MagneticButtons } from "@/components/MagneticButtons";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <SmoothScroll />
         <MagneticButtons />
+        <CursorSpotlight />
         <TextReveal />
       </body>
     </html>

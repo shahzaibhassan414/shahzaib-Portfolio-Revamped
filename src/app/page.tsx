@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CapabilityMatrix } from "@/components/CapabilityMatrix";
+import { CountUp } from "@/components/CountUp";
 import { CTABand } from "@/components/CTABand";
 import { HeroLockscreen } from "@/components/HeroLockscreen";
 import { ArrowUpRight, Book, Package, PhonePlus, Refresh, Wrench } from "@/components/icons";
@@ -62,6 +63,13 @@ const processSteps = [
     body: "Store listings, review guidelines, and rejections are handled until the app is live.",
   },
   { title: "Handover", body: "You own a clean, documented repo that any Flutter developer can pick up." },
+];
+
+const stats = [
+  { value: 4, suffix: "", label: "years building production Flutter apps" },
+  { value: 9, suffix: "", label: "production apps across four product areas" },
+  { value: 10000, suffix: "+", label: "downloads on a single app" },
+  { value: 2, suffix: "", label: "open-source packages on pub.dev" },
 ];
 
 const sectionGap = "pt-[88px] md:pt-[136px]";
@@ -144,6 +152,17 @@ export default function Home() {
             </li>
           </ul>
         </div>
+        {/* Only figures the site already states: proof line, Work intro, and About. */}
+        <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:mt-16 md:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col gap-2 border-l border-line pl-5">
+              <dt className="order-2 text-[15px] leading-snug text-muted">{s.label}</dt>
+              <dd className="order-1 text-[clamp(40px,4.6vw,60px)] leading-none font-extrabold tracking-[-0.04em]">
+                <CountUp value={s.value} suffix={s.suffix} />
+              </dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Where I come in */}
