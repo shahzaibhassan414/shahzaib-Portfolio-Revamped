@@ -74,7 +74,7 @@ export function ProjectTile({ project, index }: { project: Project; index: numbe
           {project.kind}
         </span>
         <span className="text-[26px] leading-none font-extrabold tracking-[-0.03em]">{project.name}</span>
-        <span className="line-clamp-2 text-[15px] leading-[1.55] text-body">{project.cardLine}</span>
+        <span className="text-[15px] leading-[1.55] text-body">{project.cardLine}</span>
         <span className="flex flex-wrap gap-1.5">
           {project.tags
             .filter((t) => t !== "Flutter")
