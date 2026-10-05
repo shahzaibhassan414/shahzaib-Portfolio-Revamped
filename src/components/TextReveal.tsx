@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Section headings slide up line by line, from behind a mask, as they scroll into view.
+// Section headings slide up line by line, from behind a mask, in step with the scroll.
 // Only headings still below the fold when the script runs are touched, so nothing is
 // ever hidden waiting for JavaScript. Hero headings and reduced motion are left alone.
 // Headings that contain links are skipped so the link stays reachable by screen readers.
@@ -46,10 +46,11 @@ export function TextReveal() {
             onSplit: (self) =>
               gsap.from(self.lines, {
                 yPercent: 110,
-                duration: 0.9,
-                ease: "power4.out",
-                stagger: 0.08,
-                scrollTrigger: { trigger: el, start: "top 88%", once: true },
+                ease: "power2.out",
+                stagger: 0.15,
+                // Tied to the scroll position: lines rise as the text scrolls up the screen
+                // (bottom of the window to about 60% up) and sink back when scrolling up.
+                scrollTrigger: { trigger: el, start: "top 95%", end: "top 60%", scrub: 0.6 },
               }),
           }),
         );
