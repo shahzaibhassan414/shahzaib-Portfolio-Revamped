@@ -439,3 +439,65 @@
 .glow-card:hover::after {
   opacity: 1;
 }
+
+/* Card illustrations come alive on hover (homepage Blog and Open source cards). */
+@keyframes fx-pulse {
+  0%,
+  100% {
+    opacity: 0;
+    scale: 0.6;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.25;
+  }
+}
+@keyframes fx-nudge {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 5px 0;
+  }
+}
+@keyframes fx-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes fx-ripple {
+  from {
+    opacity: 0.8;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 1.45;
+  }
+}
+.fx-pulse,
+.fx-ripple {
+  opacity: 0;
+}
+.fx-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .group:hover .fx-pulse {
+    animation: fx-pulse 1.6s ease-in-out infinite;
+  }
+  .group:hover .fx-pulse.fx-delay {
+    animation-delay: 0.6s;
+  }
+  .group:hover .fx-nudge {
+    animation: fx-nudge 0.9s ease-in-out infinite;
+  }
+  .group:hover .fx-spin {
+    animation: fx-spin 3.2s linear infinite;
+  }
+  .group:hover .fx-ripple {
+    animation: fx-ripple 1.3s ease-out infinite;
+  }
+}

@@ -339,19 +339,25 @@ function ResourceCard({ href, visual, badge, title, description, action, mono }:
   return (
     <a
       href={href}
-      className="group flex flex-col gap-4 rounded-3xl border border-line bg-surface px-4 pt-4 pb-[22px] no-underline transition-colors hover:border-line-strong"
+      data-tile
+      data-glow
+      className="tile glow-card group relative flex flex-col gap-4 rounded-3xl border border-line bg-surface px-4 pt-4 pb-[22px] no-underline"
     >
-      <span aria-hidden="true" className="block h-[150px] overflow-hidden rounded-2xl">
-        {visual}
+      <span aria-hidden="true" className="relative z-[2] block h-[150px] overflow-hidden rounded-2xl">
+        <span className="block h-full transition-transform duration-700 ease-spring group-hover:scale-[1.05] motion-reduce:transition-none">
+          {visual}
+        </span>
       </span>
-      <span className="flex items-center gap-1.5 self-start rounded-full bg-surface-2 px-2.5 py-[5px] text-[13px] font-semibold text-muted">
+      <span className="relative z-[2] flex items-center gap-1.5 self-start rounded-full bg-surface-2 px-2.5 py-[5px] text-[13px] font-semibold text-muted">
         {badge}
       </span>
-      <span className={`px-1 leading-[1.3] font-bold ${mono ? "font-mono text-lg tracking-[-0.02em]" : "text-[19px]"}`}>
+      <span
+        className={`relative z-[2] px-1 leading-[1.3] font-bold ${mono ? "font-mono text-lg tracking-[-0.02em]" : "text-[19px]"}`}
+      >
         {title}
       </span>
-      {description && <span className="px-1 text-[15px] leading-normal text-muted">{description}</span>}
-      <span className="mt-auto flex items-center gap-1.5 px-1 text-[15px] font-semibold text-accent">
+      {description && <span className="relative z-[2] px-1 text-[15px] leading-normal text-muted">{description}</span>}
+      <span className="relative z-[2] mt-auto flex items-center gap-1.5 px-1 text-[15px] font-semibold text-accent">
         {action}
         <ArrowUpRight
           size={16}
@@ -365,7 +371,8 @@ function ResourceCard({ href, visual, badge, title, description, action, mono }:
 function ButtonVisual() {
   return (
     <span className="flex h-full items-center justify-center bg-[#1A2433]">
-      <span className="rounded-xl bg-[#7B98FF] px-[18px] py-3 text-sm font-bold text-[#0E1530] shadow-[0_0_0_6px_rgba(123,152,255,0.18),0_0_0_12px_rgba(123,152,255,0.08)]">
+      <span className="relative rounded-xl bg-[#7B98FF] px-[18px] py-3 text-sm font-bold text-[#0E1530] shadow-[0_0_0_6px_rgba(123,152,255,0.18),0_0_0_12px_rgba(123,152,255,0.08)]">
+        <span className="fx-ripple absolute inset-0 rounded-xl border-2 border-[#7B98FF]" />
         Tap me
       </span>
     </span>
@@ -382,7 +389,9 @@ function CurvedCircleVisual() {
             <circle cx="48" cy="-6" r="36" fill="#000" />
           </mask>
         </defs>
-        <circle cx="48" cy="52" r="40" fill="#7B98FF" mask="url(#icc-mask)" />
+        <g className="fx-spin">
+          <circle cx="48" cy="52" r="40" fill="#7B98FF" mask="url(#icc-mask)" />
+        </g>
       </svg>
     </span>
   );

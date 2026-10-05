@@ -1,6 +1,4 @@
 import { CTAStrip } from "@/components/CTAStrip";
-import { GlowCards } from "@/components/GlowCards";
-import { TileMotion } from "@/components/TileMotion";
 import { ProjectIndex } from "@/components/ProjectIndex";
 import { FeaturedProject, ProjectTile } from "@/components/ProjectTile";
 import { SectionTitle } from "@/components/ui";
@@ -54,8 +52,6 @@ export default function WorkPage() {
             project.slug === featured?.slug ? null : <ProjectTile key={project.slug} project={project} index={i} />,
           )}
         </section>
-        <GlowCards />
-        <TileMotion />
 
         <section aria-labelledby="index-title" className="wrap-wide flex flex-col gap-8 pt-[88px] md:pt-[136px]">
           <div className="flex flex-wrap items-end justify-between gap-4">

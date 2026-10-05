@@ -2,7 +2,10 @@
 
 export function HeatMapVisual() {
   return (
-    <span className="block h-full bg-[radial-gradient(circle_at_30%_40%,rgba(255,98,64,0.9)_0,rgba(255,170,64,0.55)_14%,transparent_30%),radial-gradient(circle_at_68%_62%,rgba(255,120,64,0.8)_0,rgba(255,200,80,0.4)_12%,transparent_26%),radial-gradient(circle_at_80%_22%,rgba(255,200,80,0.55)_0,transparent_16%),repeating-linear-gradient(0deg,transparent_0_23px,rgba(255,255,255,0.05)_23px_24px),repeating-linear-gradient(90deg,transparent_0_23px,rgba(255,255,255,0.05)_23px_24px)] bg-[#1A2433]" />
+    <span className="relative block h-full bg-[radial-gradient(circle_at_30%_40%,rgba(255,98,64,0.9)_0,rgba(255,170,64,0.55)_14%,transparent_30%),radial-gradient(circle_at_68%_62%,rgba(255,120,64,0.8)_0,rgba(255,200,80,0.4)_12%,transparent_26%),radial-gradient(circle_at_80%_22%,rgba(255,200,80,0.55)_0,transparent_16%),repeating-linear-gradient(0deg,transparent_0_23px,rgba(255,255,255,0.05)_23px_24px),repeating-linear-gradient(90deg,transparent_0_23px,rgba(255,255,255,0.05)_23px_24px)] bg-[#1A2433]">
+      <span className="fx-pulse absolute top-[40%] left-[30%] size-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,120,64,0.7),transparent_70%)]" />
+      <span className="fx-pulse fx-delay absolute top-[62%] left-[68%] size-14 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,170,64,0.6),transparent_70%)]" />
+    </span>
   );
 }
 
@@ -10,7 +13,7 @@ export function SvgToWidgetVisual() {
   return (
     <span className="flex h-full items-center justify-center gap-3.5 bg-[#1A2433] font-mono text-[15px]">
       <span className="rounded-[10px] border border-dashed border-[#4A5568] px-3 py-2.5 text-[#F5A27A]">&lt;svg/&gt;</span>
-      <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="#7B98FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg className="fx-nudge" width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="#7B98FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M2 8h22" />
         <path d="m18 2 6 6-6 6" />
       </svg>

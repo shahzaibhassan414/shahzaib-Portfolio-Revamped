@@ -1,8 +1,9 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Work page motion: cards marked data-tile rise and fade in with a stagger as they scroll
+// Card motion on every page: cards marked data-tile rise and fade in with a stagger as they scroll
 // into view, and the phones inside each panel (data-phones) drift against the scroll for a
 // little depth. Only cards still below the fold are hidden for the entrance, GSAP waits for
 // the first interaction, and reduced motion turns it all off.
@@ -10,6 +11,8 @@ import { useEffect } from "react";
 const INTERACTIONS = ["scroll", "wheel", "touchstart", "keydown", "pointerdown", "pointermove"] as const;
 
 export function TileMotion() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let cancelled = false;
@@ -28,7 +31,16 @@ export function TileMotion() {
           start: "top 92%",
           once: true,
           onEnter: (batch) =>
-            gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, overwrite: true }),
+            gsap.to(batch, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              ease: "power3.out",
+              stagger: 0.12,
+              overwrite: true,
+              // Hand the transform back to CSS, or the inline style would block the hover lift.
+              clearProps: "transform,opacity,visibility",
+            }),
         });
 
         document.querySelectorAll<HTMLElement>("[data-phones]").forEach((phones) => {
@@ -63,7 +75,7 @@ export function TileMotion() {
       stopWaiting();
       cleanup?.();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

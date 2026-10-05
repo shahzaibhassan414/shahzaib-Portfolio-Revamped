@@ -3,9 +3,11 @@ import localFont from "next/font/local";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { CursorFollower } from "@/components/CursorFollower";
 import { Footer } from "@/components/Footer";
+import { GlowCards } from "@/components/GlowCards";
 import { Header } from "@/components/Header";
 import { MagneticButtons } from "@/components/MagneticButtons";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { TileMotion } from "@/components/TileMotion";
 import { TextReveal } from "@/components/TextReveal";
 import { site } from "@/content/site";
 import "lenis/dist/lenis.css";
@@ -63,6 +65,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScroll />
         <MagneticButtons />
         <CursorFollower />
+        <GlowCards />
+        <TileMotion />
         <TextReveal />
       </body>
     </html>

@@ -1,3 +1,4 @@
+import { MatrixMotion } from "@/components/MatrixMotion";
 import { capabilityRows, publishedProjects } from "@/content/projects";
 
 /**
@@ -9,6 +10,7 @@ export function CapabilityMatrix() {
 
   return (
     <div
+      id="capability-matrix"
       className="relative overflow-x-auto rounded-3xl border border-line bg-surface"
       role="region"
       aria-label="Capabilities by project"
@@ -18,11 +20,18 @@ export function CapabilityMatrix() {
         <caption className="sr-only">Capabilities by project</caption>
         <thead>
           <tr>
-            <th scope="col" className="border-b border-line px-7 py-[22px] text-left text-[15px] font-semibold text-muted">
+            <th
+              scope="col"
+              className="border-b border-line px-7 py-[22px] text-left text-[15px] font-semibold text-muted"
+            >
               Capability
             </th>
             {columns.map((p) => (
-              <th key={p.slug} scope="col" className="border-b border-line px-3 py-[22px] text-center text-[15px] font-bold">
+              <th
+                key={p.slug}
+                scope="col"
+                className="border-b border-line px-3 py-[22px] text-center text-[15px] font-bold"
+              >
                 {p.name}
               </th>
             ))}
@@ -32,7 +41,7 @@ export function CapabilityMatrix() {
           {capabilityRows.map((row, r) => {
             const border = r < capabilityRows.length - 1 ? "border-b border-line" : "";
             return (
-              <tr key={row.id}>
+              <tr key={row.id} className="transition-colors duration-200 hover:bg-surface-2">
                 <th scope="row" className={`px-7 py-5 text-left font-semibold ${border}`}>
                   {row.label}
                   <span className="mt-1 block text-sm font-normal text-muted">{row.detail}</span>
@@ -42,7 +51,12 @@ export function CapabilityMatrix() {
                   return (
                     <td key={p.slug} className={`text-center ${border}`}>
                       <span
-                        className={`inline-block rounded-full align-middle ${has ? "size-3.5 bg-accent" : "size-1.5 bg-dot-off"}`}
+                        data-dot={has ? "yes" : "no"}
+                        className={`inline-block rounded-full align-middle ${
+                          has
+                            ? "size-3.5 bg-accent shadow-[0_0_0_4px_color-mix(in_srgb,var(--accent)_18%,transparent)]"
+                            : "size-1.5 bg-dot-off"
+                        }`}
                         aria-hidden="true"
                       />
                       <span className="sr-only">{has ? "Yes" : "No"}</span>
@@ -54,6 +68,7 @@ export function CapabilityMatrix() {
           })}
         </tbody>
       </table>
+      <MatrixMotion target="capability-matrix" />
     </div>
   );
 }
