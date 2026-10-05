@@ -120,7 +120,10 @@ export default function Home() {
       {/* Proof line */}
       <section aria-label="Background" className="wrap">
         <div className="flex flex-wrap items-start gap-8 border-t border-line pt-10">
-          <p className="max-w-[30em] flex-[2_1_560px] text-[22px] leading-[1.35] font-medium tracking-[-0.015em] md:text-[28px]">
+          <p
+            data-reveal
+            className="max-w-[30em] flex-[2_1_560px] text-[22px] leading-[1.35] font-medium tracking-[-0.015em] md:text-[28px]"
+          >
             Four years building Flutter apps at Code Encoders and Rex Technologies. Apps live on the App Store and
             Google Play, one past 10,000 downloads, and two open-source packages on pub.dev.
           </p>

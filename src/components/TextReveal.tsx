@@ -18,7 +18,8 @@ export function TextReveal() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const belowFold = (el: Element) => el.getBoundingClientRect().top > window.innerHeight * 0.9;
+    // Only text that's fully off-screen: anything already peeking into view stays put.
+    const belowFold = (el: Element) => el.getBoundingClientRect().top > window.innerHeight;
     if (![...document.querySelectorAll(SELECTOR)].some(belowFold)) return;
 
     let cancelled = false;
