@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Services</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#151A23;font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.t-dark{--bg:#151A23;--surface:#1B212B;--surface2:#222936;--line:#2B3340;--text:#ECEFF4;--body:#C7CDD7;--muted:#A3ABB8;--accent:#7B98FF;--on-accent:#0E1530;--btn:#ECEFF4;--on-btn:#151A23;--btn2-line:#3A4352;--live:#3DD68C;--cta-bg:#ECEFF4;--cta-text:#151A23;--cta-muted:#4A515D;--cta-btn:#151A23;--cta-on-btn:#ECEFF4}
+.t-light{--bg:#E9ECF0;--surface:#FFFFFF;--surface2:#F3F5F8;--line:#CDD2DA;--text:#12151B;--body:#3E4450;--muted:#4A515D;--accent:#2B54E8;--on-accent:#FFFFFF;--btn:#12151B;--on-btn:#FFFFFF;--btn2-line:#C3C9D3;--live:#12925C;--cta-bg:#12151B;--cta-text:#FFFFFF;--cta-muted:#C5CAD3;--cta-btn:#FFFFFF;--cta-on-btn:#12151B}
+a{color:inherit}a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{text-wrap:pretty}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}
+</style>
+</helmet>
+<div class="{{themeClass}}" style="min-height: 100vh; background: var(--bg); color: var(--text)">
+
+<header style="max-width: 1200px; margin: 0 auto; padding: 24px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" aria-label="Shahzaib Hassan, home" style="display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AB0FF"/><stop offset="1" stop-color="#4C6FFF"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="url(#lg-mark)"/><text x="31" y="43.5" text-anchor="middle" font-family="Schibsted Grotesk, sans-serif" font-size="33" font-weight="800" letter-spacing="-1.5" fill="#0E1530">sh</text><circle cx="52" cy="12" r="7" fill="#3DD68C" stroke-width="3" style="stroke: var(--bg)"/></svg><span>Shahzaib Hassan</span></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<a href="Work.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Work</a>
+<a href="Services.dc.html" aria-current="page" style="padding: 10px 14px; font-size: 15px; font-weight: 700; text-decoration: none; color: var(--accent)">Services</a>
+<a href="About.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">About</a>
+<a href="Writing.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Blog</a>
+<a href="Contact.dc.html" style="margin-left: 8px; padding: 12px 18px; border-radius: 12px; background: var(--btn); color: var(--on-btn); font-size: 15px; font-weight: 600; text-decoration: none">Discuss your app</a>
+</nav>
+</header>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<h1 style="margin: 0; max-width: 13em; font-size: clamp(48px, 6.4vw, 88px); line-height: 0.98; font-weight: 800; letter-spacing: -0.045em">Flutter app development, rescue, and maintenance</h1>
+<p style="margin: 0; max-width: 34em; font-size: 22px; line-height: 1.5; color: var(--body)">Most projects start in one of three places: there’s no app yet, there’s an app that’s struggling, or there’s a live app that needs a dependable developer. Pick the one that sounds like you.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px">
+<a href="#build" style="padding: 12px 18px; border-radius: 999px; border: 1px solid var(--btn2-line); background: var(--surface); font-size: 16px; font-weight: 600; text-decoration: none">There’s no app yet</a>
+<a href="#rescue" style="padding: 12px 18px; border-radius: 999px; border: 1px solid var(--btn2-line); background: var(--surface); font-size: 16px; font-weight: 600; text-decoration: none">My app is struggling</a>
+<a href="#maintain" style="padding: 12px 18px; border-radius: 999px; border: 1px solid var(--btn2-line); background: var(--surface); font-size: 16px; font-weight: 600; text-decoration: none">My app is live and needs a developer</a>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+
+<section id="build" style="padding: 48px; border-radius: 32px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: rgba(123,152,255,0.16); color: var(--accent); display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 8v6"/><path d="M9 11h6"/></svg></span>
+<span style="font-size: 15px; font-weight: 600; color: var(--muted)">Flutter app development</span>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Build a new app</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--body)">A first version built quickly and carelessly gets expensive fast. Features start breaking each other, releases slow down, and within a year someone suggests a rewrite.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted)">For founders with designs and no mobile team, companies adding a mobile product, and agencies that need a senior Flutter developer for a client build.</p>
+<a href="Contact.dc.html" style="align-self: flex-start; margin-top: 8px; padding: 14px 20px; border-radius: 14px; background: var(--accent); color: var(--on-accent); font-size: 16px; font-weight: 600; text-decoration: none">Plan your new app</a>
+</div>
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--body)">I turn your designs or spec into a production Flutter app for iOS and Android from one codebase. Architecture comes first: how state is managed, how the app talks to your backend, and where payments or real-time chat fit. Then I build in milestones you can install and test.</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">1</span><span>Scope call: what ships first, what waits, how we’ll measure it</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">2</span><span>Architecture and a milestone plan</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">3</span><span>Builds on TestFlight and Google Play internal testing as features land</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">4</span><span>Store submission, review fixes, and launch</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">5</span><span>Handover with documentation, or straight into maintenance</span></li>
+</ol>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)"><strong style="color: var(--text)">You get</strong> a production app on both stores, a clean repository you own, and a codebase that won’t need rewriting when you grow.</p>
+</div>
+</section>
+
+<section id="rescue" style="padding: 48px; border-radius: 32px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: rgba(245,162,122,0.16); color: #F5A27A; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L22 14l-8 8-2.3-2.3a4 4 0 0 0-5-5L2 10l8-8z"/></svg></span>
+<span style="font-size: 15px; font-weight: 600; color: var(--muted)">Flutter app rescue</span>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Rescue an existing app</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--body)">The app crashes, screens lag, builds fail, or a feature that should take a day takes two weeks. Often the original developer has moved on and nobody fully understands the code.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted)">For product owners and founders with a buggy, slow, or hard-to-change Flutter app, and teams that inherited a codebase from an agency or freelancer.</p>
+<a href="Contact.dc.html" style="align-self: flex-start; margin-top: 8px; padding: 14px 20px; border-radius: 14px; background: var(--accent); color: var(--on-accent); font-size: 16px; font-weight: 600; text-decoration: none">Get your app audited</a>
+</div>
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--body)">I start with an audit, not a rewrite: crash reports, slow screens, state management, API handling, dependencies, and the build pipeline. You get a written list of problems ranked by how much they hurt users, and I fix them in that order while the app keeps shipping.</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">1</span><span>Audit: code review, crash and performance analysis, written findings</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">2</span><span>Stabilize: crashes, blocking bugs, and anything stopping store review</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">3</span><span>Improve: untangle state, fix API handling, cut unnecessary rebuilds</span></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--body)"><span style="font-weight: 700; color: var(--accent)">4</span><span>Resume regular releases, with you deciding what comes next</span></li>
+</ol>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)"><strong style="color: var(--text)">You get</strong> a clear picture of what’s wrong and why, a stable app, a faster release cycle, and code another developer could pick up.</p>
+</div>
+</section>
+
+<section id="maintain" style="padding: 48px; border-radius: 32px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: rgba(61,214,140,0.14); color: var(--live); display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/></svg></span>
+<span style="font-size: 15px; font-weight: 600; color: var(--muted)">Flutter app maintenance</span>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Keep a live app moving</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--body)">Your app is live and people use it, but features pile up, iOS and Android updates break things, and there’s no one dependable to own the Flutter side.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted)">For startups after launch, companies whose original developer left, and agencies with apps in long-term support.</p>
+<a href="Contact.dc.html" style="align-self: flex-start; margin-top: 8px; padding: 14px 20px; border-radius: 14px; background: var(--accent); color: var(--on-accent); font-size: 16px; font-weight: 600; text-decoration: none">Discuss ongoing support</a>
+</div>
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--body)">I work as your Flutter developer on a monthly basis: new features, bug fixes, Flutter and dependency upgrades, OS changes, store releases, and performance work, prioritized with you each cycle.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px">
+<div style="padding: 18px; border-radius: 16px; background: var(--surface2); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; font-weight: 700">Shared backlog</span><span style="font-size: 14px; color: var(--muted)">You set priorities each cycle</span></div>
+<div style="padding: 18px; border-radius: 16px; background: var(--surface2); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; font-weight: 700">Agreed monthly time</span><span style="font-size: 14px; color: var(--muted)">Hours or days, reserved for you</span></div>
+<div style="padding: 18px; border-radius: 16px; background: var(--surface2); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; font-weight: 700">Written updates</span><span style="font-size: 14px; color: var(--muted)">What shipped and what’s next</span></div>
+<div style="padding: 18px; border-radius: 16px; background: var(--surface2); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; font-weight: 700">Regular releases</span><span style="font-size: 14px; color: var(--muted)">On both stores</span></div>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)"><strong style="color: var(--text)">You get</strong> a dependable owner for your Flutter code, predictable releases, and an app that keeps up with iOS, Android, and Flutter changes.</p>
+</div>
+</section>
+</div>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+<h2 style="margin: 0; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">The parts that usually go wrong</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: var(--body)">Whichever way a project starts, these are the areas I’m most often brought in for.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px">
+<div style="padding: 32px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Performance and stability</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)">Slow screens, excessive rebuilds, janky scrolling, memory problems, crash spikes, and poor API handling. I profile first, then fix the actual bottleneck instead of guessing.</p>
+<span style="margin-top: auto; padding-top: 8px; font-size: 14px; color: var(--muted)">Flutter DevTools, crash reporting, caching</span>
+</div>
+<div style="padding: 32px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Real-time features</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)">Chat, presence, typing indicators, live updates, and push notifications, built to handle reconnects and background states properly.</p>
+<span style="margin-top: auto; padding-top: 8px; font-size: 14px; color: var(--muted)">Socket.IO, WebSockets, Firebase</span>
+</div>
+<div style="padding: 32px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Payments and subscriptions</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)">Subscriptions, paywalls, one-off payments, and payouts, with entitlements that stay correct across Apple and Google billing.</p>
+<span style="margin-top: auto; padding-top: 8px; font-size: 14px; color: var(--muted)">RevenueCat, Stripe, store billing</span>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+<h2 style="margin: 0; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Ways to work together</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: var(--body)">Every project is quoted after a short scope call, so you pay for what your app actually needs.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+<div style="padding: 32px; border-radius: 24px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700">Fixed-scope project</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)">A defined set of features, a timeline, and a price agreed up front. Best for new builds and single features.</p>
+<a href="Contact.dc.html" style="margin-top: auto; align-self: flex-start; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--btn2-line); background: var(--surface); font-size: 15px; font-weight: 600; text-decoration: none">Contact for pricing</a>
+</div>
+<div style="padding: 32px; border-radius: 24px; border: 1px solid var(--accent); display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700">App audit</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)">A short, paid review of an existing codebase with a written report and a prioritized fix list. The usual first step for rescues.</p>
+<a href="Contact.dc.html" style="margin-top: auto; align-self: flex-start; padding: 12px 18px; border-radius: 12px; background: var(--accent); color: var(--on-accent); font-size: 15px; font-weight: 600; text-decoration: none">Contact for pricing</a>
+</div>
+<div style="padding: 32px; border-radius: 24px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700">Monthly</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--body)">A reserved block of my time each month for features, fixes, and releases. Best for live apps that need an ongoing owner.</p>
+<a href="Contact.dc.html" style="margin-top: auto; align-self: flex-start; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--btn2-line); background: var(--surface); font-size: 15px; font-weight: 600; text-decoration: none">Contact for pricing</a>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 64px">
+<h2 style="flex: 0 1 340px; margin: 0; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Questions clients ask</h2>
+<div style="flex: 1 1 560px; display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<details open style="padding: 22px 0; border-bottom: 1px solid var(--line)"><summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700">What time zone do you work in?<span aria-hidden="true" style="color: var(--muted)">–</span></summary><p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: var(--body)">Pakistan, UTC+5. That overlaps with European working hours and US mornings. We agree on shared hours at the start of each project.</p></details>
+<details style="padding: 22px 0; border-bottom: 1px solid var(--line)"><summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700">Do you design the app too?<span aria-hidden="true" style="color: var(--muted)">+</span></summary><p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: var(--body)">I build from your designs, usually in Figma. If you don’t have designs, I can work with a designer you choose or recommend one.</p></details>
+<details style="padding: 22px 0; border-bottom: 1px solid var(--line)"><summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700">Who owns the code?<span aria-hidden="true" style="color: var(--muted)">+</span></summary><p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: var(--body)">You do, from the first commit. The code lives in your repository, and the app is published under your developer accounts.</p></details>
+<details style="padding: 22px 0; border-bottom: 1px solid var(--line)"><summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700">Can you join our existing team?<span aria-hidden="true" style="color: var(--muted)">+</span></summary><p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: var(--body)">Yes. I can work inside your repository, your process, and your tools, alongside your backend and design team.</p></details>
+<details style="padding: 22px 0; border-bottom: 1px solid var(--line)"><summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700">Do you handle App Store and Google Play submission?<span aria-hidden="true" style="color: var(--muted)">+</span></summary><p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: var(--body)">Yes, including store listings, review guidelines, and fixing rejections until the app is approved.</p></details>
+<details style="padding: 22px 0; border-bottom: 1px solid var(--line)"><summary style="display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700">Is Flutter the right choice for my app?<span aria-hidden="true" style="color: var(--muted)">+</span></summary><p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: var(--body)">For most products that need iOS and Android, yes: one codebase, native performance, and faster releases. If your app depends heavily on platform-specific features, I’ll tell you before we start.</p></details>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box">
+<div style="border-radius: 36px; background: var(--cta-bg); color: var(--cta-text); padding: 64px; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 620px">
+<h2 style="margin: 0; font-size: 52px; line-height: 1; font-weight: 800; letter-spacing: -0.035em">Not sure which fits?</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: var(--cta-muted)">Describe the app and where it’s stuck. I’ll tell you which option makes sense, even if the answer is a small fix.</p>
+</div>
+<a href="Contact.dc.html" style="padding: 16px 24px; border-radius: 14px; background: var(--cta-btn); color: var(--cta-on-btn); font-size: 17px; font-weight: 600; text-decoration: none">Discuss your app</a>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,780px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const theme = this.props.theme ?? 'dark';
+    return { themeClass: theme === 'light' ? 't-light' : 't-dark' };
+  }
+}
+</script>
+</body>
+</html>

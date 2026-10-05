@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Work</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#151A23;font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.t-dark{--bg:#151A23;--surface:#1B212B;--surface2:#222936;--line:#2B3340;--text:#ECEFF4;--body:#C7CDD7;--muted:#A3ABB8;--accent:#7B98FF;--on-accent:#0E1530;--btn:#ECEFF4;--on-btn:#151A23;--btn2-line:#3A4352;--cta-bg:#ECEFF4;--cta-text:#151A23;--cta-muted:#4A515D;--cta-btn:#151A23;--cta-on-btn:#ECEFF4}
+.t-light{--bg:#E9ECF0;--surface:#FFFFFF;--surface2:#F3F5F8;--line:#CDD2DA;--text:#12151B;--body:#3E4450;--muted:#4A515D;--accent:#2B54E8;--on-accent:#FFFFFF;--btn:#12151B;--on-btn:#FFFFFF;--btn2-line:#C3C9D3;--cta-bg:#12151B;--cta-text:#FFFFFF;--cta-muted:#C5CAD3;--cta-btn:#FFFFFF;--cta-on-btn:#12151B}
+a{color:inherit}a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{text-wrap:pretty}
+.tile{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tile:hover{transform:translateY(-4px)}
+.tile:hover .ph1{transform:rotate(-11deg) translate(-6px, 18px)}
+.tile:hover .ph3{transform:rotate(11deg) translate(6px, 18px)}
+.ph1,.ph3{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.row:hover{background:var(--surface)}
+@media (prefers-reduced-motion: reduce){.tile,.ph1,.ph3{transition:none}}
+</style>
+</helmet>
+<div class="{{themeClass}}" style="min-height: 100vh; background: var(--bg); color: var(--text)">
+
+<header style="max-width: 1280px; margin: 0 auto; padding: 24px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" aria-label="Shahzaib Hassan, home" style="display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AB0FF"/><stop offset="1" stop-color="#4C6FFF"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="url(#lg-mark)"/><text x="31" y="43.5" text-anchor="middle" font-family="Schibsted Grotesk, sans-serif" font-size="33" font-weight="800" letter-spacing="-1.5" fill="#0E1530">sh</text><circle cx="52" cy="12" r="7" fill="#3DD68C" stroke-width="3" style="stroke: var(--bg)"/></svg><span>Shahzaib Hassan</span></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<a href="Work.dc.html" aria-current="page" style="padding: 10px 14px; font-size: 15px; font-weight: 700; text-decoration: none; color: var(--accent)">Work</a>
+<a href="Services.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Services</a>
+<a href="About.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">About</a>
+<a href="Writing.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Blog</a>
+<a href="Contact.dc.html" style="margin-left: 8px; padding: 12px 18px; border-radius: 12px; background: var(--btn); color: var(--on-btn); font-size: 15px; font-weight: 600; text-decoration: none">Discuss your app</a>
+</nav>
+</header>
+
+<section style="max-width: 1280px; margin: 0 auto; padding: 72px 40px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px">
+<h1 style="margin: 0; font-size: clamp(72px, 12vw, 168px); line-height: 0.85; font-weight: 800; letter-spacing: -0.06em">Work</h1>
+<p style="margin: 0; font-size: 22px; line-height: 1.5; color: var(--body)">Nine production Flutter apps across social discovery, marketplaces, Web3 commerce, and real-time systems. Each one had a part that was harder than it looked.</p>
+</div>
+<div role="group" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 8px; max-width: 460px; justify-content: flex-end">
+<button type="button" aria-pressed="true" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--text); background: var(--text); color: var(--bg); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">All <span style="opacity: 0.6">9</span></button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Social and dating <span style="color: var(--muted)">3</span></button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Marketplaces <span style="color: var(--muted)">2</span></button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Fintech and Web3 <span style="color: var(--muted)">1</span></button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Real-time <span style="color: var(--muted)">1</span></button>
+</div>
+</section>
+
+<section aria-label="Featured project" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; box-sizing: border-box">
+<a href="CaseStudy.dc.html" class="tile" style="display: flex; flex-wrap: wrap; border-radius: 36px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--text)">
+<span style="flex: 1 1 640px; position: relative; height: 640px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding-top: 72px; box-sizing: border-box; background: radial-gradient(70% 60% at 50% 30%, #E0557C 0%, #A52A4E 45%, #5E1229 100%)">
+<span style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px); background-size: 22px 22px; opacity: 0.5"></span>
+<span class="ph1" style="position: relative; width: 230px; height: 480px; flex: none; box-sizing: border-box; padding: 9px; border-radius: 38px; background: #0B0E13; display: flex; transform: rotate(-8deg) translate(30px, 34px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 30px; background: #FBE7EC; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; font-size: 13px; line-height: 1.4; color: #6B2238">[Nearby venues map]</span></span>
+<span style="position: relative; z-index: 1; width: 230px; height: 480px; flex: none; box-sizing: border-box; padding: 9px; border-radius: 38px; background: #0B0E13; display: flex; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7)"><span style="flex: 1; border-radius: 30px; background: #FBE7EC; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; font-size: 13px; line-height: 1.4; color: #6B2238">[Venue check-in]</span></span>
+<span class="ph3" style="position: relative; width: 230px; height: 480px; flex: none; box-sizing: border-box; padding: 9px; border-radius: 38px; background: #0B0E13; display: flex; transform: rotate(8deg) translate(-30px, 34px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 30px; background: #FBE7EC; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; font-size: 13px; line-height: 1.4; color: #6B2238">[Real-time chat]</span></span>
+<span style="position: absolute; left: 24px; top: 24px; padding: 8px 14px; border-radius: 999px; background: rgba(11,14,19,0.6); color: #FFFFFF; font-size: 13px; font-weight: 600">Featured case study</span>
+</span>
+<span style="flex: 1 1 380px; padding: 48px 44px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<span style="display: flex; align-items: center; gap: 14px"><span style="flex: none; width: 52px; height: 52px; border-radius: 14px; background: #D93A63; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800">OS</span><span style="font-size: 16px; color: var(--muted)">Location-based social and dating</span></span>
+<span style="font-size: 64px; line-height: 0.95; font-weight: 800; letter-spacing: -0.045em">On Scene</span>
+<span style="font-size: 18px; line-height: 1.6; color: var(--body)">A dating app built around real places. People check in at venues, see who’s nearby on a live map, chat in real time, and unlock premium with a subscription.</span>
+<span style="display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<span style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px"><span style="color: var(--muted)">Role</span><span style="font-weight: 600; text-align: right">Main Flutter developer</span></span>
+<span style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px"><span style="color: var(--muted)">Platforms</span><span style="font-weight: 600; text-align: right">iOS and Android</span></span>
+<span style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px"><span style="color: var(--muted)">The hard part</span><span style="font-weight: 600; text-align: right; max-width: 240px">A live map that stays smooth under constant updates</span></span>
+</span>
+<span style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px"><span style="padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface2)">Google Maps</span><span style="padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface2)">Socket.IO</span><span style="padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface2)">Firebase</span><span style="padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface2)">RevenueCat</span></span>
+<span style="margin-top: auto; display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--accent)">Read the case study<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+</span>
+</a>
+</section>
+
+<section aria-label="Projects" style="max-width: 1280px; margin: 0 auto; padding: 32px 40px 0; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px">
+
+<a href="#" class="tile" style="flex: 7 1 600px; position: relative; height: 600px; border-radius: 32px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding-top: 56px; box-sizing: border-box; background: radial-gradient(70% 60% at 50% 25%, #26B3A3 0%, #0E7468 45%, #073D38 100%); text-decoration: none; color: #FFFFFF">
+<span style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 22px 22px; opacity: 0.5"></span>
+<span class="ph1" style="position: relative; width: 200px; height: 420px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 34px; background: #0B0E13; display: flex; transform: rotate(-8deg) translate(26px, 30px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 27px; background: #DDF3F0; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #0B4F48">[Marketplace home]</span></span>
+<span style="position: relative; z-index: 1; width: 200px; height: 420px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 34px; background: #0B0E13; display: flex; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7)"><span style="flex: 1; border-radius: 27px; background: #DDF3F0; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #0B4F48">[Heat map]</span></span>
+<span class="ph3" style="position: relative; width: 200px; height: 420px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 34px; background: #0B0E13; display: flex; transform: rotate(8deg) translate(-26px, 30px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 27px; background: #DDF3F0; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #0B4F48">[Ticket QR]</span></span>
+<span style="position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 120px 32px 30px; background: linear-gradient(transparent, rgba(5,12,14,0.92) 60%); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px">
+<span style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 14px; font-weight: 600; opacity: 0.8">Multi-vertical marketplace</span><span style="font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.035em">Zera</span><span style="font-size: 16px; line-height: 1.5; opacity: 0.85; max-width: 440px">Goods, services, jobs, event tickets, and community in one app, with heat maps and QR ticketing.</span></span>
+<span style="flex: none; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; color: #0B0E13; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+</span>
+</a>
+
+<a href="#" class="tile" style="flex: 5 1 420px; position: relative; height: 600px; border-radius: 32px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding-top: 56px; box-sizing: border-box; background: radial-gradient(70% 60% at 50% 25%, #7F6FF0 0%, #4A3BB8 45%, #241B66 100%); text-decoration: none; color: #FFFFFF">
+<span style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 22px 22px; opacity: 0.5"></span>
+<span class="ph1" style="position: relative; width: 190px; height: 400px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 32px; background: #0B0E13; display: flex; transform: rotate(-7deg) translate(20px, 26px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 25px; background: #E9E6FB; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #34287F">[Wallet onboarding]</span></span>
+<span class="ph3" style="position: relative; z-index: 1; width: 190px; height: 400px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 32px; background: #0B0E13; display: flex; transform: rotate(6deg) translate(-20px, 10px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7)"><span style="flex: 1; border-radius: 25px; background: #E9E6FB; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #34287F">[Merchant KYB]</span></span>
+<span style="position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 120px 32px 30px; background: linear-gradient(transparent, rgba(10,8,30,0.92) 60%); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px">
+<span style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 14px; font-weight: 600; opacity: 0.8">Fintech and Web3</span><span style="font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.035em">BePay</span><span style="font-size: 16px; line-height: 1.5; opacity: 0.85">Wallets from a Google or Apple login, KYC for shoppers, KYB for merchants.</span></span>
+<span style="flex: none; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; color: #0B0E13; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+</span>
+</a>
+
+<a href="#" class="tile" style="flex: 5 1 420px; position: relative; height: 600px; border-radius: 32px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding-top: 56px; box-sizing: border-box; background: radial-gradient(70% 60% at 50% 25%, #F58A4E 0%, #C2521F 45%, #5E230A 100%); text-decoration: none; color: #FFFFFF">
+<span style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 22px 22px; opacity: 0.5"></span>
+<span class="ph1" style="position: relative; width: 190px; height: 400px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 32px; background: #0B0E13; display: flex; transform: rotate(-7deg) translate(20px, 26px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 25px; background: #FCE9DF; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #7A3412">[Swipe discovery]</span></span>
+<span class="ph3" style="position: relative; z-index: 1; width: 190px; height: 400px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 32px; background: #0B0E13; display: flex; transform: rotate(6deg) translate(-20px, 10px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7)"><span style="flex: 1; border-radius: 25px; background: #FCE9DF; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #7A3412">[Premium paywall]</span></span>
+<span style="position: absolute; left: 24px; top: 24px; z-index: 2; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: rgba(11,14,19,0.6); font-size: 13px; font-weight: 600"><span style="width: 7px; height: 7px; border-radius: 50%; background: #3DD68C"></span>Live on both stores</span>
+<span style="position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 120px 32px 30px; background: linear-gradient(transparent, rgba(30,12,4,0.92) 60%); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px">
+<span style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 14px; font-weight: 600; opacity: 0.8">Social app for pet owners</span><span style="font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.035em">Paw Play Love</span><span style="font-size: 16px; line-height: 1.5; opacity: 0.85">Swipe matching for playdates, real-time chat, and premium subscriptions.</span></span>
+<span style="flex: none; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; color: #0B0E13; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+</span>
+</a>
+
+<a href="#" class="tile" style="flex: 7 1 600px; position: relative; height: 600px; border-radius: 32px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding-top: 56px; box-sizing: border-box; background: radial-gradient(70% 60% at 50% 25%, #45BE70 0%, #237C45 45%, #0E3A1F 100%); text-decoration: none; color: #FFFFFF">
+<span style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 22px 22px; opacity: 0.5"></span>
+<span class="ph1" style="position: relative; width: 200px; height: 420px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 34px; background: #0B0E13; display: flex; transform: rotate(-8deg) translate(26px, 30px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 27px; background: #E0F3E7; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #17502B">[Booking]</span></span>
+<span style="position: relative; z-index: 1; width: 200px; height: 420px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 34px; background: #0B0E13; display: flex; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7)"><span style="flex: 1; border-radius: 27px; background: #E0F3E7; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #17502B">[Live tracking]</span></span>
+<span class="ph3" style="position: relative; width: 200px; height: 420px; flex: none; box-sizing: border-box; padding: 8px; border-radius: 34px; background: #0B0E13; display: flex; transform: rotate(8deg) translate(-26px, 30px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6)"><span style="flex: 1; border-radius: 27px; background: #E0F3E7; display: flex; align-items: center; justify-content: center; padding: 12px; text-align: center; font-size: 12px; color: #17502B">[Provider jobs]</span></span>
+<span style="position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 120px 32px 30px; background: linear-gradient(transparent, rgba(4,20,10,0.92) 60%); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px">
+<span style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 14px; font-weight: 600; opacity: 0.8">On-demand services marketplace</span><span style="font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.035em">LawnOlu</span><span style="font-size: 16px; line-height: 1.5; opacity: 0.85; max-width: 440px">Customers book and track providers live; providers run jobs and get paid. One codebase, two roles.</span></span>
+<span style="flex: none; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; color: #0B0E13; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+</span>
+</a>
+</section>
+
+<section aria-labelledby="index-title" style="max-width: 1280px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px">
+<h2 id="index-title" style="margin: 0; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Every project</h2>
+<p style="margin: 0; font-size: 17px; color: var(--muted)">Nine apps, iOS and Android, all in Flutter.</p>
+</div>
+<div style="overflow-x: auto">
+<div style="min-width: 860px; display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<div style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; padding: 14px 16px; font-size: 14px; color: var(--muted); border-bottom: 1px solid var(--line)"><span>No.</span><span>Project</span><span>Type</span><span>Built with</span><span></span></div>
+<a href="CaseStudy.dc.html" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">01</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #D93A63"></span>On Scene</span><span style="font-size: 16px; color: var(--body)">Location-based dating</span><span style="font-size: 15px; color: var(--muted)">Google Maps, Socket.IO, Firebase, RevenueCat</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">02</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #0F8A7E"></span>Zera</span><span style="font-size: 16px; color: var(--body)">Multi-vertical marketplace</span><span style="font-size: 15px; color: var(--muted)">TanStack Query, Google Maps, QR scanning</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">03</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #5B49D6"></span>BePay</span><span style="font-size: 16px; color: var(--body)">Web3 commerce</span><span style="font-size: 15px; color: var(--muted)">Web3Auth, DIDIT KYC and KYB, REST APIs</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">04</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #E46A2E"></span>Paw Play Love</span><span style="font-size: 16px; color: var(--body)">Social app for pet owners</span><span style="font-size: 15px; color: var(--muted)">Socket.IO, Firebase, RevenueCat</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">05</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #2E9A55"></span>LawnOlu</span><span style="font-size: 16px; color: var(--body)">On-demand services</span><span style="font-size: 15px; color: var(--muted)">Google Maps, Stripe, Firebase</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">06</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #3D5A80"></span>Simman</span><span style="font-size: 16px; color: var(--body)">Real-time medical simulation</span><span style="font-size: 15px; color: var(--muted)">Firebase Realtime Database, audio streaming, GetX</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">07</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #B7791F"></span>Jatt App</span><span style="font-size: 16px; color: var(--body)">Social networking</span><span style="font-size: 15px; color: var(--muted)">Dio, Firebase, social login</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">08</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #2F7FC1"></span>ExamConnect</span><span style="font-size: 16px; color: var(--body)">[Type]</span><span style="font-size: 15px; color: var(--muted)">[Stack]</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a href="#" class="row" style="display: grid; grid-template-columns: 60px 1.3fr 1.3fr 1.8fr 48px; gap: 20px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">09</span><span style="display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700"><span style="width: 12px; height: 12px; border-radius: 4px; background: #8A5A44"></span>Material World</span><span style="font-size: 16px; color: var(--body)">[Type]</span><span style="font-size: 15px; color: var(--muted)">[Stack]</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1280px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box">
+<div style="border-radius: 36px; background: var(--cta-bg); color: var(--cta-text); padding: 56px 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
+<div style="display: flex; align-items: center; gap: 24px">
+<img src="/images/avatar.webp" alt="" style="flex: none; width: 80px; height: 80px; border-radius: 50%; object-fit: cover">
+<div style="display: flex; flex-direction: column; gap: 10px"><h2 style="margin: 0; font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.03em">Your app could be next.</h2><p style="margin: 0; font-size: 18px; line-height: 1.5; color: var(--cta-muted)">New build, rescue, or one hard feature. Tell me what you’re working on.</p></div>
+</div>
+<a href="Contact.dc.html" style="padding: 16px 24px; border-radius: 14px; background: var(--cta-btn); color: var(--cta-on-btn); font-size: 17px; font-weight: 600; text-decoration: none">Discuss your app</a>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,780px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":4700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const theme = this.props.theme ?? 'dark';
+    return { themeClass: theme === 'light' ? 't-light' : 't-dark' };
+  }
+}
+</script>
+</body>
+</html>

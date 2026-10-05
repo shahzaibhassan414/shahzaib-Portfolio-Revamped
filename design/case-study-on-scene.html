@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>On Scene case study</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#151A23;font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.t-dark{--bg:#151A23;--surface:#1B212B;--surface2:#222936;--band:#141921;--line:#2B3340;--line2:#38414F;--text:#ECEFF4;--body:#C7CDD7;--muted:#A3ABB8;--accent:#7B98FF;--arrow:#6E7889;--btn:#ECEFF4;--on-btn:#151A23}
+.t-light{--bg:#E9ECF0;--surface:#FFFFFF;--surface2:#F6F7F9;--band:#E4E8EE;--line:#CDD2DA;--line2:#CFD5DE;--text:#12151B;--body:#2E333C;--muted:#4A515D;--accent:#2B54E8;--arrow:#7B8494;--btn:#12151B;--on-btn:#FFFFFF}
+a{color:inherit}a:hover{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{text-wrap:pretty}
+</style>
+</helmet>
+<div class="{{themeClass}}" style="min-height: 100vh; background: var(--bg); color: var(--text)">
+
+<header style="max-width: 1200px; margin: 0 auto; padding: 24px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" aria-label="Shahzaib Hassan, home" style="display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AB0FF"/><stop offset="1" stop-color="#4C6FFF"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="url(#lg-mark)"/><text x="31" y="43.5" text-anchor="middle" font-family="Schibsted Grotesk, sans-serif" font-size="33" font-weight="800" letter-spacing="-1.5" fill="#0E1530">sh</text><circle cx="52" cy="12" r="7" fill="#3DD68C" stroke-width="3" style="stroke: var(--bg)"/></svg><span>Shahzaib Hassan</span></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<a href="Work.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 600; text-decoration: none">Work</a>
+<a href="Services.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Services</a>
+<a href="About.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">About</a>
+<a href="Writing.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Blog</a>
+<a href="Contact.dc.html" style="margin-left: 8px; padding: 12px 18px; border-radius: 12px; background: var(--btn); color: var(--on-btn); font-size: 15px; font-weight: 600; text-decoration: none">Discuss your app</a>
+</nav>
+</header>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 40px 40px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<a href="Main.dc.html" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; text-decoration: none; color: var(--muted)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg><span>All work</span></a>
+<div style="display: flex; align-items: center; gap: 18px">
+<span style="flex: none; width: 72px; height: 72px; border-radius: 20px; background: #D93A63; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800">OS</span>
+<span style="font-size: 17px; font-weight: 500; color: var(--muted)">Location-based social and dating app</span>
+</div>
+<h1 style="margin: 0; font-size: clamp(64px, 9vw, 128px); line-height: 0.92; font-weight: 800; letter-spacing: -0.045em">On Scene</h1>
+<p style="margin: 0; max-width: 32em; font-size: 24px; line-height: 1.45; color: var(--body)">A dating and social discovery app built around real places. People check in at venues, see who’s nearby on a live map, chat in real time, and unlock premium features with a subscription.</p>
+<dl style="margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 0; border-top: 1px solid var(--line)">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 24px 20px 0"><dt style="font-size: 14px; font-weight: 600; color: var(--muted)">Role</dt><dd style="margin: 0; font-size: 17px; font-weight: 600">Main Flutter developer</dd></div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 24px 20px 0"><dt style="font-size: 14px; font-weight: 600; color: var(--muted)">Platforms</dt><dd style="margin: 0; font-size: 17px; font-weight: 600">iOS and Android</dd></div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 24px 20px 0"><dt style="font-size: 14px; font-weight: 600; color: var(--muted)">Built with</dt><dd style="margin: 0; font-size: 17px; font-weight: 600; line-height: 1.4">Flutter, Google Maps, Socket.io, Firebase, RevenueCat</dd></div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 24px 20px 0"><dt style="font-size: 14px; font-weight: 600; color: var(--muted)">Get the app</dt><dd style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 17px; font-weight: 600"><a href="#">[App Store link]</a><a href="#">[Google Play link]</a></dd></div>
+</dl>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box">
+<div style="display: flex; justify-content: center; align-items: flex-start; height: 600px; box-sizing: border-box; padding-top: 64px; border-radius: 32px; overflow: hidden; background: #8E2442">
+<span style="width: 260px; height: 540px; flex: none; box-sizing: border-box; padding: 10px; border-radius: 42px; background: #0B0E13; display: flex; transform: rotate(-8deg) translate(34px, 36px)"><span style="flex: 1; border-radius: 33px; background: #FBE7EC; display: flex; align-items: center; justify-content: center; padding: 18px; text-align: center; font-size: 15px; line-height: 1.4; color: #6B2238">[Screen: nearby venues map]</span></span>
+<span style="width: 260px; height: 540px; flex: none; box-sizing: border-box; padding: 10px; border-radius: 42px; background: #0B0E13; display: flex; position: relative; z-index: 1"><span style="flex: 1; border-radius: 33px; background: #FBE7EC; display: flex; align-items: center; justify-content: center; padding: 18px; text-align: center; font-size: 15px; line-height: 1.4; color: #6B2238">[Screen: venue check-in]</span></span>
+<span style="width: 260px; height: 540px; flex: none; box-sizing: border-box; padding: 10px; border-radius: 42px; background: #0B0E13; display: flex; transform: rotate(8deg) translate(-34px, 36px)"><span style="flex: 1; border-radius: 33px; background: #FBE7EC; display: flex; align-items: center; justify-content: center; padding: 18px; text-align: center; font-size: 15px; line-height: 1.4; color: #6B2238">[Screen: real-time chat]</span></span>
+</div>
+</div>
+
+<article style="max-width: 1200px; margin: 0 auto; padding: 112px 40px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 88px">
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">The product</h2>
+<div style="flex: 1 1 560px; max-width: 720px; display: flex; flex-direction: column; gap: 18px; font-size: 19px; line-height: 1.65; color: var(--body)">
+<p style="margin: 0">On Scene is a location-aware dating and social discovery app. Instead of relying only on swipe-based matching, it’s built around live presence: who’s at a venue right now, who just checked in nearby, and what’s happening around you tonight.</p>
+</div>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">The problem</h2>
+<div style="flex: 1 1 560px; max-width: 720px; display: flex; flex-direction: column; gap: 18px; font-size: 19px; line-height: 1.65; color: var(--body)">
+<p style="margin: 0">The app had to connect online dating with real-world discovery. Users needed to see nearby activity, check in to venues, find people around them, and interact through a location-aware experience.</p>
+<p style="margin: 0">That meant combining maps, location data, real-time updates, and paid features in one app that still felt fast on a mid-range phone.</p>
+</div>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">My role</h2>
+<div style="flex: 1 1 560px; max-width: 720px; display: flex; flex-direction: column; gap: 18px; font-size: 19px; line-height: 1.65; color: var(--body)">
+<p style="margin: 0">I was the main Flutter developer, responsible for the core mobile experience on iOS and Android: check-ins, map discovery, live presence, chat, and premium subscriptions.</p>
+</div>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">What I built</h2>
+<ul style="flex: 1 1 560px; max-width: 720px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line)"><span style="font-size: 19px; font-weight: 700">Venue check-ins and nearby discovery</span><span style="font-size: 17px; line-height: 1.55; color: var(--muted)">A venue-first map on Google Maps, so the app feels tied to real places instead of profile browsing.</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line)"><span style="font-size: 19px; font-weight: 700">Live presence and chat</span><span style="font-size: 17px; line-height: 1.55; color: var(--muted)">Socket.io events keep nearby activity, check-ins, and conversations updated in real time.</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line)"><span style="font-size: 19px; font-weight: 700">Safety controls</span><span style="font-size: 17px; line-height: 1.55; color: var(--muted)">[Describe the blocking, reporting, or visibility controls you built]</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line)"><span style="font-size: 19px; font-weight: 700">Premium subscriptions</span><span style="font-size: 17px; line-height: 1.55; color: var(--muted)">RevenueCat handles purchases, entitlements, and premium access across the App Store and Google Play.</span></li>
+</ul>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">Architecture</h2>
+<figure style="flex: 1 1 560px; max-width: 760px; margin: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="overflow-x: auto; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); padding: 24px">
+<div style="position: relative; width: 720px; height: 600px">
+<div style="position: absolute; left: 0px; top: 40px; width: 280px; height: 432px; border-radius: 18px; background: var(--band)"></div>
+<svg width="230" height="8" viewBox="0 0 230 8" preserveAspectRatio="none" style="position: absolute; left: 256px; top: 124px; width: 230px; height: 8px; overflow: visible; fill: none; stroke: #6E7889; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled" orient="auto" markerWidth="5" markerHeight="5" refX="3.2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#6E7889" stroke="none" style="fill: context-stroke"/></marker></defs><path d="M 0 4 L 230 4" marker-end="url(#dc-arrow-head-filled)"></path></svg>
+<svg width="230" height="8" viewBox="0 0 230 8" preserveAspectRatio="none" style="position: absolute; left: 256px; top: 220px; width: 230px; height: 8px; overflow: visible; fill: none; stroke: #6E7889; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled" orient="auto" markerWidth="5" markerHeight="5" refX="3.2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#6E7889" stroke="none" style="fill: context-stroke"/></marker></defs><path d="M 0 4 L 230 4" marker-end="url(#dc-arrow-head-filled)"></path></svg>
+<svg width="230" height="8" viewBox="0 0 230 8" preserveAspectRatio="none" style="position: absolute; left: 256px; top: 316px; width: 230px; height: 8px; overflow: visible; fill: none; stroke: #6E7889; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled" orient="auto" markerWidth="5" markerHeight="5" refX="3.2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#6E7889" stroke="none" style="fill: context-stroke"/></marker></defs><path d="M 0 4 L 230 4" marker-end="url(#dc-arrow-head-filled)"></path></svg>
+<svg width="230" height="8" viewBox="0 0 230 8" preserveAspectRatio="none" style="position: absolute; left: 256px; top: 412px; width: 230px; height: 8px; overflow: visible; fill: none; stroke: #7B98FF; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled" orient="auto" markerWidth="5" markerHeight="5" refX="3.2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#7B98FF" stroke="none" style="fill: context-stroke"/></marker></defs><path d="M 0 4 L 230 4" marker-end="url(#dc-arrow-head-filled)"></path></svg>
+<svg width="8" height="62" viewBox="0 0 8 62" preserveAspectRatio="none" style="position: absolute; left: 600px; top: 448px; width: 8px; height: 62px; overflow: visible; fill: none; stroke: #7B98FF; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled" orient="auto" markerWidth="5" markerHeight="5" refX="3.2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#7B98FF" stroke="none" style="fill: context-stroke"/></marker></defs><path d="M 4 0 L 4 62" marker-end="url(#dc-arrow-head-filled)"></path></svg>
+<div style="position: absolute; left: 24px; top: 56px; font-size: 14px; font-weight: 700; color: var(--muted)">Flutter app, iOS and Android</div>
+<div style="position: absolute; left: 488px; top: 56px; font-size: 14px; font-weight: 700; color: var(--muted)">Services</div>
+<div style="position: absolute; left: 24px; top: 96px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface2); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px; font-weight: 600">Map discovery</div>
+<div style="position: absolute; left: 24px; top: 192px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface2); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px; font-weight: 600">Check-ins and chat</div>
+<div style="position: absolute; left: 24px; top: 288px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface2); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px; font-weight: 600">Notifications</div>
+<div style="position: absolute; left: 24px; top: 384px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface2); border: 1.5px solid var(--accent); border-radius: 12px; font-size: 16px; font-weight: 600">Premium access</div>
+<div style="position: absolute; left: 488px; top: 96px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px">Google Maps SDK</div>
+<div style="position: absolute; left: 488px; top: 192px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px">Socket.io server</div>
+<div style="position: absolute; left: 488px; top: 288px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px">Firebase messaging</div>
+<div style="position: absolute; left: 488px; top: 384px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface); border: 1.5px solid var(--accent); border-radius: 12px; font-size: 16px">RevenueCat</div>
+<div style="position: absolute; left: 488px; top: 512px; width: 232px; height: 64px; box-sizing: border-box; padding: 8px 16px; display: flex; align-items: center; background: var(--surface); border: 1px solid var(--line2); border-radius: 12px; font-size: 16px; line-height: 1.3">App Store and Google Play billing</div>
+<div style="position: absolute; left: 304px; top: 100px; width: 136px; text-align: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 16px; color: var(--muted)">location queries</div>
+<div style="position: absolute; left: 308px; top: 196px; width: 128px; text-align: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 16px; color: var(--muted)">presence events</div>
+<div style="position: absolute; left: 296px; top: 292px; width: 152px; text-align: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 16px; color: var(--muted)">push notifications</div>
+<div style="position: absolute; left: 320px; top: 388px; width: 104px; text-align: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 16px; color: var(--accent)">entitlements</div>
+</div>
+</div>
+<figcaption style="font-size: 15px; line-height: 1.5; color: var(--muted)">How the Flutter app connects to the services behind each feature. On the live site, the connections draw in as you scroll.</figcaption>
+</figure>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">The hard part</h2>
+<div style="flex: 1 1 560px; max-width: 720px; display: flex; flex-direction: column; gap: 18px; font-size: 19px; line-height: 1.65; color: var(--body)">
+<p style="margin: 0">Map-heavy screens get slow quickly when markers, location updates, and socket events all arrive at once. I structured the location and real-time update logic so discovery stayed smooth while presence and check-ins changed around the user.</p>
+<p style="margin: 0; color: var(--muted)">[Add the specifics: how you batched marker updates, throttled location events, or limited rebuilds]</p>
+</div>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">Decisions</h2>
+<ol style="flex: 1 1 560px; max-width: 720px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 28px">
+<li style="display: grid; grid-template-columns: 40px 1fr; gap: 8px"><span style="font-size: 17px; font-weight: 700; color: var(--accent); padding-top: 2px">1</span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 19px; font-weight: 700">Venues first, profiles second</span><span style="font-size: 17px; line-height: 1.6; color: var(--muted)">Google Maps anchors discovery in real places, which is what separates On Scene from a standard swipe app.</span></div></li>
+<li style="display: grid; grid-template-columns: 40px 1fr; gap: 8px"><span style="font-size: 17px; font-weight: 700; color: var(--accent); padding-top: 2px">2</span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 19px; font-weight: 700">Sockets for presence, not polling</span><span style="font-size: 17px; line-height: 1.6; color: var(--muted)">Socket events tied to map presence keep nearby activity current without hammering the API.</span></div></li>
+<li style="display: grid; grid-template-columns: 40px 1fr; gap: 8px"><span style="font-size: 17px; font-weight: 700; color: var(--accent); padding-top: 2px">3</span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 19px; font-weight: 700">RevenueCat for both stores</span><span style="font-size: 17px; line-height: 1.6; color: var(--muted)">One place for subscription state and entitlement checks across Apple and Google billing.</span></div></li>
+</ol>
+</section>
+
+<section style="display: flex; flex-wrap: wrap; gap: 24px 64px">
+<h2 style="flex: 0 1 280px; margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">Results</h2>
+<div style="flex: 1 1 560px; max-width: 720px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 16px">
+<div style="padding: 24px; border-radius: 18px; border: 1.5px dashed var(--line2); display: flex; flex-direction: column; gap: 6px"><span style="font-size: 36px; font-weight: 800; letter-spacing: -0.02em">[number]</span><span style="font-size: 15px; color: var(--muted)">[e.g. active users or check-ins]</span></div>
+<div style="padding: 24px; border-radius: 18px; border: 1.5px dashed var(--line2); display: flex; flex-direction: column; gap: 6px"><span style="font-size: 36px; font-weight: 800; letter-spacing: -0.02em">[number]</span><span style="font-size: 15px; color: var(--muted)">[e.g. store rating or crash-free sessions]</span></div>
+</div>
+<p style="margin: 0; font-size: 19px; line-height: 1.65; color: var(--body)">On Scene shipped as a real-world discovery platform that combines location, live presence, check-ins, and premium dating features, helping people meet around actual venues rather than only through matching.</p>
+</div>
+</section>
+</article>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 136px 40px 0; box-sizing: border-box">
+<div style="border-radius: 32px; background: #ECEFF4; color: #151A23; padding: 48px 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px"><h2 style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Building something with live location or chat?</h2><p style="margin: 0; font-size: 18px; line-height: 1.5; color: #4A515D">I’ve solved the presence, map, and subscription problems that come with it. Tell me about your app.</p></div>
+<a href="Contact.dc.html" style="padding: 16px 24px; border-radius: 14px; background: #151A23; color: #ECEFF4; font-size: 17px; font-weight: 600; text-decoration: none">Discuss a similar project</a>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 48px 40px 0; box-sizing: border-box">
+<a href="#" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 32px; align-items: center; padding: 32px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 16px; font-weight: 500; color: var(--muted)">Next project</span><span style="font-size: 52px; line-height: 1; font-weight: 800; letter-spacing: -0.035em">Zera</span><span style="font-size: 18px; line-height: 1.5; color: var(--body)">A multi-vertical marketplace for goods, services, jobs, and events.</span></span>
+<span style="height: 220px; border-radius: 20px; background: #0B5E56; display: flex; align-items: flex-start; justify-content: center; padding-top: 28px; box-sizing: border-box; overflow: hidden"><span style="width: 140px; height: 260px; box-sizing: border-box; padding: 7px; border-radius: 26px; background: #0B0E13; display: flex"><span style="flex: 1; border-radius: 20px; background: #DDF3F0"></span></span></span>
+</a>
+</section>
+
+<dc-import name="Footer" hint-size="100%,780px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":5700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const theme = this.props.theme ?? 'dark';
+    return { themeClass: theme === 'light' ? 't-light' : 't-dark' };
+  }
+}
+</script>
+</body>
+</html>

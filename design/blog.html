@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Blog</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#151A23;font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.t-dark{--bg:#151A23;--surface:#1B212B;--surface2:#222936;--line:#2B3340;--text:#ECEFF4;--body:#C7CDD7;--muted:#A3ABB8;--accent:#7B98FF;--on-accent:#0E1530;--btn:#ECEFF4;--on-btn:#151A23;--btn2-line:#3A4352;--cta-bg:#ECEFF4;--cta-text:#151A23;--cta-muted:#4A515D;--cta-btn:#151A23;--cta-on-btn:#ECEFF4}
+.t-light{--bg:#E9ECF0;--surface:#FFFFFF;--surface2:#F3F5F8;--line:#CDD2DA;--text:#12151B;--body:#3E4450;--muted:#4A515D;--accent:#2B54E8;--on-accent:#FFFFFF;--btn:#12151B;--on-btn:#FFFFFF;--btn2-line:#C3C9D3;--cta-bg:#12151B;--cta-text:#FFFFFF;--cta-muted:#C5CAD3;--cta-btn:#FFFFFF;--cta-on-btn:#12151B}
+a{color:inherit}a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{text-wrap:pretty}
+.row:hover{background:var(--surface)}
+</style>
+</helmet>
+<div class="{{themeClass}}" style="min-height: 100vh; background: var(--bg); color: var(--text)">
+
+<header style="max-width: 1200px; margin: 0 auto; padding: 24px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" aria-label="Shahzaib Hassan, home" style="display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-mark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AB0FF"/><stop offset="1" stop-color="#4C6FFF"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="url(#lg-mark)"/><text x="31" y="43.5" text-anchor="middle" font-family="Schibsted Grotesk, sans-serif" font-size="33" font-weight="800" letter-spacing="-1.5" fill="#0E1530">sh</text><circle cx="52" cy="12" r="7" fill="#3DD68C" stroke-width="3" style="stroke: var(--bg)"/></svg><span>Shahzaib Hassan</span></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<a href="Work.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Work</a>
+<a href="Services.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">Services</a>
+<a href="About.dc.html" style="padding: 10px 14px; font-size: 15px; font-weight: 500; text-decoration: none">About</a>
+<a href="Writing.dc.html" aria-current="page" style="padding: 10px 14px; font-size: 15px; font-weight: 700; text-decoration: none; color: var(--accent)">Blog</a>
+<a href="Contact.dc.html" style="margin-left: 8px; padding: 12px 18px; border-radius: 12px; background: var(--btn); color: var(--on-btn); font-size: 15px; font-weight: 600; text-decoration: none">Discuss your app</a>
+</nav>
+</header>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<h1 style="margin: 0; font-size: clamp(64px, 10vw, 140px); line-height: 0.88; font-weight: 800; letter-spacing: -0.055em">Blog</h1>
+<p style="margin: 0; max-width: 34em; font-size: 22px; line-height: 1.5; color: var(--body)">Practical notes on the problems that show up in production Flutter apps: maps, real-time, payments, performance, and shipping to the stores.</p>
+<div role="group" aria-label="Filter by topic" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px">
+<button type="button" aria-pressed="true" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--text); background: var(--text); color: var(--bg); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">All</button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Maps and location</button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">UI and widgets</button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Real-time</button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Payments</button>
+<button type="button" aria-pressed="false" style="padding: 10px 16px; border-radius: 999px; border: 1px solid var(--btn2-line); background: transparent; color: var(--text); font: inherit; font-size: 15px; cursor: pointer">Performance</button>
+</div>
+</section>
+
+<section aria-label="Latest" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 28px">
+
+<a href="#" style="flex: 3 1 560px; border-radius: 32px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; text-decoration: none">
+<span style="height: 340px; display: block; background: radial-gradient(circle at 28% 42%, rgba(255,98,64,0.95) 0, rgba(255,170,64,0.6) 10%, transparent 22%), radial-gradient(circle at 62% 60%, rgba(255,120,64,0.9) 0, rgba(255,200,80,0.45) 9%, transparent 20%), radial-gradient(circle at 80% 26%, rgba(255,200,80,0.6) 0, transparent 12%), radial-gradient(circle at 44% 78%, rgba(255,150,70,0.5) 0, transparent 10%), repeating-linear-gradient(0deg, transparent 0 31px, rgba(255,255,255,0.05) 31px 32px), repeating-linear-gradient(90deg, transparent 0 31px, rgba(255,255,255,0.05) 31px 32px), #18212F"></span>
+<span style="padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 14px; color: var(--muted)"><span style="padding: 5px 10px; border-radius: 999px; background: var(--surface2); font-weight: 600">Maps and location</span><span>Playbook</span></span>
+<span style="font-size: 34px; line-height: 1.1; font-weight: 800; letter-spacing: -0.025em">How to add a heat map to Google Maps in Flutter</span>
+<span style="font-size: 17px; line-height: 1.6; color: var(--body)">The approach I used in Zera to show where marketplace demand clusters, without freezing the map when the data gets dense.</span>
+<span style="display: flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 16px; font-weight: 700; color: var(--accent)">Read the playbook<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+</span>
+</a>
+
+<a href="#" style="flex: 2 1 380px; border-radius: 32px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; text-decoration: none">
+<span style="height: 340px; background: #18212F; display: flex; align-items: center; justify-content: center; gap: 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 18px"><span style="padding: 14px 16px; border-radius: 12px; border: 1px dashed #4A5568; color: #F5A27A">&lt;svg/&gt;</span><svg width="36" height="18" viewBox="0 0 36 18" fill="none" stroke="#7B98FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9h30"/><path d="m26 3 6 6-6 6"/></svg><span style="padding: 14px 16px; border-radius: 12px; background: rgba(123,152,255,0.16); color: #A9BBFF">Widget()</span></span>
+<span style="padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 14px; color: var(--muted)"><span style="padding: 5px 10px; border-radius: 999px; background: var(--surface2); font-weight: 600">UI and widgets</span><span>Playbook</span></span>
+<span style="font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: -0.025em">From SVG to Flutter widget</span>
+<span style="font-size: 17px; line-height: 1.6; color: var(--body)">Turning a designer’s SVG into a clean, resizable Flutter widget.</span>
+<span style="display: flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 16px; font-weight: 700; color: var(--accent)">Read the playbook<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+</span>
+</a>
+</section>
+
+<section aria-labelledby="next-title" style="max-width: 1200px; margin: 0 auto; padding: 120px 40px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px">
+<h2 id="next-title" style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Coming next</h2>
+<p style="margin: 0; font-size: 16px; color: var(--muted)">Topics I’m writing up from real projects.</p>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid var(--line)">
+<div class="row" style="display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px"><span style="font-size: 14px; color: var(--muted)">Payments</span><span style="font-size: 20px; font-weight: 700">Handling subscriptions in Flutter with RevenueCat, without entitlement bugs</span></div>
+<div class="row" style="display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px"><span style="font-size: 14px; color: var(--muted)">Real-time</span><span style="font-size: 20px; font-weight: 700">Real-time chat in Flutter with Socket.IO: reconnects, background, and message order</span></div>
+<div class="row" style="display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px"><span style="font-size: 14px; color: var(--muted)">Performance</span><span style="font-size: 20px; font-weight: 700">Why your Flutter screen is slow, and how to find out for sure</span></div>
+<div class="row" style="display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; padding: 22px 16px; border-bottom: 1px solid var(--line); border-radius: 12px"><span style="font-size: 14px; color: var(--muted)">Codebases</span><span style="font-size: 20px; font-weight: 700">Taking over an existing Flutter app: the first two weeks</span></div>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 120px 40px 0; box-sizing: border-box">
+<div style="border-radius: 36px; background: var(--cta-bg); color: var(--cta-text); padding: 56px 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 620px"><h2 style="margin: 0; font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.03em">Dealing with one of these in your app?</h2><p style="margin: 0; font-size: 18px; line-height: 1.5; color: var(--cta-muted)">If an article describes your problem, I can probably fix it. Tell me what’s going on.</p></div>
+<a href="Contact.dc.html" style="padding: 16px 24px; border-radius: 14px; background: var(--cta-btn); color: var(--cta-on-btn); font-size: 17px; font-weight: 600; text-decoration: none">Get help with your app</a>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,780px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":3100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const theme = this.props.theme ?? 'dark';
+    return { themeClass: theme === 'light' ? 't-light' : 't-dark' };
+  }
+}
+</script>
+</body>
+</html>

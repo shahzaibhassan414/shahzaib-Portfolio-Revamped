@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
+/* Launch theme: dark. Full token list in CLAUDE.md. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #151a23;
+  --surface: #1b212b;
+  --surface-2: #222936;
+  --line: #2b3340;
+  --line-strong: #3a4352;
+  --text: #eceff4;
+  --body: #c7cdd7;
+  --muted: #a3abb8;
+  --accent: #7b98ff;
+  --on-accent: #0e1530;
+  --live: #3dd68c;
+  --cta-bg: #eceff4;
+  --cta-text: #151a23;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-live: var(--live);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
