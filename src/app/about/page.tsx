@@ -1,19 +1,21 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { CTAStrip } from "@/components/CTAStrip";
+import { JsonLd } from "@/components/JsonLd";
 import { Download } from "@/components/icons";
 import { ButtonLink, Chip } from "@/components/ui";
 import { experience } from "@/content/experience";
 import { primaryCta, site } from "@/content/site";
+import { pageMetadata, personSchema } from "@/lib/seo";
 
 // Copy: docs/copy-and-seo.md section 5. Layout: design/about.html.
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About Shahzaib Hassan, Senior Flutter Developer",
   description:
     "Four years building production Flutter apps at Code Encoders and Rex Technologies, and how I approach new and existing codebases.",
-};
+  path: "/about",
+});
 
 const facts = [
   { label: "Based in", value: "Pakistan (UTC+5)" },
@@ -87,9 +89,19 @@ function Heading({ children }: { children: ReactNode }) {
 
 export default function AboutPage() {
   const roles = [...experience].reverse();
+  const current = experience.find((r) => r.current);
 
   return (
     <>
+      <JsonLd
+        data={{
+          ...personSchema,
+          description: site.description,
+          ...(current && { worksFor: { "@type": "Organization", name: current.company } }),
+          homeLocation: { "@type": "Country", name: "Pakistan" },
+          knowsAbout: toolkit.flatMap((t) => t.items),
+        }}
+      />
       <section className="wrap flex flex-wrap items-center gap-16 pt-8 md:pt-16">
         <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
           <h1 className="text-[clamp(48px,6.6vw,92px)] leading-[0.98] font-extrabold tracking-[-0.045em]">

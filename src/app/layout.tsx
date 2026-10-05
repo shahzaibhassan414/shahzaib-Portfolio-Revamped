@@ -23,8 +23,13 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.role} for iOS and Android | ${site.name}`,
+  title: { default: `${site.role} for iOS and Android | ${site.name}`, template: `%s | ${site.name}` },
   description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: `${site.url}/about` }],
+  creator: site.name,
+  openGraph: { siteName: site.name, locale: "en_US", type: "website" },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

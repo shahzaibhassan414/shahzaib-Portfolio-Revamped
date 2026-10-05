@@ -1,20 +1,22 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAStrip } from "@/components/CTAStrip";
 import { ArrowRight } from "@/components/icons";
 import { FAQ } from "@/components/FAQ";
+import { JsonLd } from "@/components/JsonLd";
 import { serviceIcons, ServiceSteps } from "@/components/ServiceParts";
 import { ButtonLink, SectionTitle } from "@/components/ui";
-import { primaryCta } from "@/content/site";
+import { primaryCta, site } from "@/content/site";
 import { engagements, faq, faqOrder, services, specialistAreas } from "@/content/services";
+import { absoluteUrl, pageMetadata, personSchema } from "@/lib/seo";
 
 // Copy: docs/copy-and-seo.md section 6. Layout: design/services.html.
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Flutter App Development Services | Shahzaib Hassan",
   description:
     "New Flutter apps, rescues of struggling ones, and ongoing maintenance for iOS and Android. See which fits your situation.",
-};
+  path: "/services",
+});
 
 const situations = [
   { href: "#build", label: "There's no app yet" },
@@ -25,6 +27,34 @@ const situations = [
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@type": "ProfessionalService",
+          "@id": absoluteUrl("/services#service"),
+          name: `${site.name}, Flutter app development`,
+          description: metadata.description,
+          url: absoluteUrl("/services"),
+          image: absoluteUrl("/images/portrait.webp"),
+          email: site.email,
+          telephone: site.whatsappDisplay.replace(/ /g, ""),
+          address: { "@type": "PostalAddress", addressCountry: "PK" },
+          areaServed: "Worldwide",
+          founder: personSchema,
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Flutter services",
+            itemListElement: services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: s.label,
+                description: s.metaDescription,
+                url: absoluteUrl(s.href),
+              },
+            })),
+          },
+        }}
+      />
       <section className="wrap flex flex-col gap-7 pt-10 pb-12 md:pt-[72px] md:pb-16">
         <h1 className="max-w-[13em] text-[clamp(44px,6.4vw,88px)] leading-[0.98] font-extrabold tracking-[-0.045em]">
           Flutter app development, rescue, and maintenance

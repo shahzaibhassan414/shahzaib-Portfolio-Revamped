@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { CTAStrip } from "@/components/CTAStrip";
 import { ProjectIndex } from "@/components/ProjectIndex";
 import { FeaturedProject, ProjectTile } from "@/components/ProjectTile";
@@ -6,14 +5,16 @@ import { SectionTitle } from "@/components/ui";
 import { WorkFilter } from "@/components/WorkFilter";
 import { getProject, projectFilters, publishedProjects } from "@/content/projects";
 import { primaryCta } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
 // Copy: docs/copy-and-seo.md section 7. Layout: design/work.html.
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Flutter App Projects and Case Studies | Shahzaib Hassan",
   description:
     "Nine production Flutter apps: dating, marketplaces, Web3 commerce, and real-time systems, with the hard parts explained.",
-};
+  path: "/work",
+});
 
 const numberWords = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 

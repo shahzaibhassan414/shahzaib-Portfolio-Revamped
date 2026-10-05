@@ -3,12 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { CTAStrip } from "@/components/CTAStrip";
+import { JsonLd } from "@/components/JsonLd";
 import { ArrowLeft, ArrowUpRight } from "@/components/icons";
 import { PhoneFrame } from "@/components/PhoneFrame";
 import { ProjectMorph } from "@/components/ProjectMorph";
 import { SplitSection } from "@/components/SplitSection";
 import { caseStudies, isPlaceholder, type RichItem } from "@/content/case-studies";
 import { getProject, publishedProjects } from "@/content/projects";
+import { absoluteUrl, pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -21,7 +23,11 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
   const project = getProject(slug);
   const study = caseStudies[slug];
   if (!project || !study) return {};
-  return { title: study.h1, description: project.cardLine };
+  return pageMetadata({
+    title: study.seo?.title ?? study.h1,
+    description: study.seo?.description ?? project.cardLine,
+    path: `/work/${slug}`,
+  });
 }
 
 /** Renders a paragraph, or a muted placeholder when the text is still [to be supplied]. */
@@ -61,6 +67,16 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: project.name, path: `/work/${slug}` },
+          ].map((crumb, i) => ({ "@type": "ListItem", position: i + 1, name: crumb.name, item: absoluteUrl(crumb.path) })),
+        }}
+      />
       <section className="wrap flex flex-col gap-7 pt-6 pb-14 md:pt-10">
         <Link
           href="/work"

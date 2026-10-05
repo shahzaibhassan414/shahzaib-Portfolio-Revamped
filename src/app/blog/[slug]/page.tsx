@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CTAStrip } from "@/components/CTAStrip";
+import { JsonLd } from "@/components/JsonLd";
 import { ArrowLeft } from "@/components/icons";
 import { getPost, postCta, posts } from "@/content/blog/posts";
 import { getProject } from "@/content/projects";
 import { site } from "@/content/site";
+import { absoluteUrl, pageMetadata, personSchema } from "@/lib/seo";
 
 // Article layout for MDX posts in src/content/blog/<slug>.mdx.
 
@@ -19,11 +21,13 @@ export async function generateMetadata(props: PageProps<"/blog/[slug]">): Promis
   const { slug } = await props.params;
   const post = getPost(slug);
   if (!post) return {};
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.description,
-    openGraph: { type: "article", publishedTime: post.date },
-  };
+    path: `/blog/${slug}`,
+    type: "article",
+    publishedTime: post.date,
+  });
 }
 
 const dateFormat = new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
@@ -39,6 +43,17 @@ export default async function ArticlePage(props: PageProps<"/blog/[slug]">) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@type": "Article",
+          headline: post.title,
+          description: post.description,
+          datePublished: post.date,
+          author: personSchema,
+          image: absoluteUrl(`/blog/${slug}/opengraph-image`),
+          mainEntityOfPage: absoluteUrl(`/blog/${slug}`),
+        }}
+      />
       <article className="wrap flex flex-col pt-6 md:pt-10">
         <Link
           href="/blog"

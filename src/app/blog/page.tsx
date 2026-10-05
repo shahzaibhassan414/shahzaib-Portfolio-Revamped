@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import { BlogIndex, type BlogCard } from "@/components/BlogIndex";
 import { CTAStrip } from "@/components/CTAStrip";
 import { HeatMapVisual, SvgToWidgetVisual } from "@/components/PlaybookVisuals";
 import { comingNext, posts } from "@/content/blog/posts";
 import { playbooks } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
 // Layout: design/blog.html. The two playbooks still live on Notion and link out.
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Flutter Production Guides and Playbooks | Shahzaib Hassan",
   description:
     "Practical write-ups on real Flutter problems: maps, real-time chat, subscriptions, performance, and shipping to the stores.",
-};
+  path: "/blog",
+});
 
 const visuals = [<HeatMapVisual key="heat" />, <SvgToWidgetVisual key="svg" />];
 

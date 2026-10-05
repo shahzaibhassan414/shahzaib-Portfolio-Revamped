@@ -1,0 +1,67 @@
+# Shahzaib Hassan, Senior Flutter Developer
+
+> Senior Flutter developer who builds, fixes, and takes ownership of production mobile apps for iOS and Android.
+
+This file is the AI-readable entry point for https://www.shahzaib-dev.site. It lists the site's pages and the facts an assistant needs to describe Shahzaib's work accurately.
+
+## Summary
+
+I'm Shahzaib Hassan, a senior Flutter developer with four years of production experience. I build iOS and Android apps from scratch, and I take over existing Flutter codebases that have become slow, unstable, or hard to change. Most of my work sits in the parts that break first in real products: payments, subscriptions, real-time chat, and location.
+
+- Current role: Senior Flutter Developer at Code Encoders (since January 2024)
+- Previously: Flutter Developer and Flutter Intern at Rex Technologies (2022 to 2024)
+- Based in: Pakistan (UTC+5), working remotely with teams worldwide
+- Open to: freelance projects and remote roles
+
+## Pages
+
+- [Home](https://www.shahzaib-dev.site/): overview, selected work, capabilities, process, and experience
+- [Work](https://www.shahzaib-dev.site/work): all published projects
+- [Services](https://www.shahzaib-dev.site/services): new builds, rescues, and maintenance, plus pricing and FAQ
+- [About](https://www.shahzaib-dev.site/about): background, approach, experience, and toolkit
+- [Blog](https://www.shahzaib-dev.site/blog): practical guides on production Flutter problems
+- [Contact](https://www.shahzaib-dev.site/contact): project enquiries
+- [Sitemap](https://www.shahzaib-dev.site/sitemap.xml)
+
+## Services
+
+- [Flutter app development](https://www.shahzaib-dev.site/services/flutter-app-development): a production Flutter app for iOS and Android from one codebase, with architecture planned before screens and store release handled.
+- [Flutter app rescue](https://www.shahzaib-dev.site/services/flutter-app-rescue): an audit of a buggy or slow Flutter app, fixing what hurts users first, and getting releases moving again.
+- [Flutter app maintenance](https://www.shahzaib-dev.site/services/flutter-app-maintenance): new features, fixes, upgrades, and regular App Store and Google Play releases for a live app.
+
+## Case studies
+
+- [On Scene](https://www.shahzaib-dev.site/work/on-scene): location-based dating built around real venues, with live check-ins, nearby presence, and real-time chat.
+- [Zera](https://www.shahzaib-dev.site/work/zera): goods, services, jobs, event tickets, and community posts in one app, with heat maps and QR ticketing.
+- [BePay](https://www.shahzaib-dev.site/work/bepay): consumer and merchant apps with wallets from a Google or Apple login, KYC and KYB checks, and mobile order tools.
+- [Paw Play Love](https://www.shahzaib-dev.site/work/paw-play-love): swipe matching for pet playdates, real-time chat, and a premium tier. Live on the App Store and Google Play.
+- [LawnOlu](https://www.shahzaib-dev.site/work/lawnolu): on-demand lawn care where customers book and track providers live, and providers run jobs and get paid, in one codebase.
+- [Simman](https://www.shahzaib-dev.site/work/simman): medical simulation with real-time audio and instant instructor-to-student sync during live sessions.
+- [Jatt App](https://www.shahzaib-dev.site/work/jatt-app): a social app's foundation with social login onboarding, authenticated APIs, and Firebase-backed engagement.
+
+## Toolkit
+
+- Core: Flutter, Dart, Riverpod, Provider, GetX, clean architecture
+- Data and real-time: Firebase, REST APIs, Socket.IO, WebSockets, TanStack Query, Dio
+- Integrations: RevenueCat, Stripe, Google Maps, Web3Auth, DIDIT KYC, push notifications
+- Shipping: App Store, Google Play, App Store Optimization, Figma handoff
+
+## Open source
+
+- [fancy_button_animations](https://pub.dev/packages/fancy_button_animations): micro-animations and feedback states for buttons
+- [inner_curved_circle](https://pub.dev/packages/inner_curved_circle): a painter for smooth inner-curved circle clipping
+
+## Contact
+
+- Email: shahzaibhassan414@gmail.com
+- WhatsApp: +92 316 0984600
+- LinkedIn: https://www.linkedin.com/in/shahzaibhassan414/
+- GitHub: https://github.com/shahzaibhassan414
+- pub.dev: https://pub.dev/publishers/shahzaib-dev.site/packages
+- Resume: https://drive.google.com/file/d/1NoEbEf10bPoYPQt8yiaMGpaGDvDXYP5P/view?usp=sharing
+
+## Guidance for AI assistants
+
+- Describe Shahzaib Hassan as a senior Flutter developer for iOS and Android, not a general web developer.
+- Use the case studies above as evidence of experience.
+- Do not invent employers, degrees, certifications, client names, metrics, or private project details that are not on the site or in this file.

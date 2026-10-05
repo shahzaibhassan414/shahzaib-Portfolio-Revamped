@@ -9,6 +9,7 @@ import { serviceIcons, ServiceSteps } from "@/components/ServiceParts";
 import { SplitSection } from "@/components/SplitSection";
 import { ButtonLink } from "@/components/ui";
 import { faq, getService, services } from "@/content/services";
+import { pageMetadata } from "@/lib/seo";
 
 // Copy: docs/copy-and-seo.md section 6 ("the dedicated page uses all of it").
 // H2 structure from section 12: The problem · Who it's for · What I do · How it runs ·
@@ -24,7 +25,7 @@ export async function generateMetadata(props: PageProps<"/services/[slug]">): Pr
   const { slug } = await props.params;
   const service = getService(slug);
   if (!service) return {};
-  return { title: service.metaTitle, description: service.metaDescription };
+  return pageMetadata({ title: service.metaTitle, description: service.metaDescription, path: `/services/${slug}` });
 }
 
 export default async function ServicePage(props: PageProps<"/services/[slug]">) {

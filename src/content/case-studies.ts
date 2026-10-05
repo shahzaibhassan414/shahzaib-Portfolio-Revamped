@@ -36,6 +36,8 @@ export type CaseStudyCta = {
 export type FullCaseStudy = {
   kind: "full";
   h1: string;
+  /** SEO title and description from docs/copy-and-seo.md section 12. Falls back to h1 and the card line. */
+  seo?: { title: string; description: string };
   overview: string;
   placeholders?: { overview?: string };
   product: string[];
@@ -57,6 +59,8 @@ export type FullCaseStudy = {
 export type ShortCaseStudy = {
   kind: "short";
   h1: string;
+  /** SEO title and description from docs/copy-and-seo.md section 12. Falls back to h1 and the card line. */
+  seo?: { title: string; description: string };
   paragraphs: string[];
   stack: string;
   cta: CaseStudyCta;
@@ -88,6 +92,11 @@ export const caseStudies: Record<string, CaseStudy> = {
   "on-scene": {
     kind: "full",
     h1: "On Scene: a location-based dating app built in Flutter",
+    seo: {
+      title: "On Scene: Location-Based Dating App in Flutter",
+      description:
+        "How I built venue check-ins, live presence on Google Maps, real-time chat, and RevenueCat subscriptions for a dating app.",
+    },
     overview:
       "On Scene is a dating and social discovery app built around real places. Instead of endless swiping, people check in at venues, see who's nearby on a live map, chat in real time, and unlock premium features with a subscription. I was the main Flutter developer on the iOS and Android app.",
     placeholders: {
@@ -191,6 +200,11 @@ export const caseStudies: Record<string, CaseStudy> = {
   zera: {
     kind: "full",
     h1: "Zera: a multi-vertical marketplace app built in Flutter",
+    seo: {
+      title: "Zera: Building a Multi-Vertical Marketplace in Flutter",
+      description:
+        "Goods, services, jobs, tickets, and community in one Flutter app: how it stays fast with TanStack Query, heat maps, and QR flows.",
+    },
     overview:
       "Zera puts five products into one app: a marketplace for goods, a services directory, a jobs board, event ticketing, and a community feed. I was the main Flutter developer, responsible for the core mobile experience across all of those modules.",
     placeholders: {
@@ -287,6 +301,11 @@ export const caseStudies: Record<string, CaseStudy> = {
   bepay: {
     kind: "full",
     h1: "BePay: Web3 commerce apps for shoppers and merchants, built in Flutter",
+    seo: {
+      title: "BePay: Web3 Commerce Apps Built in Flutter",
+      description:
+        "Wallets from a Google login, KYC and KYB verification, and merchant tools: building two Web3 commerce apps in Flutter.",
+    },
     overview:
       "BePay is a Web3 commerce platform with two Flutter apps: BePay Client for shoppers and BePay Business for merchants. Shoppers pay with a crypto wallet created from a familiar Google or Apple login. Merchants verify their business and manage products and orders from their phone. I built the mobile side of both.",
     product: [

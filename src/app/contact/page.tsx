@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
 import { ContactForm, ContactFormWithParams } from "@/components/ContactForm";
 import { ArrowUpRight, Calendar, Mail, MessageCircle } from "@/components/icons";
 import { site } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
 // Copy: docs/copy-and-seo.md section 11. Layout: design/contact.html.
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Hire a Flutter Developer | Contact Shahzaib Hassan",
   description:
     "Tell me about your app: a new build, a rescue, or ongoing work. You'll hear back from me directly.",
-};
+  path: "/contact",
+});
 
 const steps = [
   "I read your message and reply with questions or a first take.",
