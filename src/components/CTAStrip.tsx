@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui";
 
 type CTAStripProps = {
   heading: string;
-  body: string;
+  body?: string;
   button: { href: string; label: string };
   link?: { href: string; label: string };
   avatar?: boolean;
@@ -30,7 +30,7 @@ export function CTAStrip({ heading, body, button, link, avatar, wide }: CTAStrip
             <h2 className="text-[clamp(30px,3.6vw,44px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
               {heading}
             </h2>
-            <p className="text-lg leading-normal text-cta-muted">{body}</p>
+            {body && <p className="text-lg leading-normal text-cta-muted">{body}</p>}
             {link && (
               <Link
                 href={link.href}

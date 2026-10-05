@@ -4,20 +4,37 @@ import type { ComponentProps, ReactNode } from "react";
 type ButtonVariant = "primary" | "secondary" | "cta" | "cta-secondary";
 
 const buttonStyles: Record<ButtonVariant, string> = {
-  primary: "bg-accent px-6 py-4 text-on-accent hover:opacity-90",
-  secondary: "border border-btn2-line bg-surface px-[23px] py-[15px] hover:text-accent",
-  cta: "bg-cta-btn px-6 py-4 text-cta-on-btn hover:opacity-90",
-  "cta-secondary": "border border-cta-btn2-line px-[23px] py-[15px] text-cta-text hover:opacity-75",
+  primary: "bg-accent text-on-accent hover:opacity-90",
+  secondary: "border border-btn2-line bg-surface hover:text-accent",
+  cta: "bg-cta-btn text-cta-on-btn hover:opacity-90",
+  "cta-secondary": "border border-cta-btn2-line text-cta-text hover:opacity-75",
+};
+
+// Outlined variants lose 1px of padding to the border so both kinds are the same size.
+const sizeStyles = {
+  md: { solid: "rounded-[14px] px-6 py-4 text-[17px]", outline: "rounded-[14px] px-[23px] py-[15px] text-[17px]" },
+  sm: { solid: "rounded-[14px] px-5 py-3.5 text-base", outline: "rounded-[14px] px-[19px] py-[13px] text-base" },
 };
 
 type ButtonLinkProps = Omit<ComponentProps<"a">, "href"> & {
   href: string;
   variant?: ButtonVariant;
+  size?: "md" | "sm";
 };
 
 /** Large rounded button link. Internal paths use next/link. */
-export function ButtonLink({ href, variant = "primary", className = "", children, ...props }: ButtonLinkProps) {
-  const classes = `inline-flex items-center justify-center rounded-[14px] text-[17px] font-semibold no-underline transition-[opacity,color] ${buttonStyles[variant]} ${className}`;
+export function ButtonLink({
+  href,
+  variant = "primary",
+  size = "md",
+  className = "",
+  children,
+  ...props
+}: ButtonLinkProps) {
+  const outline = variant === "secondary" || variant === "cta-secondary";
+  const classes = `inline-flex items-center justify-center font-semibold no-underline transition-[opacity,color] ${
+    sizeStyles[size][outline ? "outline" : "solid"]
+  } ${buttonStyles[variant]} ${className}`;
   if (href.startsWith("/")) {
     return (
       <Link href={href} className={classes} {...props}>

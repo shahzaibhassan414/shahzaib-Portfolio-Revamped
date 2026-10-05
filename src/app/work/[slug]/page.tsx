@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { ReactNode } from "react";
 import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { CTAStrip } from "@/components/CTAStrip";
 import { ArrowLeft, ArrowUpRight } from "@/components/icons";
 import { PhoneFrame } from "@/components/PhoneFrame";
+import { SplitSection } from "@/components/SplitSection";
 import { caseStudies, isPlaceholder, type RichItem } from "@/content/case-studies";
 import { getProject, publishedProjects } from "@/content/projects";
 
@@ -38,21 +38,6 @@ function Rich({ item }: { item: RichItem }) {
       <strong className="font-bold text-text">{item.title}</strong>{" "}
       {isPlaceholder(item.text) ? <span className="text-muted">{item.text}</span> : item.text}
     </p>
-  );
-}
-
-function Section({ title, children }: { title?: string; children: ReactNode }) {
-  return (
-    <section className="flex flex-wrap gap-x-16 gap-y-6">
-      {title ? (
-        <h2 className="flex-[0_1_280px] text-[26px] leading-[1.2] font-extrabold tracking-[-0.02em]">{title}</h2>
-      ) : (
-        <div className="hidden flex-[0_1_280px] md:block" />
-      )}
-      <div className="flex max-w-[720px] min-w-0 flex-[1_1_560px] flex-col gap-[18px] text-lg leading-[1.65] text-body md:text-[19px]">
-        {children}
-      </div>
-    </section>
   );
 }
 
@@ -181,22 +166,22 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
       <article className="wrap flex flex-col gap-16 pt-20 md:gap-[88px] md:pt-28">
         {study.kind === "full" ? (
           <>
-            <Section title="The product">
+            <SplitSection title="The product">
               {study.product.map((p) => (
                 <Para key={p}>{p}</Para>
               ))}
-            </Section>
-            <Section title="The problem">
+            </SplitSection>
+            <SplitSection title="The problem">
               {study.problem.map((p) => (
                 <Para key={p}>{p}</Para>
               ))}
-            </Section>
-            <Section title="My role">
+            </SplitSection>
+            <SplitSection title="My role">
               {study.role.map((p) => (
                 <Para key={p}>{p}</Para>
               ))}
-            </Section>
-            <Section title="What I built">
+            </SplitSection>
+            <SplitSection title="What I built">
               {study.built.map((group, g) => (
                 <div key={g} className="flex flex-col gap-2">
                   {group.group && <h3 className="pt-2 text-[19px] font-bold text-text">{group.group}</h3>}
@@ -209,18 +194,18 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                   </ul>
                 </div>
               ))}
-            </Section>
+            </SplitSection>
             {study.diagram && (
-              <Section title="Architecture">
+              <SplitSection title="Architecture">
                 <ArchitectureDiagram diagram={study.diagram} />
-              </Section>
+              </SplitSection>
             )}
-            <Section title="Technical challenges">
+            <SplitSection title="Technical challenges">
               {study.challenges.map((item) => (
                 <Rich key={item.text} item={item} />
               ))}
-            </Section>
-            <Section title="Important engineering decisions">
+            </SplitSection>
+            <SplitSection title="Important engineering decisions">
               <ol className="flex flex-col gap-7">
                 {study.decisions.map((item, i) => (
                   <li key={item.text} className="grid grid-cols-[40px_1fr] gap-2">
@@ -232,11 +217,11 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                   </li>
                 ))}
               </ol>
-            </Section>
-            <Section title="Technology stack">
+            </SplitSection>
+            <SplitSection title="Technology stack">
               <Para>{study.stack}</Para>
-            </Section>
-            <Section title="Outcome">
+            </SplitSection>
+            <SplitSection title="Outcome">
               {study.results && (
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(min(200px,100%),1fr))] gap-4">
                   {study.results.map((r, i) => (
@@ -253,8 +238,8 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
               {study.outcome.map((p) => (
                 <Para key={p}>{p}</Para>
               ))}
-            </Section>
-            <Section title="What I learned">
+            </SplitSection>
+            <SplitSection title="What I learned">
               {study.learned.map((p) => (
                 <Para key={p}>{p}</Para>
               ))}
@@ -267,18 +252,18 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                   {study.learnedLink.after}
                 </p>
               )}
-            </Section>
+            </SplitSection>
           </>
         ) : (
           <>
-            <Section>
+            <SplitSection>
               {study.paragraphs.map((p) => (
                 <Para key={p}>{p}</Para>
               ))}
-            </Section>
-            <Section title="Stack">
+            </SplitSection>
+            <SplitSection title="Stack">
               <Para>{study.stack}</Para>
-            </Section>
+            </SplitSection>
           </>
         )}
       </article>
