@@ -5,6 +5,7 @@ import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { CTAStrip } from "@/components/CTAStrip";
 import { JsonLd } from "@/components/JsonLd";
 import { ArrowLeft, ArrowUpRight } from "@/components/icons";
+import { HeroPhonesScroll } from "@/components/HeroPhonesScroll";
 import { PhoneFrame } from "@/components/PhoneFrame";
 import { ProjectMorph } from "@/components/ProjectMorph";
 import { SplitSection } from "@/components/SplitSection";
@@ -169,17 +170,20 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
           >
             <div className="absolute inset-x-0 top-8 flex origin-top scale-[0.62] justify-center sm:scale-[0.8] md:top-16 md:scale-100">
               {project.screens.slice(0, 3).map((screen, i) => (
-                <PhoneFrame
-                  key={i}
-                  screen={{ ...screen, label: `Screen: ${screen.label.toLowerCase()}` }}
-                  tint={project.tint}
-                  width={260}
-                  sizes="(min-width: 768px) 260px, 160px"
-                  eager
-                  className={fan[i]}
-                />
+                // The wrapper is what scrolls (HeroPhonesScroll); the phone keeps its tilt.
+                <span key={i} data-hero-phone className={`inline-flex ${i === 1 ? "relative z-[1]" : ""}`}>
+                  <PhoneFrame
+                    screen={{ ...screen, label: `Screen: ${screen.label.toLowerCase()}` }}
+                    tint={project.tint}
+                    width={260}
+                    sizes="(min-width: 768px) 260px, 160px"
+                    eager
+                    className={fan[i]}
+                  />
+                </span>
               ))}
             </div>
+            <HeroPhonesScroll />
           </div>
         </ProjectMorph>
       </div>
