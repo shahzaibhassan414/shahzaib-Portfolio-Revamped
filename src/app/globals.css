@@ -2,7 +2,7 @@
 
 /*
  * Launch theme: dark. Every color lives in a variable so a light theme can be
- * added later without touching components. Full token list in CLAUDE.md.
+ * added later without touching components.
  */
 :root {
   --bg: #151a23;

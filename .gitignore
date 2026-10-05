@@ -43,3 +43,8 @@ next-env.d.ts
 
 # Source mockups from the old site (re-download with scripts/fetch-legacy-assets.mjs)
 public/work/*/legacy-*
+
+# Local working notes (never committed)
+CLAUDE.md
+AGENTS.md
+.claude/

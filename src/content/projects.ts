@@ -1,4 +1,4 @@
-// Project data. Card lines come from docs/copy-and-seo.md section 7, colors from CLAUDE.md
+// Project data. Card lines come from docs/copy-and-seo.md section 7, colors from the design files
 // and design/home.html. The homepage capability matrix is generated from `capabilities`,
 // so only list what the project actually has.
 
