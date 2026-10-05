@@ -127,8 +127,8 @@ export const caseStudies: Record<string, CaseStudy> = {
           },
           { title: "Matching", text: "between people at or near the same venues" },
           {
-            title: "Safety controls:",
-            text: "[What users can do, such as block, report, or hide their location.]",
+            title: "Safety controls",
+            text: "with blocking and reporting, plus settings for who people interact with and what location information they share",
           },
           { title: "Premium subscriptions", text: "through RevenueCat across the App Store and Google Play" },
         ],
@@ -155,9 +155,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Keeping a busy map smooth.",
         text: "Map screens get slow quickly when markers, location updates, and socket events all arrive at once. Every presence update can trigger a rebuild, and a naive approach redraws the entire map for each one. I structured the location and real-time logic so the map stayed responsive as activity changed around the user.",
-      },
-      {
-        text: "[The specifics. For example, did you batch marker updates, throttle location events, cluster markers, or limit which widgets rebuild? One concrete technique makes this section far more convincing.]",
       },
       {
         title: "Presence that stays accurate.",
