@@ -6,11 +6,9 @@ import { useEffect, useRef } from "react";
 // - Fit: splitting into letters loses kerning, so the text is sized to fill the available
 //   width exactly (on load and on resize) and never runs past the edge.
 // - Reveal: each letter rises from behind a mask with a slight alternating tilt and fades
-//   up, one after another, in step with the scroll (reversing on the way back up).
+//   up, one after another, whenever the name comes into view.
 // - Hover (desktop): a letter lifts and lights up in the accent under the pointer.
-// Decorative: hidden from screen readers. Static with reduced motion or before any scroll.
-
-const INTERACTIONS = ["scroll", "wheel", "touchstart", "keydown", "pointerdown"] as const;
+// Decorative: hidden from screen readers. Static with reduced motion.
 
 export function FooterWordmark({ text }: { text: string }) {
   const lineRef = useRef<HTMLDivElement>(null);
@@ -37,7 +35,8 @@ export function FooterWordmark({ text }: { text: string }) {
     return () => ro.disconnect();
   }, []);
 
-  // Scroll reveal.
+  // Reveal: plays whenever the name comes into view (including right after a reload at the
+  // bottom of the page), and resets when it leaves so it plays again next time.
   useEffect(() => {
     const line = lineRef.current;
     if (!line || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -45,39 +44,48 @@ export function FooterWordmark({ text }: { text: string }) {
     let cleanup: (() => void) | undefined;
 
     const animate = async () => {
-      if (line.getBoundingClientRect().top < window.innerHeight) return; // already in view: leave it
       const [{ gsap }, { ScrollTrigger }] = await Promise.all([import("gsap"), import("gsap/ScrollTrigger")]);
       if (cancelled) return;
       gsap.registerPlugin(ScrollTrigger);
       const ctx = gsap.context(() => {
-        gsap.from(line.querySelectorAll("[data-letter]"), {
-          yPercent: 115,
-          rotate: (i: number) => (i % 2 ? 9 : -9),
-          opacity: 0.15,
-          transformOrigin: "50% 100%",
-          ease: "power3.out",
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: line.closest("footer") ?? line,
-            start: "top 85%",
-            end: "bottom bottom",
-            scrub: 0.6,
+        const reveal = gsap.fromTo(
+          line.querySelectorAll("[data-letter]"),
+          { yPercent: 115, rotate: (i: number) => (i % 2 ? 10 : -10), opacity: 0 },
+          {
+            yPercent: 0,
+            rotate: 0,
+            opacity: 1,
+            transformOrigin: "50% 100%",
+            duration: 1.1,
+            ease: "expo.out",
+            stagger: 0.045,
+            paused: true,
           },
+        );
+        ScrollTrigger.create({
+          trigger: line,
+          start: "top bottom-=40",
+          onEnter: () => reveal.restart(),
+          onLeaveBack: () => reveal.pause(0),
         });
       });
       cleanup = () => ctx.revert();
     };
 
-    const stopWaiting = () => INTERACTIONS.forEach((e) => window.removeEventListener(e, start));
-    function start() {
-      stopWaiting();
-      animate();
-    }
-    INTERACTIONS.forEach((e) => window.addEventListener(e, start, { passive: true }));
+    // Load GSAP as the footer approaches (it's far below the fold, so this costs nothing up top).
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        animate();
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(line);
 
     return () => {
       cancelled = true;
-      stopWaiting();
+      io.disconnect();
       cleanup?.();
     };
   }, []);
