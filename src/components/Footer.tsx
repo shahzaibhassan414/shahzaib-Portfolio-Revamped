@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FooterWordmark } from "@/components/FooterWordmark";
 import { Logo } from "@/components/Logo";
 import { footerNav, site } from "@/content/site";
 
@@ -62,12 +63,7 @@ export function Footer() {
         </nav>
       </div>
 
-      <div
-        aria-hidden="true"
-        className="mx-auto mt-16 max-w-[1280px] bg-[linear-gradient(180deg,var(--surface-2)_0%,transparent_95%)] bg-clip-text px-5 text-[clamp(40px,11.4vw,168px)] leading-[0.8] font-extrabold tracking-[-0.06em] whitespace-nowrap text-transparent select-none md:px-7"
-      >
-        {site.name}
-      </div>
+      <FooterWordmark text={site.name} />
 
       <div className="border-t border-line">
         <div className="wrap-wide flex flex-wrap items-center justify-between gap-4 pt-[22px] pb-7 text-sm text-muted">
