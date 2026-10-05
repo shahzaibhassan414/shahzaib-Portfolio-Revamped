@@ -265,3 +265,44 @@
     transform: none;
   }
 }
+
+/* Work page tiles: lift on hover, outer phones fan out. Transform only. */
+.tile {
+  transition: transform 0.5s var(--ease-spring);
+}
+.tile:hover {
+  transform: translateY(-4px);
+}
+.tile .ph1,
+.tile .ph3 {
+  transform: rotate(var(--r)) translate(var(--tx), var(--ty));
+  transition: transform 0.6s var(--ease-spring);
+}
+.tile:hover .ph1 {
+  transform: rotate(-11deg) translate(-6px, 18px);
+}
+.tile:hover .ph3 {
+  transform: rotate(11deg) translate(6px, 18px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .tile .ph1,
+  .tile .ph3 {
+    transition: none;
+  }
+}
+
+/* Work page filter: hide projects outside the selected category. */
+[data-filter="social"] [data-cat]:not([data-cat="social"]),
+[data-filter="marketplace"] [data-cat]:not([data-cat="marketplace"]),
+[data-filter="fintech"] [data-cat]:not([data-cat="fintech"]),
+[data-filter="realtime"] [data-cat]:not([data-cat="realtime"]) {
+  display: none;
+}
+
+/* Dotted texture on project panels */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.5;
+}
