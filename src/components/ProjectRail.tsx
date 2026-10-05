@@ -48,17 +48,20 @@ export function ProjectRail({ header, trailing, label, children }: ProjectRailPr
             parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 88;
           // Centre the block in the space below the sticky header, or sit just under it.
           const pinTop = () => Math.max(headerH() + 16, (window.innerHeight + headerH() - pin.offsetHeight) / 2);
-          // Shrink the phone panels so a whole card fits in the window while pinned.
+          // Size the phone panels to the window while pinned: the card fills the space below
+          // the heading, and the phones get the largest scale that fits the panel both ways.
           const fit = () => {
             rail.style.removeProperty("--panel-h");
             rail.style.removeProperty("--phone-scale");
             const panel = rail.querySelector<HTMLElement>("[data-panel]");
-            if (!panel) return;
-            const natural = panel.offsetHeight;
-            const room = window.innerHeight - headerH() - 32;
-            const height = Math.max(140, Math.min(natural, natural - (pin.offsetHeight - room)));
+            const heading = pin.firstElementChild as HTMLElement | null;
+            if (!panel || !heading) return;
+            // heading gap 32, rail padding 8 + 24, card padding 56, 16 clear at the bottom
+            const room = window.innerHeight - (headerH() + 16) - heading.offsetHeight - 32 - 32 - 56 - 16;
+            const height = Math.max(260, Math.min(560, room));
+            const scale = Math.min((height - 48) / 478, (panel.offsetWidth - 32) / 578, 1);
             rail.style.setProperty("--panel-h", `${height}px`);
-            rail.style.setProperty("--phone-scale", String(height / natural));
+            rail.style.setProperty("--phone-scale", String(scale));
           };
           rail.dataset.pinned = "true";
           fit();
