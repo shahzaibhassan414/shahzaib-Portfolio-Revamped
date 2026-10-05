@@ -175,6 +175,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                   tint={project.tint}
                   width={260}
                   sizes="(min-width: 768px) 260px, 160px"
+                  eager
                   className={fan[i]}
                 />
               ))}
