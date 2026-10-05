@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Work */}
-      <section id="work" aria-labelledby="work-title" className={`flex flex-col gap-8 ${sectionGap}`}>
+      <section id="work" aria-labelledby="work-title" className={sectionGap}>
         <ProjectRail
           label="Projects"
           header={

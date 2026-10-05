@@ -367,3 +367,10 @@
     animation-delay: 0s !important;
   }
 }
+
+/* Pinned project rail: on short windows, drop the tag chips so the whole card fits. */
+@media (max-height: 820px) {
+  [data-pinned="true"] [data-tags] {
+    display: none;
+  }
+}

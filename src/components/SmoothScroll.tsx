@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { setLenis } from "@/lib/scroll";
 
 /**
  * Lenis smooth scrolling on desktop pointers only. Touch devices and reduced-motion users
@@ -12,7 +13,7 @@ export function SmoothScroll() {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     if (reduce || !finePointer) return;
 
-    let lenis: { destroy: () => void } | undefined;
+    let lenis: InstanceType<typeof import("lenis").default> | undefined;
     let cancelled = false;
 
     import("lenis").then(({ default: Lenis }) => {
@@ -26,10 +27,12 @@ export function SmoothScroll() {
         allowNestedScroll: true,
         prevent: (node) => node.closest("dialog") !== null,
       });
+      setLenis(lenis);
     });
 
     return () => {
       cancelled = true;
+      setLenis(undefined);
       lenis?.destroy();
     };
   }, []);

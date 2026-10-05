@@ -60,10 +60,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           href={href}
           tabIndex={-1}
           aria-hidden="true"
-          className="group relative block h-[280px] overflow-hidden rounded-[20px] md:h-[420px]"
+          data-panel
+          className="group relative block h-[280px] overflow-hidden rounded-[20px] md:h-[var(--panel-h,420px)]"
           style={{ background: project.tint.panel }}
         >
-          <span className="absolute inset-x-0 top-7 flex origin-top scale-[0.6] justify-center sm:scale-[0.75] md:top-11 md:scale-100">
+          <span className="absolute inset-x-0 top-7 flex origin-top scale-[0.6] justify-center sm:scale-[0.75] md:top-11 md:scale-[var(--phone-scale,1)]">
             {project.screens.slice(0, 3).map((screen, i) => (
               <PhoneFrame
                 key={i}
@@ -80,7 +81,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </Link>
       </ProjectMorph>
 
-      <div className="flex flex-wrap gap-2">
+      <div data-tags className="flex flex-wrap gap-2">
         {project.tags.map((tag) => (
           <Chip key={tag}>{tag}</Chip>
         ))}
