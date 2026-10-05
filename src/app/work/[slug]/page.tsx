@@ -5,6 +5,7 @@ import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { CTAStrip } from "@/components/CTAStrip";
 import { ArrowLeft, ArrowUpRight } from "@/components/icons";
 import { PhoneFrame } from "@/components/PhoneFrame";
+import { ProjectMorph } from "@/components/ProjectMorph";
 import { SplitSection } from "@/components/SplitSection";
 import { caseStudies, isPlaceholder, type RichItem } from "@/content/case-studies";
 import { getProject, publishedProjects } from "@/content/projects";
@@ -144,23 +145,25 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
       </section>
 
       <div className="wrap">
-        <div
-          className="relative h-[380px] overflow-hidden rounded-[28px] md:h-[600px] md:rounded-[32px]"
-          style={{ background: project.tint.panel }}
-        >
-          <div className="absolute inset-x-0 top-8 flex origin-top scale-[0.62] justify-center sm:scale-[0.8] md:top-16 md:scale-100">
-            {project.screens.slice(0, 3).map((screen, i) => (
-              <PhoneFrame
-                key={i}
-                screen={{ ...screen, label: `Screen: ${screen.label.toLowerCase()}` }}
-                tint={project.tint}
-                width={260}
-                sizes="(min-width: 768px) 260px, 160px"
-                className={fan[i]}
-              />
-            ))}
+        <ProjectMorph slug={project.slug}>
+          <div
+            className="relative h-[380px] overflow-hidden rounded-[28px] md:h-[600px] md:rounded-[32px]"
+            style={{ background: project.tint.panel }}
+          >
+            <div className="absolute inset-x-0 top-8 flex origin-top scale-[0.62] justify-center sm:scale-[0.8] md:top-16 md:scale-100">
+              {project.screens.slice(0, 3).map((screen, i) => (
+                <PhoneFrame
+                  key={i}
+                  screen={{ ...screen, label: `Screen: ${screen.label.toLowerCase()}` }}
+                  tint={project.tint}
+                  width={260}
+                  sizes="(min-width: 768px) 260px, 160px"
+                  className={fan[i]}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </ProjectMorph>
       </div>
 
       <article className="wrap flex flex-col gap-16 pt-20 md:gap-[88px] md:pt-28">
@@ -288,15 +291,17 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             </span>
             <span className="text-lg leading-normal text-body">{next.cardLine}</span>
           </span>
-          <span
-            aria-hidden="true"
-            className="flex h-[220px] items-start justify-center overflow-hidden rounded-[20px] pt-7"
-            style={{ background: next.tint.panel }}
-          >
-            <span className="flex h-[260px] w-[140px] rounded-[26px] bg-[#0B0E13] p-[7px]">
-              <span className="flex-1 rounded-[20px]" style={{ background: next.tint.screen }} />
+          <ProjectMorph slug={next.slug}>
+            <span
+              aria-hidden="true"
+              className="flex h-[220px] items-start justify-center overflow-hidden rounded-[20px] pt-7"
+              style={{ background: next.tint.panel }}
+            >
+              <span className="flex h-[260px] w-[140px] rounded-[26px] bg-[#0B0E13] p-[7px]">
+                <span className="flex-1 rounded-[20px]" style={{ background: next.tint.screen }} />
+              </span>
             </span>
-          </span>
+          </ProjectMorph>
         </Link>
       </section>
     </>

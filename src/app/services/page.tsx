@@ -54,7 +54,7 @@ export default function ServicesPage() {
               key={service.id}
               id={service.id}
               aria-labelledby={`${service.id}-title`}
-              className="flex scroll-mt-[calc(var(--header-h)+16px)] flex-wrap gap-12 rounded-[28px] border border-line bg-surface p-6 md:rounded-[32px] md:p-12"
+              className="flex scroll-mt-4 flex-wrap gap-12 rounded-[28px] border border-line bg-surface p-6 md:rounded-[32px] md:p-12"
             >
               <div className="flex flex-[1_1_380px] flex-col gap-[18px]">
                 <span
@@ -107,7 +107,7 @@ export default function ServicesPage() {
             <div
               key={area.id}
               id={area.id}
-              className="flex scroll-mt-[calc(var(--header-h)+16px)] flex-col gap-3.5 rounded-3xl border border-line bg-surface p-6 md:p-8"
+              className="flex scroll-mt-4 flex-col gap-3.5 rounded-3xl border border-line bg-surface p-6 md:p-8"
             >
               <h3 className="text-[22px] font-bold">{area.title}</h3>
               <p className="text-base leading-[1.6] text-body">{area.body}</p>

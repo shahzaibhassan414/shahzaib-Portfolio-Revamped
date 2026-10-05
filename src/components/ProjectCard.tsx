@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "@/components/icons";
 import { PhoneFrame } from "@/components/PhoneFrame";
+import { ProjectMorph } from "@/components/ProjectMorph";
 import { Chip } from "@/components/ui";
 import type { Project } from "@/content/projects";
 
@@ -54,28 +55,30 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
 
       <p className="text-[17px] leading-[1.55] text-body md:text-[19px]">{project.cardLine}</p>
 
-      <Link
-        href={href}
-        tabIndex={-1}
-        aria-hidden="true"
-        className="group relative block h-[280px] overflow-hidden rounded-[20px] md:h-[420px]"
-        style={{ background: project.tint.panel }}
-      >
-        <span className="absolute inset-x-0 top-7 flex origin-top scale-[0.6] justify-center sm:scale-[0.75] md:top-11 md:scale-100">
-          {project.screens.slice(0, 3).map((screen, i) => (
-            <PhoneFrame
-              key={i}
-              screen={screen}
-              tint={project.tint}
-              className={`transition-transform duration-500 ease-spring motion-reduce:transition-none ${fan[i]}`}
-            />
-          ))}
-        </span>
-        <span className="absolute bottom-6 left-1/2 z-[2] flex -translate-x-1/2 items-center gap-2.5 rounded-full bg-[rgba(11,14,19,0.88)] py-3 pr-[18px] pl-5 text-[15px] font-semibold whitespace-nowrap text-white shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.1)]">
-          {isFlagship ? "Read the case study" : "View project"}
-          <ArrowUpRight size={16} strokeWidth={2.2} />
-        </span>
-      </Link>
+      <ProjectMorph slug={project.slug}>
+        <Link
+          href={href}
+          tabIndex={-1}
+          aria-hidden="true"
+          className="group relative block h-[280px] overflow-hidden rounded-[20px] md:h-[420px]"
+          style={{ background: project.tint.panel }}
+        >
+          <span className="absolute inset-x-0 top-7 flex origin-top scale-[0.6] justify-center sm:scale-[0.75] md:top-11 md:scale-100">
+            {project.screens.slice(0, 3).map((screen, i) => (
+              <PhoneFrame
+                key={i}
+                screen={screen}
+                tint={project.tint}
+                className={`transition-transform duration-500 ease-spring motion-reduce:transition-none ${fan[i]}`}
+              />
+            ))}
+          </span>
+          <span className="absolute bottom-6 left-1/2 z-[2] flex -translate-x-1/2 items-center gap-2.5 rounded-full bg-[rgba(11,14,19,0.88)] py-3 pr-[18px] pl-5 text-[15px] font-semibold whitespace-nowrap text-white shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.1)]">
+            {isFlagship ? "Read the case study" : "View project"}
+            <ArrowUpRight size={16} strokeWidth={2.2} />
+          </span>
+        </Link>
+      </ProjectMorph>
 
       <div className="flex flex-wrap gap-2">
         {project.tags.map((tag) => (

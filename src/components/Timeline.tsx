@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Check } from "@/components/icons";
+import { TimelineFill } from "@/components/TimelineFill";
 import { Chip } from "@/components/ui";
 import type { Role } from "@/content/experience";
 
@@ -8,10 +9,7 @@ export function Timeline({ roles, nowLabel }: { roles: Role[]; nowLabel: string 
   return (
     <div className="relative flex flex-col gap-10 pl-10 md:pl-16">
       <span aria-hidden="true" className="absolute top-2 bottom-2 left-[7px] w-0.5 rounded-sm bg-line md:left-[15px]" />
-      <span
-        aria-hidden="true"
-        className="timeline-fill absolute top-2 bottom-2 left-[7px] w-0.5 rounded-sm bg-[linear-gradient(var(--accent),var(--live))] md:left-[15px]"
-      />
+      <TimelineFill className="absolute top-2 bottom-2 left-[7px] w-0.5 rounded-sm bg-[linear-gradient(var(--accent),var(--live))] md:left-[15px]" />
 
       {roles.map((role) => (
         <Fragment key={`${role.title}-${role.company}`}>

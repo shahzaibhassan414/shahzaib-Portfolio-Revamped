@@ -1,9 +1,14 @@
+import type { CSSProperties } from "react";
+import { DrawIn } from "@/components/DrawIn";
 import type { Diagram } from "@/content/case-studies";
 
-function Connector({ label, accent }: { label: string; accent?: boolean }) {
+function Connector({ label, accent, index }: { label: string; accent?: boolean; index: number }) {
   const color = accent ? "var(--accent)" : "var(--arrow)";
   return (
-    <div className="relative flex h-full flex-col items-center justify-center gap-1 py-2 md:py-0">
+    <div
+      className="relative flex h-full flex-col items-center justify-center gap-1 py-2 md:py-0"
+      style={{ "--i": index } as CSSProperties}
+    >
       <span
         className={`font-mono text-[13px] leading-4 ${accent ? "text-accent" : "text-muted"} md:absolute md:top-1`}
       >
@@ -11,19 +16,19 @@ function Connector({ label, accent }: { label: string; accent?: boolean }) {
       </span>
       {/* Horizontal arrow on desktop, vertical on mobile. Lines draw in during the motion pass. */}
       <svg
-        className="diagram-line hidden h-2 w-full overflow-visible md:block"
+        className="diagram-line-h hidden h-2 w-full overflow-visible md:block"
         viewBox="0 0 100 8"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
         <line x1="0" y1="4" x2="100" y2="4" stroke={color} strokeWidth="2" vectorEffect="non-scaling-stroke" />
       </svg>
-      <svg className="diagram-line h-6 w-2 overflow-visible md:hidden" viewBox="0 0 8 24" aria-hidden="true">
+      <svg className="diagram-line-v h-6 w-2 overflow-visible md:hidden" viewBox="0 0 8 24" aria-hidden="true">
         <line x1="4" y1="0" x2="4" y2="18" stroke={color} strokeWidth="2" strokeLinecap="round" />
         <path d="M0 16 L4 24 L8 16 Z" fill={color} />
       </svg>
       <svg
-        className="absolute top-1/2 right-0 hidden -translate-y-1/2 md:block"
+        className="diagram-head absolute top-1/2 right-0 hidden -translate-y-1/2 md:block"
         width="8"
         height="10"
         viewBox="0 0 8 10"
@@ -39,7 +44,7 @@ function Connector({ label, accent }: { label: string; accent?: boolean }) {
 export function ArchitectureDiagram({ diagram }: { diagram: Diagram }) {
   return (
     <figure className="flex flex-col gap-4">
-      <div className="rounded-3xl border border-line bg-surface p-4 md:p-6">
+      <DrawIn className="rounded-3xl border border-line bg-surface p-4 md:p-6">
         <div className="relative grid grid-cols-1 gap-x-0 md:grid-cols-[232px_1fr_232px]">
           {/* Band behind the app column */}
           <div
@@ -60,7 +65,7 @@ export function ArchitectureDiagram({ diagram }: { diagram: Diagram }) {
                 {row.app}
               </div>
               <div className={`relative md:h-16 md:self-start ${i > 0 ? "md:mt-8" : ""}`}>
-                <Connector label={row.flow} accent={row.accent} />
+                <Connector label={row.flow} accent={row.accent} index={i} />
               </div>
               <div className={`flex flex-col ${i > 0 ? "md:mt-8" : ""}`}>
                 <div
@@ -72,8 +77,8 @@ export function ArchitectureDiagram({ diagram }: { diagram: Diagram }) {
                 </div>
                 {row.below && (
                   <>
-                    <div className="flex justify-center py-1">
-                      <svg className="diagram-line h-12 w-2 overflow-visible" viewBox="0 0 8 48" aria-hidden="true">
+                    <div className="flex justify-center py-1" style={{ "--i": i + 1 } as CSSProperties}>
+                      <svg className="diagram-line-v h-12 w-2 overflow-visible" viewBox="0 0 8 48" aria-hidden="true">
                         <line x1="4" y1="0" x2="4" y2="42" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
                         <path d="M0 40 L4 48 L8 40 Z" fill="var(--accent)" />
                       </svg>
@@ -87,7 +92,7 @@ export function ArchitectureDiagram({ diagram }: { diagram: Diagram }) {
             </div>
           ))}
         </div>
-      </div>
+      </DrawIn>
       <figcaption className="text-[15px] leading-normal text-muted">{diagram.caption}</figcaption>
     </figure>
   );

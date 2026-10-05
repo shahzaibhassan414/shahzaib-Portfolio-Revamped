@@ -140,8 +140,9 @@
   }
 }
 
+/* Native smooth anchor scrolling, except where Lenis is running (it handles anchors itself). */
 @media (prefers-reduced-motion: no-preference) {
-  html {
+  html:not(.lenis) {
     scroll-behavior: smooth;
   }
 }
@@ -305,4 +306,64 @@
   background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 22px 22px;
   opacity: 0.5;
+}
+
+/* Architecture diagram: connector lines draw in once (see DrawIn.tsx). */
+.diagram-line-h,
+.diagram-line-v,
+.diagram-head {
+  transition:
+    transform 0.7s var(--ease-spring),
+    opacity 0.3s ease;
+  transition-delay: calc(var(--i, 0) * 120ms);
+}
+.diagram-line-h {
+  transform-origin: left center;
+}
+.diagram-line-v {
+  transform-origin: top center;
+}
+.diagram-head {
+  transition-delay: calc(var(--i, 0) * 120ms + 450ms);
+}
+[data-draw="pending"] .diagram-line-h {
+  transform: scaleX(0);
+}
+[data-draw="pending"] .diagram-line-v {
+  transform: scaleY(0);
+}
+[data-draw="pending"] .diagram-head {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .diagram-line-h,
+  .diagram-line-v,
+  .diagram-head {
+    transition: none;
+  }
+}
+
+/* View transitions: a project's panel morphs into the case-study header. */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(.morph) {
+  animation-duration: 450ms;
+  animation-timing-function: var(--ease-spring);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  30% {
+    filter: blur(3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
 }
