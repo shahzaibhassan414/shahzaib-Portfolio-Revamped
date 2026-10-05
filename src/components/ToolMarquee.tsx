@@ -47,8 +47,8 @@ export function ToolMarquee({ items }: { items: string[] }) {
         const [a, b] = root.querySelectorAll<HTMLElement>("[data-marquee-row]");
         // Row a moves left, row b moves right; both loop.
         const loops = [
-          gsap.to(a, { xPercent: -50, duration: 38, ease: "none", repeat: -1 }),
-          gsap.fromTo(b, { xPercent: -50 }, { xPercent: 0, duration: 42, ease: "none", repeat: -1 }),
+          gsap.to(a, { xPercent: -50, duration: 90, ease: "none", repeat: -1 }),
+          gsap.fromTo(b, { xPercent: -50 }, { xPercent: 0, duration: 100, ease: "none", repeat: -1 }),
         ];
         let direction = 1;
         ScrollTrigger.create({
@@ -58,11 +58,12 @@ export function ToolMarquee({ items }: { items: string[] }) {
           onUpdate: (self) => {
             const velocity = self.getVelocity();
             if (velocity !== 0) direction = velocity > 0 ? 1 : -1;
-            const boost = Math.min(5, 1 + Math.abs(velocity) / 400);
-            loops.forEach((loop) => gsap.to(loop, { timeScale: direction * boost, duration: 0.2, overwrite: true }));
+            // A gentle boost, capped low so fast scrolls and jumps (reloads, anchors) never race it.
+            const boost = Math.min(2.5, 1 + Math.abs(velocity) / 1200);
+            loops.forEach((loop) => gsap.to(loop, { timeScale: direction * boost, duration: 0.4, overwrite: true }));
             // Ease back to cruising speed (keeping the last direction) once scrolling stops.
             loops.forEach((loop) =>
-              gsap.to(loop, { timeScale: direction, duration: 1.2, delay: 0.25, ease: "power2.out", overwrite: false }),
+              gsap.to(loop, { timeScale: direction, duration: 1.6, delay: 0.3, ease: "power2.out", overwrite: false }),
             );
           },
         });
