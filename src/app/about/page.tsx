@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { AboutMotion } from "@/components/AboutMotion";
 import { CTAStrip } from "@/components/CTAStrip";
 import { JsonLd } from "@/components/JsonLd";
 import { Download } from "@/components/icons";
@@ -71,7 +72,8 @@ const gap = "pt-[88px] md:pt-[136px]";
 function Prose({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className={`wrap flex flex-wrap gap-x-16 gap-y-6 ${gap}`}>
-      <h2 className="flex-[0_1_340px] text-[clamp(32px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
+      {/* Stays beside the paragraphs while they scroll (desktop). */}
+      <h2 className="flex-[0_1_340px] text-[clamp(32px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.03em] md:sticky md:top-[calc(var(--header-h)+32px)] md:self-start">
         {title}
       </h2>
       <div className="flex max-w-[720px] min-w-0 flex-[1_1_560px] flex-col gap-5 text-lg leading-[1.7] text-body md:text-[19px]">
@@ -82,9 +84,7 @@ function Prose({ title, children }: { title: string; children: ReactNode }) {
 }
 
 function Heading({ children }: { children: ReactNode }) {
-  return (
-    <h2 className="text-[clamp(32px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.03em]">{children}</h2>
-  );
+  return <h2 className="text-[clamp(32px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.03em]">{children}</h2>;
 }
 
 export default function AboutPage() {
@@ -137,16 +137,23 @@ export default function AboutPage() {
             </ButtonLink>
           </div>
         </div>
-        <figure className="w-full max-w-[440px] flex-[0_1_440px]">
-          <Image
-            src="/images/portrait.webp"
-            alt="Portrait of Shahzaib Hassan"
-            width={864}
-            height={1080}
-            priority
-            sizes="(min-width: 1024px) 440px, (min-width: 768px) 60vw, calc(100vw - 40px)"
-            className="aspect-[4/5] w-full rounded-[32px] object-cover object-top shadow-[0_40px_80px_-40px_rgba(0,0,0,0.7)]"
-          />
+        <figure data-about="portrait" className="w-full max-w-[440px] flex-[0_1_440px] [perspective:1100px]">
+          <div data-about="tilt" className="relative rounded-[32px]">
+            <Image
+              src="/images/portrait.webp"
+              alt="Portrait of Shahzaib Hassan"
+              width={864}
+              height={1080}
+              priority
+              sizes="(min-width: 1024px) 440px, (min-width: 768px) 60vw, calc(100vw - 40px)"
+              className="aspect-[4/5] w-full rounded-[32px] object-cover object-top shadow-[0_40px_80px_-40px_rgba(0,0,0,0.7)]"
+            />
+            <span
+              data-about="glare"
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-[32px] opacity-0 mix-blend-soft-light"
+            />
+          </div>
         </figure>
       </section>
 
@@ -158,9 +165,9 @@ export default function AboutPage() {
         </p>
         <p>
           I started building Flutter apps professionally at Rex Technologies in 2022. That&apos;s where I learned what
-          production really means: chasing crashes reported by users, fixing screens that stuttered on cheaper
-          Android phones, and turning designs into UI that matched them pixel for pixel. One of the apps I worked on
-          there passed 10,000 downloads.
+          production really means: chasing crashes reported by users, fixing screens that stuttered on cheaper Android
+          phones, and turning designs into UI that matched them pixel for pixel. One of the apps I worked on there
+          passed 10,000 downloads.
         </p>
         <p>
           In 2024 I joined Code Encoders as a senior Flutter developer. Most of what I know about the hard parts of
@@ -171,26 +178,25 @@ export default function AboutPage() {
 
       <Prose title="The products I work on">
         <p>
-          Most of my work falls into four groups: social and dating apps with real-time chat and presence,
-          marketplaces with several kinds of users in one app, fintech and Web3 products with payments and
-          verification, and apps built around location. They look different, but they share one trait: they only
-          work if the data underneath is live, correct, and fast.
+          Most of my work falls into four groups: social and dating apps with real-time chat and presence, marketplaces
+          with several kinds of users in one app, fintech and Web3 products with payments and verification, and apps
+          built around location. They look different, but they share one trait: they only work if the data underneath is
+          live, correct, and fast.
         </p>
       </Prose>
 
       <Prose title="How I approach engineering">
         <p>
-          I plan state, data flow, and integrations before I build screens. It feels slower in week one and saves
-          months later, because the tenth feature should be as easy to add as the first. I choose boring,
-          well-supported tools over clever ones, and I&apos;d rather ship a smaller app that never crashes than a
-          bigger one that does.
+          I plan state, data flow, and integrations before I build screens. It feels slower in week one and saves months
+          later, because the tenth feature should be as easy to add as the first. I choose boring, well-supported tools
+          over clever ones, and I&apos;d rather ship a smaller app that never crashes than a bigger one that does.
         </p>
       </Prose>
 
       <Prose title="How I approach an existing codebase">
         <p>
-          When I take over an app, I don&apos;t start by rewriting it. I read it, run it, and find out where it
-          actually hurts: crash reports, slow screens, flaky builds, state that&apos;s shared in ways nobody intended.
+          When I take over an app, I don&apos;t start by rewriting it. I read it, run it, and find out where it actually
+          hurts: crash reports, slow screens, flaky builds, state that&apos;s shared in ways nobody intended.
         </p>
         <p>
           Then I fix what affects users first and improve the structure gradually, so the app keeps shipping while it
@@ -201,9 +207,13 @@ export default function AboutPage() {
 
       <section className={`wrap flex flex-col gap-10 ${gap}`}>
         <Heading>What I care about</Heading>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-5">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-5 [perspective:1200px]">
           {values.map((v) => (
-            <div key={v.title} className="flex flex-col gap-3 rounded-3xl border border-line bg-surface p-6 md:p-8">
+            <div
+              key={v.title}
+              data-about="value"
+              className="flex flex-col gap-3 rounded-3xl border border-line bg-surface p-6 md:p-8"
+            >
               <h3 className="text-[22px] font-bold">{v.title}</h3>
               <p className="text-base leading-[1.6] text-body">{v.body}</p>
             </div>
@@ -211,11 +221,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`wrap flex flex-col gap-10 ${gap}`}>
+      <section className={`wrap flex flex-col gap-10 overflow-x-clip ${gap}`}>
         <Heading>Who I work best with</Heading>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(250px,100%),1fr))] gap-5">
           {audiences.map((a) => (
-            <div key={a.title} className="flex flex-col gap-2.5 rounded-[22px] border border-line p-7">
+            <div
+              key={a.title}
+              data-about="audience"
+              className="flex flex-col gap-2.5 rounded-[22px] border border-line p-7"
+            >
               <h3 className="text-[19px] font-bold">{a.title}</h3>
               <p className="text-base leading-[1.55] text-body">{a.body}</p>
             </div>
@@ -223,48 +237,58 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`wrap flex flex-wrap gap-x-16 gap-y-8 ${gap}`}>
+      <section className={`wrap flex flex-wrap gap-x-16 gap-y-8 overflow-x-clip ${gap}`}>
         <div className="flex-[0_1_340px]">
           <Heading>Experience</Heading>
         </div>
-        <ol className="flex min-w-0 flex-[1_1_560px] flex-col">
-          {roles.map((role, i) => {
-            const last = i === roles.length - 1;
-            return (
-              <li
-                key={role.title}
-                className={`relative ml-[7px] border-l-2 pl-9 ${last ? "border-transparent" : "pb-12"} ${
-                  role.current ? "border-accent" : last ? "" : "border-line"
-                }`}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`absolute top-0.5 -left-[9px] size-4 rounded-full ${
-                    role.current
-                      ? "bg-live shadow-[0_0_0_5px_rgba(61,214,140,0.18)]"
-                      : "bg-bg shadow-[inset_0_0_0_2px_var(--btn2-line)]"
+        <div data-about="timeline" className="relative min-w-0 flex-[1_1_560px]">
+          {/* Draws down the timeline with the scroll (AboutMotion); decorative. */}
+          <span
+            data-about="line"
+            aria-hidden="true"
+            className="absolute top-0 bottom-0 left-[7px] w-0.5 origin-top scale-y-0 rounded-full bg-accent"
+          />
+          <ol className="flex flex-col">
+            {roles.map((role, i) => {
+              const last = i === roles.length - 1;
+              return (
+                <li
+                  key={role.title}
+                  data-about="role"
+                  className={`relative ml-[7px] border-l-2 pl-9 ${last ? "border-transparent" : "pb-12"} ${
+                    role.current ? "border-accent" : last ? "" : "border-line"
                   }`}
-                />
-                <div className="flex flex-col gap-2.5">
-                  <span className={`text-[15px] ${role.current ? "font-semibold text-live" : "text-muted"}`}>
-                    {role.dates}
-                  </span>
-                  <h3 className={`font-bold ${role.minor ? "text-[21px]" : "text-2xl"}`}>
-                    {role.title}, {role.company}
-                  </h3>
-                  {role.summary && <p className="text-base leading-[1.55] text-body">{role.summary}</p>}
-                  {role.highlights.length > 0 && (
-                    <ul className="mt-1 flex list-disc flex-col gap-2 pl-5 text-base leading-[1.55] text-body">
-                      {role.highlights.map((h) => (
-                        <li key={h}>{h}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+                >
+                  <span
+                    aria-hidden="true"
+                    data-about="dot"
+                    className={`absolute top-0.5 -left-[9px] z-[1] size-4 rounded-full ${
+                      role.current
+                        ? "bg-live shadow-[0_0_0_5px_rgba(61,214,140,0.18)]"
+                        : "bg-bg shadow-[inset_0_0_0_2px_var(--btn2-line)]"
+                    }`}
+                  />
+                  <div className="flex flex-col gap-2.5">
+                    <span className={`text-[15px] ${role.current ? "font-semibold text-live" : "text-muted"}`}>
+                      {role.dates}
+                    </span>
+                    <h3 className={`font-bold ${role.minor ? "text-[21px]" : "text-2xl"}`}>
+                      {role.title}, {role.company}
+                    </h3>
+                    {role.summary && <p className="text-base leading-[1.55] text-body">{role.summary}</p>}
+                    {role.highlights.length > 0 && (
+                      <ul className="mt-1 flex list-disc flex-col gap-2 pl-5 text-base leading-[1.55] text-body">
+                        {role.highlights.map((h) => (
+                          <li key={h}>{h}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </section>
 
       <section className={`wrap flex flex-col gap-10 ${gap}`}>
@@ -273,7 +297,7 @@ export default function AboutPage() {
           {toolkit.map((t) => (
             <div key={t.group} className="flex flex-col gap-3.5">
               <h3 className="text-base font-bold text-muted">{t.group}</h3>
-              <div className="flex flex-wrap gap-2">
+              <div data-about="chips" className="flex flex-wrap gap-2">
                 {t.items.map((item) => (
                   <Chip key={item}>{item}</Chip>
                 ))}
@@ -290,6 +314,7 @@ export default function AboutPage() {
         button={primaryCta}
         link={{ href: "/work", label: "the apps I've built" }}
       />
+      <AboutMotion />
     </>
   );
 }
