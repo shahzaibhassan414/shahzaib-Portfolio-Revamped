@@ -111,6 +111,8 @@ export const projects: Project[] = [
       "REST APIs",
       "TanStack Query",
       "Google Maps with heat map layers",
+      "Stripe",
+      "RevenueCat",
       "QR scanning",
       "in-app web views",
     ],

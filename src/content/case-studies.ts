@@ -49,7 +49,7 @@ export type FullCaseStudy = {
   decisions: RichItem[];
   stack: string;
   outcome: string[];
-  /** Result cards that still need real numbers. */
+  /** Verified results only (downloads, ratings, launch date...). Never estimates; omit until real numbers exist. */
   results?: { value: string; label: string }[];
   learned: string[];
   learnedLink?: { before: string; label: string; href: string; after: string };
@@ -187,10 +187,6 @@ export const caseStudies: Record<string, CaseStudy> = {
     outcome: [
       "On Scene shipped as a location-based discovery platform that combines live presence, venue check-ins, real-time chat, and premium dating features on both iOS and Android.",
     ],
-    results: [
-      { value: "[number]", label: "[e.g. active users or check-ins]" },
-      { value: "[number]", label: "[e.g. store rating or crash-free sessions]" },
-    ],
     learned: [
       "Real-time location features are mostly a data-flow problem, not a map problem. The map is easy; deciding which updates matter, how often, and to which part of the screen is the actual work.",
     ],
@@ -233,6 +229,12 @@ export const caseStudies: Record<string, CaseStudy> = {
             text: "on Google Maps that show where marketplace activity is concentrated",
           },
           { title: "QR ticket scanning", text: "for event entry" },
+          { title: "Stripe payments", text: "for purchases in the marketplace" },
+          {
+            title: "Featured posts",
+            text: "sold as one-time purchases through RevenueCat, running for 3, 7, 14, or 30 days",
+          },
+          { title: "Local pickup and shipping", text: "with USPS shipping label status shown in the app" },
           { title: "In-app web views", text: "for external flows and dynamic actions" },
           {
             title: "Cached server state",
@@ -248,6 +250,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         { app: "Marketplace modules", flow: "cached queries", service: "REST APIs", accent: true },
         { app: "Demand heat maps", flow: "heat map layers", service: "Google Maps" },
         { app: "Event tickets", flow: "ticket scans", service: "QR scanning" },
+        { app: "Checkout and featured posts", flow: "purchases", service: "Stripe and RevenueCat" },
         { app: "External flows", flow: "dynamic actions", service: "In-app web views" },
       ],
       caption: "How the Flutter app connects to the services behind each module.",
@@ -281,10 +284,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
     ],
     stack:
-      "Flutter, Dart, REST APIs, TanStack Query, Google Maps with heat map layers, QR scanning, in-app web views",
+      "Flutter, Dart, REST APIs, TanStack Query, Google Maps with heat map layers, Stripe, RevenueCat, QR scanning, in-app web views",
     outcome: [
       "Zera shipped as a feature-rich marketplace with several user journeys in one Flutter app, supporting API-driven interactions, location-based discovery, QR ticketing, and room for new verticals.",
-      "[Launch status, store links, or any usage number you can share.]",
     ],
     learned: [
       "In a multi-module app, structure is the product. Users never see the folder layout, but they feel it in how fast new features arrive and how rarely old ones break.",
@@ -383,7 +385,6 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack: "Flutter, Dart, Web3Auth, DIDIT KYC and KYB SDKs, REST APIs, Provider, secure storage",
     outcome: [
       "BePay gave shoppers a wallet in a single social login and gave merchants a mobile back office for verification, listings, and orders.",
-      "[Launch status, regions, store links, or any figure such as verified merchants or completed orders.]",
     ],
     learned: [
       "In fintech, the hard part is trust, not code. Every screen in onboarding either builds confidence or creates doubt, and good architecture is what lets you change those screens quickly when compliance rules change.",

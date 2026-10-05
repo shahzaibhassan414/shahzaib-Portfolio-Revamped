@@ -247,7 +247,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                   {study.results.map((r, i) => (
                     <div
                       key={i}
-                      className="flex flex-col gap-1.5 rounded-[18px] border-[1.5px] border-dashed border-line-strong p-6"
+                      className="flex flex-col gap-1.5 rounded-[18px] border border-line bg-surface p-6"
                     >
                       <span className="text-4xl font-extrabold tracking-[-0.02em] text-text">{r.value}</span>
                       <span className="text-[15px] leading-normal text-muted">{r.label}</span>
