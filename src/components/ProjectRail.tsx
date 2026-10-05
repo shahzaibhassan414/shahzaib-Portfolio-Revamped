@@ -1,19 +1,12 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "@/components/icons";
 import { scrollToY } from "@/lib/scroll";
 
 // From 768px up (and without reduced motion) the section pins and vertical scrolling moves
 // the rail sideways. Phones keep the native swipe rail, and never download GSAP.
-const PIN_QUERY =
-  "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
+const PIN_QUERY = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
 
 type Trigger = { start: number; end: number; progress: number };
 
@@ -31,12 +24,7 @@ type ProjectRailProps = {
  * step one card at a time, and the rail itself is focusable so arrow keys scroll it.
  * On larger screens GSAP ScrollTrigger pins the section and scrubs the rail with the page.
  */
-export function ProjectRail({
-  header,
-  trailing,
-  label,
-  children,
-}: ProjectRailProps) {
+export function ProjectRail({ header, trailing, label, children }: ProjectRailProps) {
   const railRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<Trigger | undefined>(undefined);
@@ -76,73 +64,64 @@ export function ProjectRail({
 
     const setup = () => {
       if (revert || !mq.matches) return;
-      Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
-        ([{ gsap }, { ScrollTrigger }]) => {
-          if (cancelled || revert) return;
-          gsap.registerPlugin(ScrollTrigger);
-          const mm = gsap.matchMedia();
-          mm.add(PIN_QUERY, () => {
-            const distance = () => rail.scrollWidth - rail.clientWidth;
-            const headerH = () =>
-              parseFloat(
-                getComputedStyle(document.documentElement).getPropertyValue(
-                  "--header-h",
-                ),
-              ) || 88;
-            // Centre the block in the space below the sticky header, or sit just under it.
-            const pinTop = () =>
-              Math.max(
-                headerH() + 16,
-                (window.innerHeight + headerH() - pin.offsetHeight) / 2,
-              );
-            // Shrink the phone panels so a whole card fits in the window while pinned.
-            const fit = () => {
-              rail.style.removeProperty("--panel-h");
-              rail.style.removeProperty("--phone-scale");
-              const panel = rail.querySelector<HTMLElement>("[data-panel]");
-              if (!panel) return;
-              const natural = panel.offsetHeight;
-              const room = window.innerHeight - headerH() - 32;
-              const height = Math.max(
-                200,
-                Math.min(natural, natural - (pin.offsetHeight - room)),
-              );
-              rail.style.setProperty("--panel-h", `${height}px`);
-              rail.style.setProperty("--phone-scale", String(height / natural));
-            };
-            rail.dataset.pinned = "true";
-            fit();
-            ScrollTrigger.addEventListener("refreshInit", fit);
-            const tween = gsap.fromTo(
-              rail,
-              { scrollLeft: 0 },
-              {
-                scrollLeft: distance,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: pin,
-                  pin: true,
-                  // GSAP turns spacing off when the parent is a flex container; the section below must wait.
-                  pinSpacing: true,
-                  scrub: 0.4,
-                  start: () => `top ${pinTop()}px`,
-                  end: () => `+=${distance()}`,
-                  invalidateOnRefresh: true,
-                },
+      Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([{ gsap }, { ScrollTrigger }]) => {
+        if (cancelled || revert) return;
+        gsap.registerPlugin(ScrollTrigger);
+        const mm = gsap.matchMedia();
+        mm.add(PIN_QUERY, () => {
+          const distance = () => rail.scrollWidth - rail.clientWidth;
+          const headerH = () =>
+            parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 88;
+          // Centre the block in the space below the sticky header, or sit just under it.
+          const pinTop = () => Math.max(headerH() + 16, (window.innerHeight + headerH() - pin.offsetHeight) / 2);
+          // Shrink the phone panels so a whole card fits in the window while pinned.
+          const fit = () => {
+            rail.style.removeProperty("--panel-h");
+            rail.style.removeProperty("--phone-scale");
+            const panel = rail.querySelector<HTMLElement>("[data-panel]");
+            if (!panel) return;
+            const natural = panel.offsetHeight;
+            const room = window.innerHeight - headerH() - 32;
+            const height = Math.max(200, Math.min(natural, natural - (pin.offsetHeight - room)));
+            rail.style.setProperty("--panel-h", `${height}px`);
+            rail.style.setProperty("--phone-scale", String(height / natural));
+          };
+          rail.dataset.pinned = "true";
+          fit();
+          ScrollTrigger.addEventListener("refreshInit", fit);
+          const tween = gsap.fromTo(
+            rail,
+            { scrollLeft: 0 },
+            {
+              scrollLeft: distance,
+              ease: "none",
+              scrollTrigger: {
+                trigger: pin,
+                pin: true,
+                // GSAP turns spacing off when the parent is a flex container; the section below must wait.
+                pinSpacing: true,
+                // Measure this pin first so triggers further down the page account for its spacing.
+                refreshPriority: 1,
+                scrub: 0.4,
+                start: () => `top ${pinTop()}px`,
+                end: () => `+=${distance()}`,
+                invalidateOnRefresh: true,
               },
-            );
-            triggerRef.current = tween.scrollTrigger;
-            return () => {
-              ScrollTrigger.removeEventListener("refreshInit", fit);
-              triggerRef.current = undefined;
-              delete rail.dataset.pinned;
-              rail.style.removeProperty("--panel-h");
-              rail.style.removeProperty("--phone-scale");
-            };
-          });
-          revert = () => mm.revert();
-        },
-      );
+            },
+          );
+          triggerRef.current = tween.scrollTrigger;
+          ScrollTrigger.sort();
+          ScrollTrigger.refresh();
+          return () => {
+            ScrollTrigger.removeEventListener("refreshInit", fit);
+            triggerRef.current = undefined;
+            delete rail.dataset.pinned;
+            rail.style.removeProperty("--panel-h");
+            rail.style.removeProperty("--phone-scale");
+          };
+        });
+        revert = () => mm.revert();
+      });
     };
 
     const trackY = (st: Trigger, left: number) => {
@@ -158,11 +137,7 @@ export function ProjectRail({
       const card = (event.target as HTMLElement).closest("article");
       if (!st || !card) return;
       const padding = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
-      const left =
-        card.getBoundingClientRect().left -
-        rail.getBoundingClientRect().left +
-        rail.scrollLeft -
-        padding;
+      const left = card.getBoundingClientRect().left - rail.getBoundingClientRect().left + rail.scrollLeft - padding;
       scrollToY(trackY(st, left), { immediate: true });
     };
 
@@ -186,16 +161,11 @@ export function ProjectRail({
     if (st) {
       // Pinned: the rail follows the page, so scroll the page to the next card's position.
       const max = rail.scrollWidth - rail.clientWidth;
-      const target = Math.min(
-        max,
-        Math.max(0, st.progress * max + direction * (card.clientWidth + gap)),
-      );
+      const target = Math.min(max, Math.max(0, st.progress * max + direction * (card.clientWidth + gap)));
       scrollToY(st.start + (max > 0 ? target / max : 0) * (st.end - st.start));
       return;
     }
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     rail.scrollBy({
       left: direction * (card.clientWidth + gap),
       behavior: reduce ? "auto" : "smooth",

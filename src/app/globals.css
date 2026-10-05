@@ -374,3 +374,9 @@
     display: none;
   }
 }
+
+/* Text reveal masks (TextReveal): room for descenders so the clip never cuts "g" or "y". */
+.reveal-line-mask {
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}

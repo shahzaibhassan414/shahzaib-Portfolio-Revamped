@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { TextReveal } from "@/components/TextReveal";
 import { site } from "@/content/site";
 import "lenis/dist/lenis.css";
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <SmoothScroll />
+        <TextReveal />
       </body>
     </html>
   );
