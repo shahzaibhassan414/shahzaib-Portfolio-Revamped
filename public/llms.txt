@@ -39,7 +39,7 @@ I'm Shahzaib Hassan, a senior Flutter developer with four years of production ex
 - [Simman](https://www.shahzaib-dev.site/work/simman): medical simulation with real-time audio and instant instructor-to-student sync during live sessions.
 - [Jatt App](https://www.shahzaib-dev.site/work/jatt-app): a social app's foundation with social login onboarding, authenticated APIs, and Firebase-backed engagement.
 - [StyleBite](https://www.shahzaib-dev.site/work/stylebite): a fashion social app where users share posts and reels, follow each other's style, and chat in real time. Live on Google Play.
-- [ExamConnect](https://www.shahzaib-dev.site/work/examconnect): a study network where medical students find each other, chat one-on-one and prepare for exams together in group chats. Built solo; passed 10,000 downloads.
+- [ExamConnect](https://www.shahzaib-dev.site/work/examconnect): a study network where medical students find each other, chat one-on-one and prepare for exams together in group chats. Built solo at Rex Technologies in 2022; passed 10,000 downloads.
 - [Material World](https://www.shahzaib-dev.site/work/material-world): a wholesale ordering app built for a client, so their buyers can browse the product catalogue and order online.
 
 ## Toolkit

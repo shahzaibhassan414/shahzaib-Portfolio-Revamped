@@ -22,8 +22,7 @@ export const experience: Role[] = [
     year: "2022",
     dates: "Feb 2022 to May 2022",
     minor: true,
-    summary:
-      "Learned production Flutter on real client apps, alongside the team, before moving into a full developer role.",
+    summary: "Built ExamConnect solo, a study and chat app for medical students that passed 10,000 downloads.",
     highlights: [],
     tags: [],
   },
@@ -36,7 +35,6 @@ export const experience: Role[] = [
       "Built and maintained production Flutter apps alongside the design team",
       "Fixed crash and rendering bottlenecks to keep the UI smooth at 60fps",
       "Built responsive, pixel-perfect components across iOS and Android",
-      "Helped launch an app that passed 10,000 downloads",
     ],
     tags: ["Flutter", "Firebase", "Performance", "Pixel-perfect UI"],
   },

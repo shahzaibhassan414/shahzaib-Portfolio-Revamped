@@ -46,6 +46,8 @@ export type Project = {
   timeline?: string;
   /** Shown instead of store links when the app isn't (or is no longer) on the stores. */
   status?: string;
+  /** Where and when it was built, e.g. "Rex Technologies, 2022". */
+  builtAt?: string;
   /** One line on the hardest problem, shown on the featured card. */
   hardPart?: string;
   platforms: string;
@@ -381,6 +383,7 @@ export const projects: Project[] = [
     shade: "6,16,28",
     tier: "supporting",
     role: "Solo developer: design to deployment",
+    builtAt: "Rex Technologies, 2022",
     status: "No longer on the stores",
     platforms: "iOS and Android",
     tags: ["Flutter", "Firebase"],

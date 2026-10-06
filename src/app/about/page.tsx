@@ -162,16 +162,15 @@ export default function AboutPage() {
 
       <Prose title="How I got here">
         <p>
-          I studied Computer Science, and I shipped my first real Flutter app during my internship at Rex Technologies
-          in 2022. Flutter won me over because a single codebase gave me Android and iOS at once, which meant I could
-          build faster and own the whole app. Four years on, I specialise in real-time chat and messaging apps for
-          startups and businesses.
+          I studied Computer Science, and during my internship at Rex Technologies in 2022 I built my first real
+          Flutter app, ExamConnect, on my own. It went on to pass 10,000 downloads. Flutter won me over because a
+          single codebase gave me Android and iOS at once, which meant I could build faster and own the whole app. Four
+          years on, I specialise in real-time chat and messaging apps for startups and businesses.
         </p>
         <p>
           I started building Flutter apps professionally at Rex Technologies in 2022. That&apos;s where I learned what
           production really means: chasing crashes reported by users, fixing screens that stuttered on cheaper Android
-          phones, and turning designs into UI that matched them pixel for pixel. One of the apps I worked on there
-          passed 10,000 downloads.
+          phones, and turning designs into UI that matched them pixel for pixel.
         </p>
         <p>
           In 2024 I joined Code Encoders as a senior Flutter developer. Most of what I know about the hard parts of

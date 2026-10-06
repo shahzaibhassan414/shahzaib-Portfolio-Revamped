@@ -126,6 +126,12 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
               <dd className="text-[17px] font-semibold">{project.role}</dd>
             </div>
           )}
+          {project.builtAt && (
+            <div className="flex flex-col gap-1.5 py-5 pr-6">
+              <dt className="text-sm font-semibold text-muted">Built at</dt>
+              <dd className="text-[17px] font-semibold">{project.builtAt}</dd>
+            </div>
+          )}
           {project.team && (
             <div className="flex flex-col gap-1.5 py-5 pr-6">
               <dt className="text-sm font-semibold text-muted">Team</dt>
