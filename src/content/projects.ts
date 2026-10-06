@@ -262,9 +262,21 @@ export const projects: Project[] = [
     tags: ["Flutter", "Laravel", "Real-time chat"],
     stack: ["Flutter", "Laravel"],
     screens: [
-      { label: "Feed", alt: "StyleBite home feed with posts and reels" },
-      { label: "Reels", alt: "StyleBite reels" },
-      { label: "Chat", alt: "StyleBite real-time chat" },
+      {
+        src: "/work/stylebite/screen-1.webp",
+        label: "Splash",
+        alt: "StyleBite splash screen: Your Daily Style Bite, preparing your feed",
+      },
+      {
+        src: "/work/stylebite/screen-2.webp",
+        label: "Home feed",
+        alt: "StyleBite home feed with a live Vote & Win contest and a rated post",
+      },
+      {
+        src: "/work/stylebite/screen-3.webp",
+        label: "Reels",
+        alt: "StyleBite reel of a weekend outfit with like, rate, comment, save and share actions",
+      },
     ],
     capabilities: ["realtime"],
   },
