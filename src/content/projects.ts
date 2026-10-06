@@ -424,7 +424,7 @@ export const projects: Project[] = [
     shade: "24,14,10",
     tier: "supporting",
     role: "Main Flutter developer",
-    platforms: "[Platforms]",
+    platforms: "iOS and Android",
     tags: ["Flutter", "REST API", "Laravel"],
     stack: ["Flutter", "REST API (Laravel/PHP)"],
     screens: [
