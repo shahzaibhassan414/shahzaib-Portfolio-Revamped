@@ -37,7 +37,9 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
 /** Renders a paragraph, or a muted placeholder when the text is still [to be supplied]. */
 function Para({ children }: { children: string }) {
   if (isPlaceholder(children)) {
-    return <p className="rounded-xl border border-dashed border-line-strong px-4 py-3 text-[17px] text-muted">{children}</p>;
+    return (
+      <p className="rounded-xl border border-dashed border-line-strong px-4 py-3 text-[17px] text-muted">{children}</p>
+    );
   }
   return <p>{children}</p>;
 }
@@ -68,7 +70,11 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
     project.tier === "flagship"
       ? flagships[(flagships.indexOf(project) + 1) % flagships.length]
       : publishedProjects[(index + 1) % publishedProjects.length];
-  const fan = ["rotate-[-8deg] translate-x-[34px] translate-y-[36px]", "relative z-[1]", "rotate-[8deg] -translate-x-[34px] translate-y-[36px]"];
+  const fan = [
+    "rotate-[-8deg] translate-x-[34px] translate-y-[36px]",
+    "relative z-[1]",
+    "rotate-[8deg] -translate-x-[34px] translate-y-[36px]",
+  ];
 
   return (
     <>
@@ -79,7 +85,12 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             { name: "Home", path: "/" },
             { name: "Work", path: "/work" },
             { name: project.name, path: `/work/${slug}` },
-          ].map((crumb, i) => ({ "@type": "ListItem", position: i + 1, name: crumb.name, item: absoluteUrl(crumb.path) })),
+          ].map((crumb, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: crumb.name,
+            item: absoluteUrl(crumb.path),
+          })),
         }}
       />
       <section className="wrap flex flex-col gap-7 pt-6 pb-14 md:pt-10">
@@ -114,9 +125,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
         {study.kind === "full" && (
           <div className="flex max-w-[768px] flex-col gap-3">
             <p className="text-xl leading-[1.45] text-body md:text-2xl">{study.overview}</p>
-            {study.placeholders?.overview && (
-              <p className="text-[15px] text-muted">[{study.placeholders.overview}]</p>
-            )}
+            {study.placeholders?.overview && <p className="text-[15px] text-muted">[{study.placeholders.overview}]</p>}
           </div>
         )}
         <dl className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] border-t border-line">
@@ -152,38 +161,43 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             <dt className="text-sm font-semibold text-muted">Built with</dt>
             <dd className="text-[17px] leading-[1.4] font-semibold">{project.tags.join(", ")}</dd>
           </div>
-          {project.storeLinks ? (
+          {project.storeLinks && (
             <div className="flex flex-col gap-1.5 py-5 pr-6">
               <dt className="text-sm font-semibold text-muted">Get the app</dt>
               <dd className="flex flex-wrap gap-x-4 gap-y-1.5 text-[17px] font-semibold">
                 {project.storeLinks.appStore && (
-                  <a href={project.storeLinks.appStore} className="tap-target underline underline-offset-2 hover:text-accent">
+                  <a
+                    href={project.storeLinks.appStore}
+                    className="tap-target underline underline-offset-2 hover:text-accent"
+                  >
                     App Store
                   </a>
                 )}
                 {project.storeLinks.googlePlay && (
-                  <a href={project.storeLinks.googlePlay} className="tap-target underline underline-offset-2 hover:text-accent">
+                  <a
+                    href={project.storeLinks.googlePlay}
+                    className="tap-target underline underline-offset-2 hover:text-accent"
+                  >
                     Google Play
                   </a>
                 )}
               </dd>
             </div>
-          ) : project.status ? (
-            <div className="flex flex-col gap-1.5 py-5 pr-6 sm:col-span-2">
+          )}
+          {project.status && (
+            <div className={`flex flex-col gap-1.5 py-5 pr-6 ${project.storeLinks ? "" : "sm:col-span-2"}`}>
               <dt className="text-sm font-semibold text-muted">Status</dt>
               <dd className="text-[17px] leading-[1.45] font-semibold">{project.status}</dd>
             </div>
-          ) : (
-            project.tier === "flagship" && (
-              <div className="flex flex-col gap-1.5 py-5 pr-6">
-                <dt className="text-sm font-semibold text-muted">Get the app</dt>
-                {/* TODO(shahzaib): store links for this app */}
-                <dd className="flex flex-wrap gap-x-4 gap-y-1.5 text-[17px] font-semibold text-muted">
-                  <span>[App Store link]</span>
-                  <span>[Google Play link]</span>
-                </dd>
-              </div>
-            )
+          )}
+          {!project.storeLinks && !project.status && project.tier === "flagship" && (
+            <div className="flex flex-col gap-1.5 py-5 pr-6">
+              <dt className="text-sm font-semibold text-muted">Get the app</dt>
+              <dd className="flex flex-wrap gap-x-4 gap-y-1.5 text-[17px] font-semibold text-muted">
+                <span>[App Store link]</span>
+                <span>[Google Play link]</span>
+              </dd>
+            </div>
           )}
         </dl>
       </section>
@@ -276,10 +290,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
               {study.results && (
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(min(200px,100%),1fr))] gap-4">
                   {study.results.map((r, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col gap-1.5 rounded-[18px] border border-line bg-surface p-6"
-                    >
+                    <div key={i} className="flex flex-col gap-1.5 rounded-[18px] border border-line bg-surface p-6">
                       <span className="text-4xl font-extrabold tracking-[-0.02em] text-text">{r.value}</span>
                       <span className="text-[15px] leading-normal text-muted">{r.label}</span>
                     </div>
@@ -352,7 +363,10 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             <span className="text-base font-medium text-muted">Next project</span>
             <span className="flex items-center gap-3 text-[clamp(40px,4.4vw,52px)] leading-none font-extrabold tracking-[-0.035em]">
               {next.name}
-              <ArrowUpRight size={28} className="text-muted transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight
+                size={28}
+                className="text-muted transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
             </span>
             <span className="text-lg leading-normal text-body">{next.cardLine}</span>
           </span>

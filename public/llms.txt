@@ -31,7 +31,7 @@ I'm Shahzaib Hassan, a senior Flutter developer with four years of production ex
 
 ## Case studies
 
-- [On Scene](https://www.shahzaib-dev.site/work/on-scene): location-based dating built around real venues, with live check-ins, nearby presence, and real-time chat.
+- [On Scene](https://www.shahzaib-dev.site/work/on-scene): location-based dating built around real venues, with live check-ins, nearby presence, and real-time chat. Live on the App Store and Google Play.
 - [Zera](https://www.shahzaib-dev.site/work/zera): goods, services, jobs, event tickets, and community posts in one app, with heat maps and QR ticketing.
 - [BePay](https://www.shahzaib-dev.site/work/bepay): consumer and merchant apps with wallets from a Google or Apple login, KYC and KYB checks, and mobile order tools.
 - [Paw Play Love](https://www.shahzaib-dev.site/work/paw-play-love): swipe matching for pet playdates, real-time chat, and a premium tier. Live on the App Store and Google Play.

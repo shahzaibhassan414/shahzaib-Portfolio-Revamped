@@ -108,4 +108,11 @@ export const storeLinks = {
     appStore: "https://apps.apple.com/id/app/paw-play-love/id6648773545",
     googlePlay: "https://play.google.com/store/apps/details?id=com.pawplaylove&hl=en",
   },
+  onScene: {
+    appStore: "https://apps.apple.com/us/app/on-scene-app/id6742324127",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.singlesonscene",
+  },
+  styleBite: {
+    googlePlay: "https://play.google.com/store/apps/details?id=com.stylebite.app",
+  },
 } as const;
