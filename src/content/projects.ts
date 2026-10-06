@@ -141,19 +141,19 @@ export const projects: Project[] = [
     ],
     screens: [
       {
-        src: "/work/zera/screen-1.webp",
-        label: "Seller dashboard",
-        alt: "Zera seller dashboard with a post overview and a monthly revenue chart",
+        src: "/work/zera/dashboard.webp",
+        label: "Dashboard",
+        alt: "Zera dashboard with a weekly post overview, monthly revenue chart and featured posts",
       },
       {
-        src: "/work/zera/screen-2.webp",
+        src: "/work/zera/home.webp",
         label: "Marketplace",
-        alt: "Zera marketplace browsing jobs, goods, services, and events, with a featured job post",
+        alt: "Zera home with jobs, goods and services tabs, browse categories and a featured job post",
       },
       {
-        src: "/work/zera/screen-3.webp",
+        src: "/work/zera/splash.webp",
         label: "Splash",
-        alt: "Zera splash screen with the tagline Empowering Our Community",
+        alt: "Zera splash screen with the tagline One app. Everything local.",
       },
     ],
     capabilities: ["payments", "maps", "marketplace"],
