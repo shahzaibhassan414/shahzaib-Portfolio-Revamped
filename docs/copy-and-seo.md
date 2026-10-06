@@ -651,7 +651,7 @@ Every CTA names what happens next and matches what the visitor was just reading.
 
 **Intro:** A few lines is enough: what the app does, where it is now, and what's in the way. You'll hear back from me directly, not from a sales team.
 
-**Direct options:** WhatsApp (+92 316 0984600) · Email (shahzaibhassan414@gmail.com) · Book a call \[CONTENT NEEDED FROM SHAHZAIB: a Calendly or Cal.com link\]
+**Direct options:** WhatsApp (+92 316 0984600) · Email (shahzaibhassan414@gmail.com)
 
 **What happens next:**
 
@@ -887,6 +887,6 @@ These are the gaps marked \[CONTENT NEEDED\] above, in order of how much they'd 
 - [ ] Real app screenshots for every project (not marketing mockups), plus store links where they exist
 - [ ] ExamConnect and Material World: what they are, your role, and the stack, or a decision to leave them out
 - [ ] Two or three sentences on how you got into mobile development, for the About page
-- [ ] A booking link (Calendly or Cal.com) and a reply time you can always keep
+- [x] A reply time you can always keep
 - [ ] A professional email address on your domain
 - [ ] Pricing: confirmed as "Contact for pricing", with each button opening the contact form pre-filled

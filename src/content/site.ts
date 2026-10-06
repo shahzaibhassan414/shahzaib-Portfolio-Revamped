@@ -14,8 +14,6 @@ export const site = {
   availabilityNote: "Available for new projects",
   resumeUrl:
     "https://drive.google.com/file/d/1NoEbEf10bPoYPQt8yiaMGpaGDvDXYP5P/view?usp=sharing",
-  // TODO(shahzaib): add a Calendly / Cal.com link. Booking UI stays hidden while this is null.
-  bookingUrl: null as string | null,
   social: {
     github: "https://github.com/shahzaibhassan414",
     linkedin: "https://www.linkedin.com/in/shahzaibhassan414/",

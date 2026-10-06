@@ -36,4 +36,4 @@ Add an entry to `src/content/blog/posts.ts` and a matching `src/content/blog/<sl
 
 ## Content still to add
 
-Real app screenshots and store links, results for the flagship case studies, a booking link, and the remaining About page paragraph. Placeholders are marked in the content files.
+Screenshots for ExamConnect and Material World. Until they exist, those projects show a styled app screen in place of each screenshot.

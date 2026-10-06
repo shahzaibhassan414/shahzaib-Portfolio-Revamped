@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Suspense } from "react";
 import { ContactForm, ContactFormWithParams } from "@/components/ContactForm";
-import { ArrowUpRight, Calendar, Mail, MessageCircle } from "@/components/icons";
+import { ArrowUpRight, Mail, MessageCircle } from "@/components/icons";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -36,18 +36,6 @@ export default function ContactPage() {
       icon: Mail,
       tone: { bg: "rgba(123,152,255,0.16)", color: "var(--accent)" },
     },
-    // Hidden until site.bookingUrl is set (copy doc: booking link still needed).
-    ...(site.bookingUrl
-      ? [
-          {
-            href: site.bookingUrl,
-            label: "Book a 20-minute call",
-            detail: "Tell me about your app, your timeline and your budget. No preparation needed.",
-            icon: Calendar,
-            tone: { bg: "rgba(245,162,122,0.16)", color: "#F5A27A" },
-          },
-        ]
-      : []),
   ];
 
   return (
