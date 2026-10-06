@@ -11,10 +11,12 @@ import { ProcessSteps } from "@/components/ProcessSteps";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectRail } from "@/components/ProjectRail";
 import { RepelGrid } from "@/components/RepelGrid";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { Timeline } from "@/components/Timeline";
 import { ButtonLink, SectionTitle, TextLink } from "@/components/ui";
 import { experience } from "@/content/experience";
-import { publishedProjects } from "@/content/projects";
+import { appCountWord, publishedProjects } from "@/content/projects";
+import { featuredTestimonial } from "@/content/testimonials";
 import { openSource, playbooks, primaryCta, site, storeLinks } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -67,8 +69,8 @@ const processSteps = [
 
 const stats = [
   { value: 4, suffix: "", label: "years building production Flutter apps" },
-  { value: 9, suffix: "", label: "production apps across four product areas" },
-  { value: 10000, suffix: "+", label: "downloads on a single app" },
+  { value: publishedProjects.length, suffix: "", label: "production apps across four product areas" },
+  { value: 10000, suffix: "+", label: "downloads on ExamConnect, built solo" },
   { value: 2, suffix: "", label: "open-source packages on pub.dev" },
 ];
 
@@ -131,8 +133,9 @@ export default function Home() {
             data-reveal
             className="max-w-[30em] flex-[2_1_560px] text-[22px] leading-[1.35] font-medium tracking-[-0.015em] md:text-[28px]"
           >
-            Four years building Flutter apps at Code Encoders and Rex Technologies. Apps live on the App Store and
-            Google Play, one past 10,000 downloads, and two open-source packages on pub.dev.
+            Four years building Flutter apps at Code Encoders and Rex Technologies. My solo-built app ExamConnect
+            passed 10,000 downloads, and I have apps live on the App Store and Google Play and two open-source
+            packages on pub.dev.
           </p>
           <ul className="flex flex-[1_1_240px] flex-col gap-2.5 text-base leading-[1.2] font-medium text-body">
             <li>
@@ -197,7 +200,7 @@ export default function Home() {
             <div className="flex max-w-[640px] flex-col gap-3.5">
               <SectionTitle id="work-title">Work</SectionTitle>
               <p className="text-[19px] leading-[1.55] text-body">
-                Nine production apps across social discovery, marketplaces, Web3 commerce, and real-time systems. Each
+                {appCountWord} production apps across social discovery, marketplaces, Web3 commerce, and real-time systems. Each
                 one had a part that was harder than it looked.
               </p>
             </div>
@@ -215,6 +218,11 @@ export default function Home() {
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </ProjectRail>
+      </section>
+
+      {/* Featured testimonial */}
+      <section aria-label="What a client says" className={`wrap ${sectionGap}`}>
+        <TestimonialCard testimonial={featuredTestimonial} size="large" />
       </section>
 
       {/* Capability table */}

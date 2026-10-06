@@ -41,6 +41,11 @@ export type Project = {
   tier: "flagship" | "supporting";
   draft?: boolean;
   role?: string;
+  /** Team around the project, e.g. "4–6 people (separate backend developer and designer)". */
+  team?: string;
+  timeline?: string;
+  /** Shown instead of store links when the app isn't (or is no longer) on the stores. */
+  status?: string;
   /** One line on the hardest problem, shown on the featured card. */
   hardPart?: string;
   platforms: string;
@@ -69,6 +74,8 @@ export const projects: Project[] = [
     shade: "20,4,10",
     tier: "flagship",
     role: "Main Flutter developer",
+    team: "4–6 people (separate backend developer and designer)",
+    timeline: "3–6 months",
     hardPart: "A live map that stays smooth under constant updates",
     platforms: "iOS and Android",
     tags: ["Flutter", "Google Maps", "Socket.IO", "Firebase", "RevenueCat"],
@@ -113,7 +120,9 @@ export const projects: Project[] = [
     gradient: ["#26B3A3", "#0E7468", "#073D38"],
     shade: "5,12,14",
     tier: "flagship",
-    role: "Main Flutter developer",
+    role: "Main Flutter Developer",
+    team: "2–3 people (separate backend developer)",
+    status: "Launching soon on the App Store and Google Play",
     platforms: "iOS and Android",
     tags: ["Flutter", "TanStack Query", "Google Maps", "QR scanning"],
     stack: [
@@ -160,7 +169,11 @@ export const projects: Project[] = [
     gradient: ["#7F6FF0", "#4A3BB8", "#241B66"],
     shade: "10,8,30",
     tier: "flagship",
-    role: "Flutter developer for both apps",
+    role: "Senior Flutter Developer at Code Encoders",
+    team: "7+ people",
+    timeline: "3–6 months",
+    status:
+      "BePay Client and BePay Business are no longer on the App Store or Google Play. The screens below are from the production build.",
     platforms: "iOS and Android",
     tags: ["Flutter", "Web3Auth", "DIDIT KYC and KYB", "REST APIs"],
     stack: ["Flutter", "Dart", "Web3Auth", "DIDIT KYC and KYB SDKs", "REST APIs", "Provider", "secure storage"],
@@ -223,6 +236,33 @@ export const projects: Project[] = [
       { label: "Premium paywall", alt: "Paw Play Love premium paywall" },
     ],
     capabilities: ["subscriptions", "realtime"],
+  },
+  {
+    slug: "stylebite",
+    name: "StyleBite",
+    initials: "SB",
+    category: "Social and dating",
+    kind: "Fashion social app",
+    cardLine:
+      "A fashion social app where users share posts and reels, follow each other's style, and chat in real time.",
+    color: "#9446B0",
+    tint: { panel: "#5E2A73", screen: "#F3E6F8", screenText: "#4A1F5C", label: "#D3A6E6" },
+    type: "Fashion social",
+    gradient: ["#C083DA", "#9446B0", "#3A1748"],
+    shade: "22,8,30",
+    tier: "supporting",
+    role: "Main Flutter Developer",
+    team: "4–6 people",
+    status: "Live on Google Play · Coming soon to the App Store",
+    platforms: "iOS and Android",
+    tags: ["Flutter", "Laravel", "Real-time chat"],
+    stack: ["Flutter", "Laravel"],
+    screens: [
+      { label: "Feed", alt: "StyleBite home feed with posts and reels" },
+      { label: "Reels", alt: "StyleBite reels" },
+      { label: "Chat", alt: "StyleBite real-time chat" },
+    ],
+    capabilities: ["realtime"],
   },
   {
     slug: "lawnolu",
@@ -326,58 +366,64 @@ export const projects: Project[] = [
     ],
     capabilities: [],
   },
-  // Drafts: hidden from every list and the sitemap until Shahzaib sends the content.
   {
     slug: "examconnect",
     name: "ExamConnect",
     initials: "EC",
-    category: "[CONTENT NEEDED]",
-    kind: "[Category]",
-    cardLine: "[CONTENT NEEDED FROM SHAHZAIB]",
+    category: "Social and dating",
+    kind: "Study network for medical students",
+    cardLine:
+      "A study network where medical students find each other, chat one-on-one and prepare for exams together in group chats.",
     color: "#2F7FC1",
     tint: { panel: "#1F5784", screen: "#E1EEF8", screenText: "#17405F", label: "#7DB8E6" },
-    type: "[Type]",
+    type: "Study network",
     gradient: ["#5BA3DD", "#2F7FC1", "#123A5C"],
     shade: "6,16,28",
     tier: "supporting",
-    draft: true,
-    platforms: "[Platforms]",
-    tags: ["Flutter"],
-    stack: ["Flutter"],
+    role: "Solo developer: design to deployment",
+    status: "No longer on the stores",
+    platforms: "iOS and Android",
+    tags: ["Flutter", "Firebase"],
+    stack: ["Flutter", "Firebase"],
     screens: [
-      { label: "Screen", alt: "ExamConnect screen" },
-      { label: "Screen", alt: "ExamConnect screen" },
-      { label: "Screen", alt: "ExamConnect screen" },
+      { label: "Study partners", alt: "ExamConnect screen for finding other medical students" },
+      { label: "One-on-one chat", alt: "ExamConnect one-on-one chat" },
+      { label: "Group chat", alt: "ExamConnect exam-prep group chat" },
     ],
-    capabilities: [],
+    capabilities: ["realtime"],
   },
   {
     slug: "material-world",
     name: "Material World",
     initials: "MW",
-    category: "[CONTENT NEEDED]",
-    kind: "[Category]",
-    cardLine: "[CONTENT NEEDED FROM SHAHZAIB]",
+    category: "Marketplace",
+    kind: "Wholesale ordering app",
+    cardLine:
+      "A wholesale ordering app built for a client, so their buyers can browse the product catalogue and order online.",
     color: "#8A5A44",
     tint: { panel: "#5E3B2C", screen: "#F3E7E1", screenText: "#4E2F21", label: "#D7A68E" },
-    type: "[Type]",
+    type: "Wholesale ordering",
     gradient: ["#B5826A", "#8A5A44", "#3E2519"],
     shade: "24,14,10",
     tier: "supporting",
-    draft: true,
+    role: "Main Flutter developer",
     platforms: "[Platforms]",
-    tags: ["Flutter"],
-    stack: ["Flutter"],
+    tags: ["Flutter", "REST API", "Laravel"],
+    stack: ["Flutter", "REST API (Laravel/PHP)"],
     screens: [
-      { label: "Screen", alt: "Material World screen" },
-      { label: "Screen", alt: "Material World screen" },
-      { label: "Screen", alt: "Material World screen" },
+      { label: "Product catalogue", alt: "Material World product catalogue" },
+      { label: "Product details", alt: "Material World product details" },
+      { label: "Order", alt: "Material World order screen" },
     ],
     capabilities: [],
   },
 ];
 
 export const publishedProjects = projects.filter((p) => !p.draft);
+
+const numberWords = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+/** How many apps the site shows, as a word ("Ten"), so copy never claims more or fewer than are listed. */
+export const appCountWord = numberWords[publishedProjects.length] ?? String(publishedProjects.length);
 
 export const projectFilters = [
   { id: "social", label: "Social and dating", category: "Social and dating" },

@@ -1,12 +1,14 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { AboutMotion } from "@/components/AboutMotion";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { Toolkit } from "@/components/Toolkit";
 import { CTAStrip } from "@/components/CTAStrip";
 import { JsonLd } from "@/components/JsonLd";
 import { Download } from "@/components/icons";
 import { ButtonLink } from "@/components/ui";
 import { experience } from "@/content/experience";
+import { testimonials } from "@/content/testimonials";
 import { primaryCta, site } from "@/content/site";
 import { pageMetadata, personSchema } from "@/lib/seo";
 
@@ -159,10 +161,11 @@ export default function AboutPage() {
       </section>
 
       <Prose title="How I got here">
-        {/* TODO(shahzaib): how you got into mobile development (see copy doc section 5). */}
-        <p className="rounded-xl border border-dashed border-line-strong px-4 py-3 text-[17px] leading-normal text-muted">
-          [Two or three sentences on how you got into mobile development. What did you study or build first? Why
-          Flutter? A specific first app or moment works far better than a general statement.]
+        <p>
+          I studied Computer Science, and I shipped my first real Flutter app during my internship at Rex Technologies
+          in 2022. Flutter won me over because a single codebase gave me Android and iOS at once, which meant I could
+          build faster and own the whole app. Four years on, I specialise in real-time chat and messaging apps for
+          startups and businesses.
         </p>
         <p>
           I started building Flutter apps professionally at Rex Technologies in 2022. That&apos;s where I learned what
@@ -206,7 +209,7 @@ export default function AboutPage() {
         </p>
       </Prose>
 
-      <section className={`wrap flex flex-col gap-10 ${gap}`}>
+      <section className={`wrap flex flex-col gap-10 overflow-x-clip ${gap}`}>
         <Heading>What I care about</Heading>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-5 [perspective:1200px]">
           {values.map((v) => (
@@ -234,6 +237,15 @@ export default function AboutPage() {
               <h3 className="text-[19px] font-bold">{a.title}</h3>
               <p className="text-base leading-[1.55] text-body">{a.body}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={`wrap flex flex-col gap-10 ${gap}`}>
+        <Heading>What clients say</Heading>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-5">
+          {testimonials.map((t) => (
+            <TestimonialCard key={t.name} testimonial={t} />
           ))}
         </div>
       </section>

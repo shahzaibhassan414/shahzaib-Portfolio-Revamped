@@ -9,8 +9,10 @@ import { HeroPhonesScroll } from "@/components/HeroPhonesScroll";
 import { PhoneFrame } from "@/components/PhoneFrame";
 import { ProjectMorph } from "@/components/ProjectMorph";
 import { SplitSection } from "@/components/SplitSection";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { caseStudies, isPlaceholder, type RichItem } from "@/content/case-studies";
 import { getProject, publishedProjects } from "@/content/projects";
+import { testimonialFor } from "@/content/testimonials";
 import { absoluteUrl, pageMetadata } from "@/lib/seo";
 import { onWhiteText } from "@/lib/color";
 
@@ -56,6 +58,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
   const study = caseStudies[slug];
   if (!project || !study) notFound();
 
+  const testimonial = testimonialFor(slug);
   const [name, ...rest] = study.h1.split(": ");
   const subtitle = rest.join(": ");
   const index = publishedProjects.findIndex((p) => p.slug === slug);
@@ -98,7 +101,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
           <span className="text-[17px] font-medium text-muted">{project.kind}</span>
         </div>
         <h1 className="flex flex-col gap-4">
-          <span className="text-[clamp(56px,9vw,128px)] leading-[0.92] font-extrabold tracking-[-0.045em]">
+          <span className="text-[clamp(44px,9vw,128px)] leading-[0.92] font-extrabold tracking-[-0.045em]">
             {name}
             <span className="sr-only">:</span>
           </span>
@@ -121,6 +124,18 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             <div className="flex flex-col gap-1.5 py-5 pr-6">
               <dt className="text-sm font-semibold text-muted">Role</dt>
               <dd className="text-[17px] font-semibold">{project.role}</dd>
+            </div>
+          )}
+          {project.team && (
+            <div className="flex flex-col gap-1.5 py-5 pr-6">
+              <dt className="text-sm font-semibold text-muted">Team</dt>
+              <dd className="text-[17px] leading-[1.4] font-semibold">{project.team}</dd>
+            </div>
+          )}
+          {project.timeline && (
+            <div className="flex flex-col gap-1.5 py-5 pr-6">
+              <dt className="text-sm font-semibold text-muted">Timeline</dt>
+              <dd className="text-[17px] font-semibold">{project.timeline}</dd>
             </div>
           )}
           <div className="flex flex-col gap-1.5 py-5 pr-6">
@@ -146,6 +161,11 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                   </a>
                 )}
               </dd>
+            </div>
+          ) : project.status ? (
+            <div className="flex flex-col gap-1.5 py-5 pr-6 sm:col-span-2">
+              <dt className="text-sm font-semibold text-muted">Status</dt>
+              <dd className="text-[17px] leading-[1.45] font-semibold">{project.status}</dd>
             </div>
           ) : (
             project.tier === "flagship" && (
@@ -286,10 +306,27 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                 <Para key={p}>{p}</Para>
               ))}
             </SplitSection>
+            {study.results && (
+              <SplitSection title="Results">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(min(200px,100%),1fr))] gap-4">
+                  {study.results.map((r, i) => (
+                    <div key={i} className="flex flex-col gap-1.5 rounded-[18px] border border-line bg-surface p-6">
+                      <span className="text-4xl font-extrabold tracking-[-0.02em] text-text">{r.value}</span>
+                      <span className="text-[15px] leading-normal text-muted">{r.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </SplitSection>
+            )}
             <SplitSection title="Stack">
               <Para>{study.stack}</Para>
             </SplitSection>
           </>
+        )}
+        {testimonial && (
+          <SplitSection title="What the client says">
+            <TestimonialCard testimonial={testimonial} size="large" />
+          </SplitSection>
         )}
       </article>
 

@@ -63,6 +63,7 @@ export type ShortCaseStudy = {
   seo?: { title: string; description: string };
   paragraphs: string[];
   stack: string;
+  results?: { value: string; label: string }[];
   cta: CaseStudyCta;
 };
 
@@ -73,6 +74,21 @@ const realtimeCta: CaseStudyCta = {
   body: "I've solved the presence, map, and subscription problems that come with it. Tell me about your app.",
   button: "Discuss a similar project",
   link: { href: "/services#realtime", label: "Real-time features service" },
+};
+
+// ExamConnect: chat-focused, from Shahzaib's own line about specialising in real-time chat.
+const chatCta: CaseStudyCta = {
+  heading: "Building something with live location or chat?",
+  body: "Real-time chat and messaging apps are what I specialise in. Tell me about your app.",
+  button: "Discuss a similar project",
+  link: { href: "/services#realtime", label: "Real-time features service" },
+};
+
+// Material World: the copy doc's general call to action.
+const generalCta: CaseStudyCta = {
+  heading: "Have an app to build or fix?",
+  body: "Send a few lines about the app and where it's stuck. You'll work directly with me, and I'll reply with questions or a rough plan.",
+  button: "Discuss your app",
 };
 
 const marketplaceCta: CaseStudyCta = {
@@ -99,10 +115,6 @@ export const caseStudies: Record<string, CaseStudy> = {
     },
     overview:
       "On Scene is a dating and social discovery app built around real places. Instead of endless swiping, people check in at venues, see who's nearby on a live map, chat in real time, and unlock premium features with a subscription. I was the main Flutter developer on the iOS and Android app.",
-    placeholders: {
-      overview:
-        'Confirm your exact title. The current site says both "Location feature lead" and "Main Flutter developer".',
-    },
     product: [
       "Most dating apps are profile catalogs: you swipe through strangers who could be anywhere. On Scene starts from the opposite end. It shows you where people are right now, which venues are busy tonight, and who just checked in near you, so meeting someone is a matter of going somewhere rather than messaging for a week.",
     ],
@@ -111,7 +123,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     role: [
       "I built the core mobile experience on iOS and Android: venue check-ins, map-based discovery, live presence, real-time chat, and premium subscriptions.",
-      "[Team size, who handled the backend and design, and how long you worked on it.]",
+      "I worked in a team of 4–6 people, alongside a separate backend developer and designer, over 3–6 months.",
     ],
     built: [
       {
@@ -184,6 +196,11 @@ export const caseStudies: Record<string, CaseStudy> = {
     outcome: [
       "On Scene shipped as a location-based discovery platform that combines live presence, venue check-ins, real-time chat, and premium dating features on both iOS and Android.",
     ],
+    results: [
+      { value: "5.0 ★", label: "App Store rating" },
+      { value: "July 2025", label: "First release shipped to iOS and Android" },
+      { value: "Live", label: "In production for a US client" },
+    ],
     learned: [
       "Real-time location features are mostly a data-flow problem, not a map problem. The map is easy; deciding which updates matter, how often, and to which part of the screen is the actual work.",
     ],
@@ -200,10 +217,6 @@ export const caseStudies: Record<string, CaseStudy> = {
     },
     overview:
       "Zera puts five products into one app: a marketplace for goods, a services directory, a jobs board, event ticketing, and a community feed. I was the main Flutter developer, responsible for the core mobile experience across all of those modules.",
-    placeholders: {
-      overview:
-        'Confirm your title. The current site lists both "Main Flutter Developer" and "Marketplace feature developer".',
-    },
     product: [
       'Zera\'s pitch is "Buy, Sell, Work and Connect." Instead of separate apps for selling a bike, hiring a cleaner, finding a job, and buying a concert ticket, people do all of it in one place, alongside a community of the same users.',
     ],
@@ -212,7 +225,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     role: [
       "Feature development, API integration, state management, QR workflows, map-based features, server-state caching, UI implementation, and production releases.",
-      "[Team size and who owned the backend.]",
+      "I worked in a team of 2–3 people, with a separate backend developer.",
     ],
     built: [
       {
@@ -283,7 +296,11 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack:
       "Flutter, Dart, REST APIs, TanStack Query, Google Maps with heat map layers, Stripe, RevenueCat, QR scanning, in-app web views",
     outcome: [
-      "Zera shipped as a feature-rich marketplace with several user journeys in one Flutter app, supporting API-driven interactions, location-based discovery, QR ticketing, and room for new verticals.",
+      "Zera is built as a feature-rich marketplace with several user journeys in one Flutter app, supporting API-driven interactions, location-based discovery, QR ticketing, and room for new verticals, and is launching soon on the App Store and Google Play.",
+    ],
+    results: [
+      { value: "5", label: "Modules in one app: goods, jobs, services, events and community" },
+      { value: "2", label: "Platforms from one Flutter codebase" },
     ],
     learned: [
       "In a multi-module app, structure is the product. Users never see the folder layout, but they feel it in how fast new features arrive and how rarely old ones break.",
@@ -314,8 +331,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       "Two audiences with very different needs. Shoppers need onboarding that feels like a normal sign-up, plus identity verification that doesn't feel like paperwork. Merchants need business verification (KYB), product and listing management, and order operations. Both apps mix ordinary REST APIs with blockchain-backed operations, and wallet data has to stay secure on the device.",
     ],
     role: [
-      "Flutter developer for both apps: wallet onboarding, KYC and KYB flows, REST API integration, merchant tools, and secure handling of wallet-related data.",
-      "[Team size, timeline, and whether these were built at Code Encoders.]",
+      "As Senior Flutter Developer at Code Encoders, I built both apps: wallet onboarding, KYC and KYB flows, REST API integration, merchant tools, and secure handling of wallet-related data.",
+      "I worked in a team of 7+ people over 3–6 months.",
     ],
     built: [
       {
@@ -383,6 +400,10 @@ export const caseStudies: Record<string, CaseStudy> = {
     outcome: [
       "BePay gave shoppers a wallet in a single social login and gave merchants a mobile back office for verification, listings, and orders.",
     ],
+    results: [
+      { value: "2", label: "Apps shipped: BePay Client and BePay Business" },
+      { value: "7+", label: "Person team at Code Encoders" },
+    ],
     learned: [
       "In fintech, the hard part is trust, not code. Every screen in onboarding either builds confidence or creates doubt, and good architecture is what lets you change those screens quickly when compliance rules change.",
     ],
@@ -435,6 +456,59 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     stack: "Flutter, Dio, Firebase, social login, REST APIs",
     cta: realtimeCta,
+  },
+
+  stylebite: {
+    kind: "short",
+    h1: "StyleBite: a fashion social app built in Flutter",
+    seo: {
+      title: "StyleBite: Fashion Social App Built in Flutter",
+      description:
+        "A fashion social app where users share posts and reels, follow each other's style, and chat in real time. Live on Google Play.",
+    },
+    paragraphs: [
+      "StyleBite is a fashion social app where users share posts and reels, follow each other's style, and chat in real time.",
+      "I built the home feed with posts and reels, user profiles, real-time messaging, push notifications, location features, and secure sign-in with email OTP and Google.",
+    ],
+    stack: "Flutter, Laravel",
+    results: [
+      { value: "Live", label: "On Google Play, with the App Store release in review" },
+      { value: "6", label: "Core features in one app: feed, reels, profiles, chat, notifications and location" },
+    ],
+    cta: chatCta,
+  },
+
+  examconnect: {
+    kind: "short",
+    h1: "ExamConnect: a study network for medical students, built in Flutter",
+    seo: {
+      title: "ExamConnect: Study Network App for Medical Students",
+      description:
+        "A study network where medical students find each other, chat one-on-one and prepare for exams together. Built solo in Flutter; 10,000+ downloads.",
+    },
+    paragraphs: [
+      "ExamConnect is a study network where medical students find each other, chat one-on-one and prepare for exams together in group chats.",
+      "I built it solo, from design to deployment, with Flutter and Firebase. It passed 10,000 downloads, and is no longer on the stores.",
+    ],
+    stack: "Flutter, Firebase",
+    results: [{ value: "10,000+", label: "Downloads" }],
+    cta: chatCta,
+  },
+
+  "material-world": {
+    kind: "short",
+    h1: "Material World: a wholesale ordering app built in Flutter",
+    seo: {
+      title: "Material World: Wholesale Ordering App in Flutter",
+      description:
+        "A wholesale ordering app built for a client, so their buyers can browse the product catalogue and order online.",
+    },
+    paragraphs: [
+      "Material World is a wholesale ordering app built for a client, so their buyers can browse the product catalogue and order online.",
+      "I was the main Flutter developer, building the app on a REST API backend (Laravel/PHP).",
+    ],
+    stack: "Flutter, REST API (Laravel/PHP)",
+    cta: generalCta,
   },
 };
 

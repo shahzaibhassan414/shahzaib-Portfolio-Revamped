@@ -20,7 +20,6 @@ export const experience: Role[] = [
     company: "Rex Technologies",
     initials: "RT",
     year: "2022",
-    // TODO(shahzaib): confirm the internship months (Feb to May 2022 is assumed).
     dates: "Feb 2022 to May 2022",
     minor: true,
     summary:

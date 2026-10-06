@@ -41,8 +41,8 @@ export default function ContactPage() {
       ? [
           {
             href: site.bookingUrl,
-            label: "Book a call",
-            detail: "Pick a time that suits you",
+            label: "Book a 20-minute call",
+            detail: "Tell me about your app, your timeline and your budget. No preparation needed.",
             icon: Calendar,
             tone: { bg: "rgba(245,162,122,0.16)", color: "#F5A27A" },
           },
@@ -79,6 +79,10 @@ export default function ContactPage() {
         <p className="max-w-[30em] text-lg leading-[1.55] text-body md:text-xl">
           A few lines is enough: what the app does, where it is now, and what&apos;s in the way. You&apos;ll hear back
           from me directly, not from a sales team.
+        </p>
+        <p className="-mt-3 flex items-center gap-2.5 text-[17px] font-semibold">
+          <span aria-hidden="true" className="size-2 flex-none rounded-full bg-live" />I reply within one working day,
+          usually sooner.
         </p>
 
         <ul className="flex flex-col border-t border-line">

@@ -3,7 +3,7 @@ import { ProjectIndex } from "@/components/ProjectIndex";
 import { FeaturedProject, ProjectTile } from "@/components/ProjectTile";
 import { SectionTitle } from "@/components/ui";
 import { WorkFilter } from "@/components/WorkFilter";
-import { getProject, projectFilters, publishedProjects } from "@/content/projects";
+import { appCountWord, getProject, projectFilters, publishedProjects } from "@/content/projects";
 import { primaryCta } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -12,11 +12,9 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Flutter App Projects and Case Studies | Shahzaib Hassan",
   description:
-    "Nine production Flutter apps: dating, marketplaces, Web3 commerce, and real-time systems, with the hard parts explained.",
+    `${appCountWord} production Flutter apps: dating, marketplaces, Web3 commerce, and real-time systems, with the hard parts explained.`,
   path: "/work",
 });
-
-const numberWords = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 
 export default function WorkPage() {
   const featured = getProject("on-scene");
@@ -36,7 +34,7 @@ export default function WorkPage() {
           <div className="flex max-w-[760px] flex-col gap-6">
             <h1 className="text-[clamp(72px,12vw,168px)] leading-[0.85] font-extrabold tracking-[-0.06em]">Work</h1>
             <p className="text-[19px] leading-normal text-body md:text-[22px]">
-              Nine production Flutter apps across social discovery, marketplaces, Web3 commerce, and real-time systems.
+              {appCountWord} production Flutter apps across social discovery, marketplaces, Web3 commerce, and real-time systems.
               Each one had a part that was harder than it looked, and that&apos;s what each project page is about.
             </p>
           </div>
@@ -57,7 +55,7 @@ export default function WorkPage() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionTitle id="index-title">Every project</SectionTitle>
             <p className="text-[17px] text-muted">
-              {numberWords[count] ?? count} apps, iOS and Android, all in Flutter.
+              {appCountWord} apps, iOS and Android, all in Flutter.
             </p>
           </div>
           <ProjectIndex projects={publishedProjects} />
