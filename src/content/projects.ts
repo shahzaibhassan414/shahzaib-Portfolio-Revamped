@@ -236,7 +236,11 @@ export const projects: Project[] = [
         label: "Swipe discovery",
         alt: "Paw Play Love swipe screen for liking or passing on a pet profile",
       },
-      { label: "Premium paywall", alt: "Paw Play Love premium paywall" },
+      {
+        src: "/work/paw-play-love/paywall.webp",
+        label: "Premium paywall",
+        alt: "Paw Play Love Upgrade to Premium paywall listing premium features, with Monthly and Yearly plans and a Continue button",
+      },
     ],
     capabilities: ["subscriptions", "realtime"],
   },
