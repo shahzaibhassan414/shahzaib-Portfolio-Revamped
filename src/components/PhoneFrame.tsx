@@ -5,14 +5,34 @@ import type { Project, Screen } from "@/content/projects";
 
 type Tint = Pick<Project["tint"], "screen" | "screenText">;
 
-/** Tinted stand-in shown wherever a real screenshot is missing. */
+/**
+ * Shown wherever a real screenshot is missing: an abstract app screen in the project's
+ * colours, titled with the screen's name. Sized in % and cqw so it scales with the frame.
+ */
 export function ScreenPlaceholder({ label, tint }: { label: string; tint: Tint }) {
+  const ink = tint.screenText;
+  const row = (w: string, o: number) => (
+    <span className="block rounded-full" style={{ width: w, height: "3.2cqw", background: ink, opacity: o }} />
+  );
   return (
-    <span
-      className="flex h-full w-full items-center justify-center p-3.5 text-center text-[13px] leading-[1.4]"
-      style={{ background: tint.screen, color: tint.screenText }}
-    >
-      [{label}]
+    <span className="block h-full w-full [container-type:inline-size]" style={{ background: tint.screen, color: ink }}>
+      <span className="flex h-full w-full flex-col gap-[5cqw] px-[8cqw] pt-[24cqw]">
+        <span className="text-[8.5cqw] font-extrabold leading-[1.1] tracking-[-0.02em]">{label}</span>
+        {[0, 1, 2, 3].map((i) => (
+          <span
+            key={i}
+            aria-hidden="true"
+            className="flex items-center gap-[5cqw] rounded-[6cqw] p-[5cqw]"
+            style={{ background: "rgba(255,255,255,0.6)", opacity: 1 - i * 0.18 }}
+          >
+            <span className="size-[14cqw] flex-none rounded-full" style={{ background: ink, opacity: 0.22 }} />
+            <span className="flex flex-1 flex-col gap-[3cqw]">
+              {row("70%", 0.35)}
+              {row("45%", 0.18)}
+            </span>
+          </span>
+        ))}
+      </span>
     </span>
   );
 }
@@ -49,21 +69,19 @@ export function PhoneFrame({ screen, tint, width = 210, sizes, eager, className 
   return (
     <span
       className={`relative flex flex-none ${className}`}
-      style={{
-        width,
-        aspectRatio: "210 / 440",
-        padding: rim,
-        borderRadius: radius,
-        background: "linear-gradient(150deg, #4a515d 0%, #1c2028 22%, #12151b 50%, #1c2028 78%, #4a515d 100%)",
-        ...style,
-      }}
+      style={{ width, aspectRatio: "210 / 440", padding: rim, borderRadius: radius, background: "linear-gradient(150deg, #4a515d 0%, #1c2028 22%, #12151b 50%, #1c2028 78%, #4a515d 100%)", ...style }}
     >
       {buttons.map(([side, top, height], i) => (
         <span
           key={i}
           aria-hidden="true"
           className="absolute rounded-sm bg-[linear-gradient(90deg,#3a4150,#1a1e26)]"
-          style={{ [side]: -button + 0.5, top: `${top}%`, height: `${height}%`, width: button }}
+          style={{
+            [side]: -button + 0.5,
+            top: `${top}%`,
+            height: `${height}%`,
+            width: button,
+          }}
         />
       ))}
       <span className="flex flex-1 bg-[#07090c]" style={{ padding: bezel, borderRadius: radius - rim }}>

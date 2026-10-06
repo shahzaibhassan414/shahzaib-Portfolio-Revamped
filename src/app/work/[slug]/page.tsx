@@ -213,7 +213,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                 // The wrapper is what scrolls (HeroPhonesScroll); the phone keeps its tilt.
                 <span key={i} data-hero-phone className={`inline-flex ${i === 1 ? "relative z-[1]" : ""}`}>
                   <PhoneFrame
-                    screen={{ ...screen, label: `Screen: ${screen.label.toLowerCase()}` }}
+                    screen={screen}
                     tint={project.tint}
                     width={260}
                     sizes="(min-width: 768px) 260px, 160px"
