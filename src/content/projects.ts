@@ -93,19 +93,19 @@ export const projects: Project[] = [
     ],
     screens: [
       {
-        src: "/work/on-scene/screen-1.webp",
-        label: "Explore nearby",
-        alt: "On Scene screen inviting people to explore nearby scenes, with the Scenes Near You list on a phone",
+        src: "/work/on-scene/onboarding.webp",
+        label: "Onboarding",
+        alt: "On Scene onboarding: Check In & Explore Real Life, with venue photos and Create Account and Sign In buttons",
       },
       {
-        src: "/work/on-scene/screen-2.webp",
+        src: "/work/on-scene/scenes-near-you.webp",
+        label: "Scenes near you",
+        alt: "On Scene Scenes Near You list with a wine bar, its distance, opening hours, member count and a Check-in button",
+      },
+      {
+        src: "/work/on-scene/venue.webp",
         label: "Venue page",
-        alt: "On Scene venue page for a wine bar, with members checked in and what's happening on scene",
-      },
-      {
-        src: "/work/on-scene/screen-3.webp",
-        label: "Chats",
-        alt: "On Scene chat list showing people currently on scene and recent conversations",
+        alt: "On Scene venue page with photos, a Check-in button and who will be on scene",
       },
     ],
     capabilities: ["subscriptions", "realtime", "maps"],
