@@ -6,8 +6,13 @@ import { useEffect, useRef, useState } from "react";
 /**
  * A screenshot that only starts downloading when its frame is near the viewport. The
  * browser's own lazy loading uses a margin of up to 2500px on slow connections, which
- * pulled every rail and tile image into the first page load. Cards scrolled sideways in
- * the rail wait until the rail brings them close. The tinted frame shows until then.
+ * pulled every rail and tile image into the first page load. The tinted frame shows until
+ * the image arrives.
+ *
+ * Inside a `data-preload` container (the homepage rail) the container is watched instead:
+ * its overflow clips cards that are off to the side, so on their own they would only count
+ * as near once already on screen. Every screenshot in the container loads together as it
+ * approaches.
  */
 export function ScreenImage({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -25,7 +30,7 @@ export function ScreenImage({ src, alt, sizes }: { src: string; alt: string; siz
       },
       { rootMargin: "800px 400px" },
     );
-    io.observe(el);
+    io.observe(el.parentElement?.closest("[data-preload]") ?? el);
     return () => io.disconnect();
   }, []);
 

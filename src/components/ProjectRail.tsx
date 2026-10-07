@@ -146,6 +146,7 @@ export function ProjectRail({ header, trailing, label, children }: ProjectRailPr
         role="region"
         aria-label={label}
         tabIndex={0}
+        data-preload
         className="no-scrollbar flex snap-x snap-mandatory gap-5 data-[pinned=true]:snap-none data-[pinned=true]:overflow-x-hidden overflow-x-auto px-[max(20px,calc((100%-1200px)/2+20px))] pt-2 pb-6 scroll-px-[max(20px,calc((100%-1200px)/2+20px))] md:gap-8 md:px-[max(40px,calc((100%-1200px)/2+40px))] md:scroll-px-[max(40px,calc((100%-1200px)/2+40px))]"
       >
         {children}
