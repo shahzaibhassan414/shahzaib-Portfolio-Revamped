@@ -83,7 +83,7 @@ export function ContactForm({
       <div className={box} role="status">
         <h2 className="text-[28px] leading-[1.15] font-extrabold tracking-[-0.02em]">Message sent.</h2>
         <p className="text-lg leading-[1.6] text-body">
-          I&apos;ll reply to {status.email ? <strong className="text-text">{status.email}</strong> : "you"} soon. If
+          I&apos;ll reply to {status.email ? <strong className="text-text">{status.email}</strong> : "you"} within a day. If
           it&apos;s urgent,{" "}
           <a href={`https://wa.me/${site.whatsapp}`} className="font-semibold text-accent underline underline-offset-2">
             WhatsApp

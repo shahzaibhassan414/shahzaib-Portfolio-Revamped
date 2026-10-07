@@ -69,8 +69,7 @@ export default function ContactPage() {
           from me directly, not from a sales team.
         </p>
         <p className="-mt-3 flex items-center gap-2.5 text-[17px] font-semibold">
-          <span aria-hidden="true" className="size-2 flex-none rounded-full bg-live" />I reply within one working day,
-          usually sooner.
+          <span aria-hidden="true" className="size-2 flex-none rounded-full bg-live" />I reply within a day.
         </p>
 
         <ul className="flex flex-col border-t border-line">

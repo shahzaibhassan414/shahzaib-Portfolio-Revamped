@@ -242,7 +242,7 @@ Founders who have a clear problem and want a developer who'll push back when som
 
 **Flutter Intern, Rex Technologies** · February 2022 to May 2022
 
-Learned production Flutter on real client apps, alongside the team, before moving into a full developer role. \[CONTENT NEEDED FROM SHAHZAIB: confirm the internship months.\]
+Learned production Flutter on real client apps, alongside the team, before moving into a full developer role.
 
 ### Toolkit
 
@@ -670,11 +670,11 @@ Every CTA names what happens next and matches what the visitor was just reading.
 - Button: Send message
 - Under the button: Your details are only used to reply to you.
 
-**Success message:** Message sent. I'll reply to \[email\] soon. If it's urgent, WhatsApp is the fastest way to reach me.
+**Success message:** Message sent. I'll reply to \[email\] within a day. If it's urgent, WhatsApp is the fastest way to reach me.
 
 **Error message:** Your message didn't send. Email me at shahzaibhassan414@gmail.com and I'll pick it up from there.
 
-&#91;CONTENT NEEDED FROM SHAHZAIB: a typical reply time you can keep, such as "within one working day". A stated reply time increases enquiries, but only promise one you'll always meet.\]
+**Reply time (under the intro):** I reply within a day.
 
 A professional email address on your own domain (for example, hello@shahzaib-dev.site) reads as more established than Gmail. It's worth setting up before launch.
 
