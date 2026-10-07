@@ -263,42 +263,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blog */}
-      <section aria-labelledby="blog-title" className={`wrap flex flex-col gap-10 ${sectionGap}`}>
-        <div className="flex max-w-[640px] flex-col gap-3.5">
-          <SectionTitle id="blog-title">Blog</SectionTitle>
-          <p className="text-[19px] leading-[1.55] text-body">
-            Problems I&apos;ve solved, written up for other Flutter developers.
-          </p>
-          <TextLink href="/blog" className="text-[17px]">
-            Read the blog
-          </TextLink>
-        </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-5">
-          {playbooks.map((playbook, i) => (
-            <ResourceCard
-              key={playbook.href}
-              href={playbook.href}
-              visual={i === 0 ? <HeatMapVisual /> : <SvgToWidgetVisual />}
-              badge={
-                <>
-                  <Book size={14} />
-                  Playbook
-                </>
-              }
-              title={playbook.title}
-              action="Read the playbook"
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Open source */}
-      <section aria-labelledby="oss-title" className="wrap flex flex-col gap-10 pt-[88px] md:pt-[120px]">
+      {/* Open source and playbooks */}
+      <section aria-labelledby="oss-title" className={`wrap flex flex-col gap-10 ${sectionGap}`}>
         <div className="flex max-w-[640px] flex-col gap-3.5">
           <SectionTitle id="oss-title">Open source</SectionTitle>
           <p className="text-[19px] leading-[1.55] text-body">
-            Flutter packages I&apos;ve published on pub.dev for other developers to use.
+            Flutter packages I&apos;ve published on pub.dev, and playbooks on problems I&apos;ve solved, written up for
+            other Flutter developers.
           </p>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-5">
@@ -317,6 +288,22 @@ export default function Home() {
               mono
               description={pkg.description}
               action="View on pub.dev"
+            />
+          ))}
+          {playbooks.map((playbook, i) => (
+            <ResourceCard
+              key={playbook.href}
+              href={playbook.href}
+              visual={i === 0 ? <HeatMapVisual /> : <SvgToWidgetVisual />}
+              badge={
+                <>
+                  <Book size={14} />
+                  Playbook
+                </>
+              }
+              title={playbook.title}
+              description={playbook.summary}
+              action="Read the playbook"
             />
           ))}
         </div>

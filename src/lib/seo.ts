@@ -10,11 +10,9 @@ type PageSeo = {
   description: string;
   /** Path from the site root, e.g. "/work/zera". Becomes the canonical URL. */
   path: string;
-  type?: "website" | "article";
-  publishedTime?: string;
 };
 
-export function pageMetadata({ title, description, path, type = "website", publishedTime }: PageSeo): Metadata {
+export function pageMetadata({ title, description, path }: PageSeo): Metadata {
   return {
     title: { absolute: title },
     description,
@@ -25,8 +23,7 @@ export function pageMetadata({ title, description, path, type = "website", publi
       url: path,
       siteName: site.name,
       locale: "en_US",
-      type,
-      ...(publishedTime ? { publishedTime, authors: [site.url + "/about"] } : {}),
+      type: "website",
     },
     twitter: { card: "summary_large_image", title, description },
   };

@@ -1,4 +1,3 @@
-import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
 // Old Flutter Web URLs, redirected permanently to their new pages.
@@ -14,14 +13,17 @@ const legacyProjects: Record<string, string> = {
 };
 
 const nextConfig: NextConfig = {
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   async redirects() {
-    return Object.entries(legacyProjects).map(([slug, destination]) => ({
-      source: `/project/${slug}`,
-      destination,
-      permanent: true,
-    }));
+    return [
+      ...Object.entries(legacyProjects).map(([slug, destination]) => ({
+        source: `/project/${slug}`,
+        destination,
+        permanent: true,
+      })),
+      // The blog was folded into the homepage's Open source section.
+      { source: "/blog/:path*", destination: "/#oss-title", permanent: true },
+    ];
   },
 };
 
-export default createMDX({})(nextConfig);
+export default nextConfig;

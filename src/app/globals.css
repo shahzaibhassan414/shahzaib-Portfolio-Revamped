@@ -440,7 +440,7 @@
   opacity: 1;
 }
 
-/* Card illustrations come alive on hover (homepage Blog and Open source cards). */
+/* Card illustrations come alive on hover (homepage Open source cards). */
 @keyframes fx-pulse {
   0%,
   100% {

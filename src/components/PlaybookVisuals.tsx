@@ -1,4 +1,4 @@
-// Illustrations for the two Notion playbooks, shared by the homepage and /blog.
+// Illustrations for the two Notion playbooks on the homepage.
 
 export function HeatMapVisual() {
   return (

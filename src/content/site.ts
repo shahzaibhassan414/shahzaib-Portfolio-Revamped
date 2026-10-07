@@ -28,7 +28,6 @@ export const nav = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
 ] as const;
 
 export const primaryCta = { href: "/contact", label: "Discuss your app" } as const;
@@ -56,7 +55,6 @@ export const footerNav = [
     heading: "More",
     links: [
       { href: "/about", label: "About" },
-      { href: "/blog", label: "Blog" },
       { href: site.resumeUrl, label: "Resume" },
       { href: "/contact", label: "Contact" },
     ],
@@ -84,7 +82,7 @@ export const openSource = [
   },
 ] as const;
 
-// Existing articles live on Notion for now. Move them onto /blog (see docs/copy-and-seo.md, section 14).
+// Write-ups published on Notion, shown alongside the packages in the homepage Open source section.
 export const playbooks = [
   {
     title: "How to add a heat map to Google Maps in Flutter",

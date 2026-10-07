@@ -19,7 +19,6 @@ I'm Shahzaib Hassan, a senior Flutter developer with four years of production ex
 - [Work](https://www.shahzaib-dev.site/work): all published projects
 - [Services](https://www.shahzaib-dev.site/services): new builds, rescues, and maintenance, plus pricing and FAQ
 - [About](https://www.shahzaib-dev.site/about): background, approach, experience, and toolkit
-- [Blog](https://www.shahzaib-dev.site/blog): practical guides on production Flutter problems
 - [Contact](https://www.shahzaib-dev.site/contact): project enquiries
 - [Sitemap](https://www.shahzaib-dev.site/sitemap.xml)
 
@@ -53,6 +52,11 @@ I'm Shahzaib Hassan, a senior Flutter developer with four years of production ex
 
 - [fancy_button_animations](https://pub.dev/packages/fancy_button_animations): micro-animations and feedback states for buttons
 - [inner_curved_circle](https://pub.dev/packages/inner_curved_circle): a painter for smooth inner-curved circle clipping
+
+## Playbooks
+
+- [How to add a heat map to Google Maps in Flutter](https://midnight-grape-a6b.notion.site/Playbook-How-to-Add-a-Heatmap-in-Flutter-Google-Maps-2854fb3615b880538317ede1721ce16a): the approach used in Zera to show where marketplace demand clusters
+- [From SVG to Flutter widget](https://midnight-grape-a6b.notion.site/Playbook-From-SVG-to-Flutter-Widget-2e94fb3615b880dd89a4fc2cc4d76f68): turning a designer's SVG into a clean, resizable Flutter widget
 
 ## Contact
 
