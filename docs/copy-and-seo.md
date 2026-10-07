@@ -27,7 +27,7 @@ The work I do best starts where tutorials stop. Subscriptions that stay in sync 
 | Startup founders | Wasting money on an app that has to be rebuilt in a year | Shipped apps, a clear process, ownership of the code | Homepage, Flutter App Development, case studies |
 | Product owners with a live app | Crashes, slow releases, a codebase nobody understands | That he can take over an existing app without a rewrite | Flutter App Rescue, Flutter App Maintenance |
 | Agencies | A contractor who disappears or needs hand-holding | Seniority, communication, store-release experience | Services, About, Contact |
-| Companies hiring | Whether he's actually senior | Real responsibilities, technical depth, writing | About, case studies, Writing |
+| Companies hiring | Whether he's actually senior | Real responsibilities, technical depth, published packages and playbooks | About, case studies, homepage Open source |
 
 **Main differentiator**
 
@@ -62,17 +62,17 @@ Core message: you can hand Shahzaib a real mobile product, new or existing, and 
 | "Our codebase is a mess. Will he just want to rewrite it?" | Rescue starts with an audit and stabilizes before restructuring | Flutter App Rescue page |
 | "Has he shipped real apps, or just demos?" | Store links, named employers, real integrations, case studies | Work, case studies |
 | "He's in Pakistan. Communication will be hard." | Stated time zone, agreed shared hours, written updates, WhatsApp and email | Services FAQ, Contact |
-| "Is he actually senior?" | Decisions and trade-offs in case studies, writing, a current senior role | About, case studies, Writing |
-| "Is Flutter even right for us?" | An article and FAQ on when Flutter is and isn't the right choice | Writing, Services FAQ |
+| "Is he actually senior?" | Decisions and trade-offs in case studies, published packages and playbooks, a current senior role | About, case studies, homepage Open source |
+| "Is Flutter even right for us?" | An FAQ answer on when Flutter is and isn't the right choice | Services FAQ |
 | "An agency feels safer." | Direct access to the person doing the work, no account managers | Homepage CTA, About |
 
 ## 3. Site structure and navigation
 
 Each page targets one search intent, so pages support each other instead of competing for the same keyword.
 
-**Navigation:** Work · Services · About · Writing · Contact (button: "Discuss your app")
+**Navigation:** Work · Services · About · Contact (button: "Discuss your app")
 
-The nav label changes from "Notes" to "Writing", which is clearer and matches how people search for technical articles.
+There is no blog or Writing section. Without regular articles it read as unfinished, so the two Notion playbooks sit beside the pub.dev packages in the homepage's Open source section instead, and /blog redirects there (see section 14).
 
 **Services are reorganized** from six equal offers into three core engagements plus three specialist areas. Clients usually arrive with one of three situations (nothing yet, something broken, something live), and the specialist areas are what those engagements most often involve.
 
@@ -89,8 +89,6 @@ The nav label changes from "Notes" to "Writing", which is clearer and matches ho
 | App rescue | /services/flutter-app-rescue | Take over troubled apps | Flutter app rescue, fix Flutter app |
 | App maintenance | /services/flutter-app-maintenance | Ongoing work on live apps | Flutter app maintenance |
 | About | /about | The person and his experience | Shahzaib Hassan Flutter developer |
-| Writing | /writing | Technical authority, long-tail search | Flutter production guides |
-| Article | /writing/\[slug\] | One problem, solved in depth | Per article (section 14) |
 | Contact | /contact | Convert | Hire Flutter developer |
 
 Phase two, once there's content to support them: dedicated pages for /services/flutter-performance-optimization, /services/flutter-real-time-chat, and /services/flutter-payments-subscriptions. Until then they live as sections on the Services hub.
@@ -163,11 +161,13 @@ Rows: Subscriptions and paywalls · Payments · Real-time chat and presence · M
 
 Card copy lives in section 5. Link: More about me
 
-### Writing and open source
+### Open source
 
-**H2:** Writing and open source
+**H2:** Open source
 
-**Intro:** Problems I've solved, written up for other Flutter developers.
+**Intro:** Flutter packages I've published on pub.dev, and playbooks on problems I've solved, written up for other Flutter developers.
+
+**Cards:** the two pub.dev packages (View on pub.dev), then the two Notion playbooks (Read the playbook).
 
 ### Final call to action
 
@@ -680,7 +680,7 @@ A professional email address on your own domain (for example, hello@shahzaib-dev
 
 ### Navigation
 
-Work · Services · About · Writing · Discuss your app (button)
+Work · Services · About · Discuss your app (button)
 
 ### Footer
 
@@ -690,7 +690,7 @@ Work · Services · About · Writing · Discuss your app (button)
 
 - Work: On Scene · Zera · BePay · All projects
 - Services: App development · App rescue · App maintenance
-- More: About · Writing · Resume · Contact
+- More: About · Resume · Contact
 - Elsewhere: GitHub · LinkedIn · pub.dev
 
 **Bottom line:** Based in Pakistan, working remotely with teams worldwide. © 2026 Shahzaib Hassan
@@ -710,8 +710,6 @@ Work · Services · About · Writing · Discuss your app (button)
 | Case study (marketplace) | Building a marketplace? | Discuss a similar project |
 | Case study (fintech, Web3) | Building a fintech or Web3 product? | Discuss a similar project |
 | About | Let's talk about your app | Discuss your app |
-| Article about a problem | Dealing with this in your app? | Get help with your app |
-| Article about a build topic | Planning a feature like this? | Discuss your project |
 | Hiring managers (About, resume) | Hiring a Flutter developer? | Download resume |
 
 ## 12. SEO package
@@ -732,7 +730,6 @@ One primary keyword per page, titles under 60 characters, and descriptions under
 | App rescue | /services/flutter-app-rescue | Flutter App Rescue: Fix a Buggy or Slow Flutter App | Crashes, lag, failing builds, or messy code? I audit your Flutter app, fix what hurts users first, and get releases moving again. |
 | App maintenance | /services/flutter-app-maintenance | Flutter App Maintenance and Ongoing Development | A dependable Flutter developer for your live app: new features, fixes, upgrades, and regular App Store and Google Play releases. |
 | About | /about | About Shahzaib Hassan, Senior Flutter Developer | Four years building production Flutter apps at Code Encoders and Rex Technologies, and how I approach new and existing codebases. |
-| Writing | /writing | Flutter Production Guides and Playbooks \| Shahzaib Hassan | Practical write-ups on real Flutter problems: maps, real-time chat, subscriptions, performance, and shipping to the stores. |
 | Contact | /contact | Hire a Flutter Developer \| Contact Shahzaib Hassan | Tell me about your app: a new build, a rescue, or ongoing work. You'll hear back from me directly. |
 
 ### Keywords, intent, and H1
@@ -749,12 +746,11 @@ One primary keyword per page, titles under 60 characters, and descriptions under
 | App rescue | Flutter app rescue | fix Flutter app, Flutter app bug fixing, Flutter performance optimization | Fix an existing broken app | Rescue a struggling Flutter app |
 | App maintenance | Flutter app maintenance | Flutter maintenance developer, ongoing Flutter development | Find ongoing support | Flutter app maintenance and ongoing development |
 | About | Shahzaib Hassan | Senior Flutter Developer Pakistan, Flutter developer experience | Vet the person | The developer behind the apps |
-| Writing | Flutter production guides | Flutter tutorials, Flutter best practices | Learn and solve a problem | Writing |
 | Contact | hire Flutter developer | Flutter developer for hire, remote Flutter developer | Get in touch | Tell me about your app |
 
 ### H2 structure by page
 
-**Home:** Three ways projects usually start · Work · Shipped, not just listed · How a project runs · From developer to senior engineer · Writing · Open source · Have an app to build or fix?
+**Home:** Three ways projects usually start · Work · Shipped, not just listed · How a project runs · From developer to senior engineer · Open source · Have an app to build or fix?
 
 **Case studies:** The product · The problem · My role · What I built · Technical challenges · Important engineering decisions · Technology stack · Outcome · What I learned
 
@@ -768,7 +764,7 @@ One primary keyword per page, titles under 60 characters, and descriptions under
 
 ### Technical SEO checklist
 
-- Structured data: Person on About, ProfessionalService on Services, Article on each Writing post, BreadcrumbList on case studies
+- Structured data: Person on About, ProfessionalService on Services, BreadcrumbList on case studies
 - One canonical URL per page, a sitemap listing only pages that exist, and 301 redirects from the old /project/ URLs
 - An Open Graph image per page, generated with the page title
 - Real screenshots with descriptive alt text, such as "On Scene venue map showing live check-ins nearby"
@@ -783,97 +779,24 @@ Every page links to proof (a case study), to an offer (a service), and to the co
 | Home: Where I come in | Each service page | How a new build works / What a rescue looks like / How maintenance works | Sends visitors to the offer that matches their situation |
 | Home: Work | Case studies, /work | Read the case study / See all work | Proof |
 | Home: Experience | /about | More about me | Vetting |
-| Home: Writing | /writing | Read all writing | Authority |
 | Work page | Every project page | Project names | Proof |
 | On Scene case study | Real-time and payments sections on Services, Zera | real-time features / subscriptions / Next case study | Proof to offer |
-| Zera case study | App development page, heat map playbook, BePay | building a marketplace / the heat map write-up | Proof to offer and article |
+| Zera case study | App development page, heat map playbook, BePay | building a marketplace / the heat map write-up | Proof to offer and playbook |
 | BePay case study | Payments section, On Scene | payments and verification / Next case study | Proof to offer |
 | App development page | On Scene, Zera, contact | Related case studies / Plan your new app | Offer to proof to conversion |
-| App rescue page | Performance articles, contact | how I diagnose slow screens / Get your app audited | Offer to authority to conversion |
+| App rescue page | On Scene, contact | Related case studies / Get your app audited | Offer to proof to conversion |
 | App maintenance page | About, contact | how I work / Discuss ongoing support | Trust to conversion |
 | About | /work, /services, resume | the apps I've built / how I can help | Vetting to offer |
-| Every article | One matching service, one matching case study | Topic-specific phrases, such as "if your app has this problem" | Turns readers into leads |
-| Footer (every page) | Top case studies, all three services, About, Writing, Contact | Page names | Crawlability |
+| Footer (every page) | Top case studies, all three services, About, Contact | Page names | Crawlability |
 
-Rules for every article: link to one service and one case study in the body text, never only in a sidebar. Use descriptive anchors, never "click here". Link each new article from at least one older article on a related topic.
+## 14. Writing
 
-## 14. Content roadmap
+The site has no blog. A Writing page with two links out to Notion and a list of articles still to come looked unfinished, and clients decide on case studies and results, not on articles. So:
 
-Start with the five priority articles (marked P): each one matches a service and reuses a problem already solved in a case study. Publishing one every two weeks gives the Writing page a full year of material.
+- The two Notion playbooks (heat maps in Google Maps, SVG to Flutter widget) are cards in the homepage Open source section, and the Zera case study links the heat map one.
+- /blog and anything under it redirect permanently to that section.
 
-| # | Title | Primary keyword | Intent | Audience | Links to | CTA |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 (P) | Taking over an existing Flutter app: what I check in the first two weeks | take over Flutter project | Informational, high commercial | Founders, product owners, agencies | App rescue | Get your app audited |
-| 2 (P) | Why your Flutter app is slow, and how to find out for sure | Flutter app slow | Problem-solving | Developers, product owners | App rescue, On Scene | Get help with your app |
-| 3 (P) | Handling subscriptions in Flutter with RevenueCat without entitlement bugs | RevenueCat Flutter | How-to | Developers, founders | Payments section, Paw Play Love | Discuss your project |
-| 4 (P) | Real-time chat in Flutter with Socket.IO: reconnects, background, and message order | Flutter Socket.IO chat | How-to | Developers | Real-time section, On Scene | Discuss your project |
-| 5 (P) | How much does it cost to build a Flutter app in 2026? | Flutter app development cost | Commercial research | Founders | App development, Contact | Discuss your app |
-| 6 | Flutter vs native: when Flutter is the wrong choice | Flutter vs native | Decision | Founders, CTOs | App development | Discuss your app |
-| 7 | Building a location-based app in Flutter: maps, presence, and battery | Flutter location-based app | How-to | Developers, founders | On Scene | Discuss a similar project |
-| 8 | Preparing a Flutter app for App Store review: the rejections I see most | Flutter App Store rejection | Problem-solving | Developers, founders | App development, maintenance | Get help with your app |
-| 9 | Structuring a Flutter app that keeps growing | Flutter app architecture | How-to | Developers, CTOs | App development, Zera | Discuss your project |
-| 10 | Firebase push notifications in Flutter that actually arrive | Flutter push notifications Firebase | Problem-solving | Developers | Real-time section | Get help with your app |
-| 11 | Integrating Stripe payments into a Flutter app | Stripe Flutter integration | How-to | Developers | Payments section, LawnOlu | Discuss your project |
-| 12 | Signs your Flutter app needs a rescue, not a rewrite | Flutter app rewrite | Decision | Founders, product owners | App rescue | Get your app audited |
-| 13 | Common mistakes in production Flutter apps | Flutter best practices production | Informational | Developers, agencies | App rescue | Get help with your app |
-| 14 | Riverpod, Provider, or GetX: choosing state management for a real app | Flutter state management comparison | Decision | Developers | App development | Discuss your project |
-| 15 | Using TanStack Query in Flutter for server state | TanStack Query Flutter | How-to | Developers | Zera | Discuss a similar project |
-| 16 | Building a multi-vendor marketplace app in Flutter | Flutter marketplace app | How-to | Founders, developers | Zera, App development | Discuss a similar project |
-| 17 | Web3 wallet onboarding in Flutter with Web3Auth | Web3Auth Flutter | How-to | Developers, fintech founders | BePay | Discuss a similar project |
-| 18 | Adding KYC verification to a Flutter app | Flutter KYC integration | How-to | Fintech teams | BePay | Discuss a similar project |
-| 19 | Upgrading an old Flutter app to the latest version safely | upgrade Flutter version | How-to | Developers, product owners | App maintenance | Discuss ongoing support |
-| 20 | What to ask before hiring a Flutter developer | hire Flutter developer | Commercial research | Founders, hiring managers | Contact, About | Discuss your app |
-| 21 | Reducing Flutter app startup time | Flutter app startup time | Problem-solving | Developers | App rescue | Get help with your app |
-| 22 | What a good Flutter handover looks like | Flutter project handover | Informational | Founders, agencies | App development, maintenance | Discuss your app |
-
-The two existing Notion playbooks (heat maps, SVG to widget) should move onto the site as articles 23 and 24, so their traffic builds your domain instead of Notion's.
-
-### Outlines for the priority articles
-
-**1. Taking over an existing Flutter app**
-
-1. Why rewrites usually fail
-2. Day one: get it building and running on real devices
-3. Read the crash reports before the code
-4. Map state management and data flow
-5. Dependency and Flutter version check
-6. The written audit: what's broken, ranked by user impact
-7. What to fix first, and what to leave alone
-
-**2. Why your Flutter app is slow**
-
-1. Measure before guessing: DevTools and the performance overlay
-2. Excessive rebuilds and how to spot them
-3. Heavy work on the UI thread
-4. Images, lists, and caching
-5. Network and API patterns that feel slow
-6. A real example: keeping a busy map smooth (from On Scene)
-
-**3. RevenueCat subscriptions without entitlement bugs**
-
-1. How store purchases really flow
-2. Setting up offerings and entitlements
-3. Checking entitlements at the right moments
-4. Restores, reinstalls, and device switches
-5. Testing with sandbox accounts on both stores
-6. Lessons from Paw Play Love and On Scene
-
-**4. Real-time chat with Socket.IO**
-
-1. When sockets beat polling
-2. Connection lifecycle in Flutter
-3. Reconnecting without losing messages
-4. Background and terminated states with push notifications
-5. Message ordering and delivery state
-6. Presence and typing indicators
-
-**5. How much a Flutter app costs**
-
-1. What actually drives cost: features, integrations, platforms
-2. Example scopes: MVP, mid-size product, complex app
-3. Where Flutter saves money compared with two native apps
-4. Hidden costs: store accounts, backend, maintenance
-5. How to get an accurate quote
+If regular writing starts later, bring back a Writing page with on-site articles, each linking to one matching service and one case study. The earlier article roadmap and outlines are in this file's git history.
 
 ## 15. Content needed from Shahzaib
 
