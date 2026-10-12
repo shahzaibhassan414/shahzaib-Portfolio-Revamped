@@ -1,8 +1,0 @@
-{
-  "issuer": "https://www.shahzaib-dev.site",
-  "authorization_endpoint": "https://www.shahzaib-dev.site/contact",
-  "token_endpoint": "https://www.shahzaib-dev.site/api/contact",
-  "jwks_uri": "https://www.shahzaib-dev.site/.well-known/jwks.json",
-  "response_types_supported": ["token"],
-  "grant_types_supported": ["client_credentials", "anonymous"]
-}

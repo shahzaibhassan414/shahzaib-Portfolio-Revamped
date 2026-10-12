@@ -57,10 +57,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable} antialiased`}>
-      <head>
-        <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
-        <link rel="api-catalog" href="/.well-known/api-catalog" />
-      </head>
       {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) add attributes to <body>. */}
       <body id="top" className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <a
