@@ -16,7 +16,12 @@ export function pageMetadata({ title, description, path }: PageSeo): Metadata {
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      types: {
+        "text/markdown": path === "/" ? "/index.md" : "/index.md",
+      },
+    },
     openGraph: {
       title,
       description,
@@ -37,8 +42,27 @@ export const personSchema = {
   "@id": absoluteUrl("/about#person"),
   name: site.name,
   jobTitle: site.role,
+  description:
+    "Senior Full-Stack Flutter Developer specializing in iOS and Android production apps with real-time WebSockets, offline SQLite sync, and native platform channels.",
   url: absoluteUrl("/about"),
   image: absoluteUrl("/images/portrait.webp"),
   email: `mailto:${site.email}`,
   sameAs: [site.social.linkedin, site.social.github, site.social.pubDev],
+  knowsAbout: [
+    "Flutter",
+    "Dart",
+    "iOS Development",
+    "Android Development",
+    "Cross-Platform Mobile Architecture",
+    "Bloc & Cubit",
+    "Riverpod",
+    "Offline-First SQLite Sync",
+    "Real-time WebSockets",
+    "In-App Purchases & RevenueCat",
+    "Native Platform Channels (Swift & Kotlin)",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Code Encoders",
+  },
 } as const;

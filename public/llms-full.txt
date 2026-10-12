@@ -1,0 +1,124 @@
+# Shahzaib Hassan — Senior Full-Stack Flutter Engineer (Full Documentation)
+
+> The complete architectural, case study, and capability reference for Shahzaib Hassan. Published for AI search engines, research agents, and client evaluations.
+> Canonical URL: https://www.shahzaib-dev.site
+> Contact: shahzaibhassan414@gmail.com | WhatsApp: +92 316 0984600 | LinkedIn: https://www.linkedin.com/in/shahzaibhassan414/ | GitHub: https://github.com/shahzaibhassan414
+
+---
+
+## 1. Professional Overview
+
+- **Title:** Senior Flutter Developer & Mobile Architect
+- **Experience:** 4+ years of production cross-platform engineering (iOS & Android).
+- **Current Position:** Senior Flutter Developer at Code Encoders (January 2024 – Present).
+- **Previous Position:** Flutter Developer and Intern at Rex Technologies (2022 – 2024).
+- **Location & Timezone:** Pakistan (UTC+5), collaborating seamlessly with teams across North America, Europe, Australia, and the Middle East.
+- **Specialization:** Building resilient, zero-jank mobile apps from scratch, rescuing failing or laggy legacy codebases, and owning end-to-end releases on the Apple App Store and Google Play Store.
+
+### Core Differentiators
+1. **Engineered for the Hardest 10%:** Most Flutter apps stutter or fail when handling complex features: live map clustering, background location tracking, high-frequency WebSockets, offline SQLite reconciliation, custom native shaders, or biometric auth. Shahzaib specializes in solving these exact bottlenecks.
+2. **True Single-Codebase Native Fidelity:** 120 FPS UI execution with zero frame drops, micro-animations, platform-adaptive ergonomics (Cupertino & Material 3), and custom Swift/Kotlin platform channels when native hardware access is required.
+3. **End-to-End Ownership:** From UI architecture planning and state design to App Store Optimization (ASO), privacy manifest compliance, automated CI/CD pipelines, and post-launch maintenance.
+
+---
+
+## 2. Technical Stack & Architecture
+
+### Mobile Core & Frameworks
+- **Framework:** Flutter 3.x (with Dart 3.x null-safety)
+- **State Management:** Bloc / Cubit, Riverpod, Provider, GetX
+- **Architecture:** Clean Architecture (Feature-driven, Domain / Data / Presentation separation, Repository Pattern, Dependency Injection via `get_it` and `injectable`)
+- **Native Platform Channels:** MethodChannel, EventChannel, Pigeon (Swift for iOS, Kotlin/Java for Android, C++ FFI)
+
+### Networking & Real-Time Data
+- **Real-Time Protocols:** WebSockets, Socket.IO, Firebase Realtime Database
+- **HTTP / REST:** Dio (custom interceptors, token refresh, retry logic, certificate pinning), TanStack Query (mobile adaptions)
+- **Offline Storage & Caching:** SQLite / `sqflite`, Drift, Hive, SharedPreferences, Secure Storage (`flutter_secure_storage`)
+
+### Integrations & SDKs
+- **Maps & Geolocation:** Google Maps SDK, custom canvas vertex clusters, heat maps, background GPS tracking, geofencing
+- **Payments & Subscriptions:** In-App Purchases (StoreKit 2 / Google Play Billing), Stripe SDK, RevenueCat
+- **Authentication & Security:** Firebase Auth, OAuth2 / Social Logins (Apple, Google), Web3Auth, DIDIT Biometric KYC/KYB
+- **Media & Camera:** CameraX, video players, short-form reels caching, custom image painters
+
+### Open Source Contributions
+- `fancy_button_animations` (pub.dev): Production micro-animations and tactile feedback states for Flutter buttons.
+- `inner_curved_circle` (pub.dev): Custom canvas painter for mathematically smooth inner-curved circular clipping.
+- Publisher: pub.dev/publishers/shahzaib-dev.site
+
+---
+
+## 3. Flagship Case Studies & Production Proof
+
+### 1. On Scene (Location-Based Social & Dating)
+- **Platform:** iOS & Android (Live on App Store & Google Play)
+- **Role:** Lead Flutter Developer
+- **The Challenge:** High-density live map rendering with hundreds of concurrent venue check-ins. Default Google Maps markers caused severe frame drops (down to 15 FPS) during zoom and pan operations.
+- **The Solution:** Implemented hardware-accelerated map marker clustering, custom canvas vertex drawing, and WebSocket presence channels. Background location updates were throttled intelligently to conserve battery while maintaining real-time accuracy.
+- **The Result:** Rock-solid 60 FPS map panning across high-density city centers, seamless live check-ins, and low-latency one-on-one and venue group chats.
+
+### 2. Zera (Multi-Vendor Marketplace & Event Super-App)
+- **Platform:** Mobile App & Multi-Vendor Hub
+- **Role:** Flutter Architect
+- **The Challenge:** Coordinating disparate marketplace verticals (products, on-demand services, job boards, event tickets with QR codes, and community feeds) with spotty network connectivity.
+- **The Solution:** Engineered an offline-first SQLite database layer with optimistic UI updates. Implemented custom heatmap visualizations on top of Google Maps to display real-time marketplace demand clusters.
+- **The Result:** Instantaneous catalog search queries (sub-second local cache hits), uninterrupted offline shopping carts, and rapid QR code ticket verification at event gates.
+
+### 3. StyleBite (Fashion Social & Interactive Reels)
+- **Platform:** Android (Live on Google Play) & iOS
+- **Role:** Main Flutter Developer
+- **The Challenge:** Combining vertical video reel feeds with real-time community engagement (Vote & Win outfit contests, rated posts, and messaging) without memory leaks or stutter during long scroll sessions.
+- **The Solution:** Built a memory-managed video preloading pipeline with page-snapping physics, optimized image caching, and WebSocket-driven chat and polling updates.
+- **The Result:** Buttery 60 FPS vertical reel scrolling, instantaneous interactive voting feedback, and high user retention.
+
+### 4. BePay (Fintech Wallet & Merchant Payment Gateway)
+- **Platform:** Consumer Wallet & Merchant Business Apps
+- **Role:** Senior Flutter Developer
+- **The Challenge:** Multi-currency transactions, strict regulatory KYC/KYB verification, and zero-tolerance security requirements across consumer and merchant devices.
+- **The Solution:** Integrated Web3Auth and DIDIT biometric KYC, implemented end-to-end encrypted ledger communications, biometric FaceID / TouchID authentication, and merchant point-of-sale tools.
+- **The Result:** Sub-second transaction settlements, verified KYC compliance, and automated settlement exports.
+
+### 5. Paw Play Love (Pet Social & Playdate Matching)
+- **Platform:** iOS & Android (Live on App Store & Google Play)
+- **Role:** Full-Stack Flutter Developer
+- **The Challenge:** Fast swipe gesture matching mechanics combined with location filtering and subscription paywalls.
+- **The Solution:** Built 60 FPS gesture-driven card stacks with velocity physics, real-time matching notifications, and RevenueCat subscription management.
+- **The Result:** Frictionless matching flow, 4.8+ star app store reviews, and reliable recurring subscription renewals.
+
+### 6. Simman (Medical Emergency Simulation)
+- **Platform:** Cross-Platform Tablet & Mobile
+- **Role:** Flutter Engineer
+- **The Challenge:** Synchronizing high-frequency telemetry, vital signs, and two-way audio between medical instructors and students during simulated clinical emergencies.
+- **The Solution:** Custom Socket.IO synchronization protocol maintaining sub-50ms latency across connected devices, paired with custom vital-sign ECG wave painters.
+- **The Result:** Stable clinical training sessions with zero state drift between instructor control dashboards and student monitors.
+
+---
+
+## 4. Services & Commercial Engagement
+
+### 1. Full-Stack Flutter App Development
+- **Scope:** Complete turn-key delivery of a production iOS and Android application from a unified Flutter codebase.
+- **Inclusions:** System architecture, database schema, responsive UI design implementation, third-party API and payment integrations, security audits, and App Store / Google Play submission.
+- **Typical Timeline:** 6 to 12 weeks depending on scope.
+
+### 2. Flutter Codebase Rescue & Performance Optimization
+- **Scope:** In-depth technical audit and surgical refactoring of existing applications suffering from jank, memory leaks, high crash rates, or fragile architecture.
+- **Inclusions:** Profiling CPU/GPU frame budgets in Flutter DevTools, eliminating memory leaks in image caches and streams, refactoring spaghetti state into clean Bloc/Riverpod patterns, and upgrading legacy dependencies.
+- **Typical Timeline:** 2 to 4 weeks.
+
+### 3. Dedicated Retainer & Production Maintenance
+- **Scope:** Proactive ongoing engineering SLA for live production apps.
+- **Inclusions:** Annual iOS/Android SDK bumps, crash monitoring (Sentry / Crashlytics triage), security updates, continuous integration maintenance, and feature roadmap execution.
+
+---
+
+## 5. Contact & Verification Channels
+
+- **Website:** https://www.shahzaib-dev.site
+- **Direct Email:** shahzaibhassan414@gmail.com
+- **WhatsApp:** +92 316 0984600
+- **LinkedIn:** https://www.linkedin.com/in/shahzaibhassan414/
+- **GitHub:** https://github.com/shahzaibhassan414
+- **pub.dev:** https://pub.dev/publishers/shahzaib-dev.site/packages
+- **Curated llms.txt:** https://www.shahzaib-dev.site/llms.txt
+- **Complete Dossier:** https://www.shahzaib-dev.site/llms-full.txt

@@ -41,6 +41,11 @@ export const metadata: Metadata = {
   creator: site.name,
   openGraph: { siteName: site.name, locale: "en_US", type: "website" },
   twitter: { card: "summary_large_image" },
+  alternates: {
+    types: {
+      "text/markdown": "/index.md",
+    },
+  },
 };
 
 export const viewport: Viewport = {

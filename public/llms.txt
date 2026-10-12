@@ -21,6 +21,7 @@ I'm Shahzaib Hassan, a senior Flutter developer with four years of production ex
 - [About](https://www.shahzaib-dev.site/about): background, approach, experience, and toolkit
 - [Contact](https://www.shahzaib-dev.site/contact): project enquiries
 - [Sitemap](https://www.shahzaib-dev.site/sitemap.xml)
+- [Full Documentation](https://www.shahzaib-dev.site/llms-full.txt): complete architectural deep dive, stacks, and case study metrics
 
 ## Services
 
