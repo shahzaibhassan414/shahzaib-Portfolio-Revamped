@@ -1,38 +1,40 @@
-# auth.md — Shahzaib Hassan Portfolio
+# auth.md — Agent Registration and Authentication
 
-Machine-readable authentication specification for AI agents, crawlers, and automated assistants per the Auth.md standard.
+Machine-readable authentication and agent registration specification per the Auth.md standard.
 
-## Overview
+## Agent Registration
 
-This site is the personal developer portfolio and mobile engineering platform of Shahzaib Hassan. All portfolio case studies, technical playbooks, project histories, and contact interfaces are open for autonomous discovery and communication.
+Autonomous AI agents, coding agents, and crawler assistants can register and interact with this portfolio service autonomously without human intervention.
 
-- **Origin**: https://www.shahzaib-dev.site
-- **Audience**: AI Agents, LLM crawlers, automated code reviewers, client proxy agents.
-- **Service Type**: Engineering Portfolio & Client Inquiries.
+### Registration Endpoints
 
-## Authentication Method
+- **register_uri**: `https://www.shahzaib-dev.site/api/contact`
+- **claim_uri**: `https://www.shahzaib-dev.site/contact`
+- **skill**: `https://www.shahzaib-dev.site/.well-known/agent-skills/contact-inquiry/SKILL.md`
 
-### Anonymous Access (No Credentials Required)
-
-Autonomous agents may access the portfolio and invoke the project inquiry endpoint without user accounts or static API keys.
+### Supported Authentication Flows
 
 ```json
 {
-  "identity_types_supported": ["anonymous"],
-  "anonymous": {
-    "credential_types_supported": ["none"]
-  },
-  "claim_uri": "https://www.shahzaib-dev.site/contact"
+  "agent_auth": {
+    "skill": "https://www.shahzaib-dev.site/.well-known/agent-skills/contact-inquiry/SKILL.md",
+    "register_uri": "https://www.shahzaib-dev.site/api/contact",
+    "claim_uri": "https://www.shahzaib-dev.site/contact",
+    "identity_types_supported": ["anonymous"],
+    "anonymous": {
+      "credential_types_supported": ["none"],
+      "claim_uri": "https://www.shahzaib-dev.site/contact"
+    }
+  }
 }
 ```
 
 ## Discovery Endpoints
 
-- **RFC 9727 API Catalog**: `/.well-known/api-catalog`
-- **ARD 1.0 AI Catalog**: `/.well-known/ai-catalog.json`
+- **API Catalog**: `/.well-known/api-catalog` (RFC 9727)
+- **Protected Resource**: `/.well-known/oauth-protected-resource` (RFC 9728)
+- **Authorization Server**: `/.well-known/oauth-authorization-server` (RFC 8414)
+- **AI Catalog**: `/.well-known/ai-catalog.json` (ARD 1.0)
 - **MCP Server Card**: `/.well-known/mcp/server-card.json`
 - **A2A Agent Card**: `/.well-known/agent-card.json`
 - **Agent Skills**: `/.well-known/agent-skills/index.json`
-- **LLM Summary**: `/llms.txt`
-- **LLM Full Dossier**: `/llms-full.txt`
-- **Contact API**: `POST /api/contact`
