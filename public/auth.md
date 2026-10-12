@@ -10,14 +10,14 @@ Autonomous AI agents, coding agents, and crawler assistants can register and int
 
 - **register_uri**: `https://www.shahzaib-dev.site/api/contact`
 - **claim_uri**: `https://www.shahzaib-dev.site/contact`
-- **skill**: `https://www.shahzaib-dev.site/.well-known/agent-skills/contact-inquiry/SKILL.md`
+- **skill**: `https://www.shahzaib-dev.site/auth.md`
 
 ### Supported Authentication Flows
 
 ```json
 {
   "agent_auth": {
-    "skill": "https://www.shahzaib-dev.site/.well-known/agent-skills/contact-inquiry/SKILL.md",
+    "skill": "https://www.shahzaib-dev.site/auth.md",
     "register_uri": "https://www.shahzaib-dev.site/api/contact",
     "claim_uri": "https://www.shahzaib-dev.site/contact",
     "identity_types_supported": ["anonymous"],
