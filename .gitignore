@@ -48,3 +48,4 @@ public/work/*/legacy-*
 CLAUDE.md
 AGENTS.md
 .claude/
+.agents/

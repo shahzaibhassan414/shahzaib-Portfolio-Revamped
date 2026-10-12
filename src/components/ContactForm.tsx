@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { ArrowRight, ChevronDown } from "@/components/icons";
+import { ArrowRight, ChevronDown, Spinner } from "@/components/icons";
 import { site } from "@/content/site";
 import { isProjectType, projectTypes, stages, timings, type ContactErrors, type ProjectType } from "@/lib/contact";
 
@@ -68,6 +68,11 @@ export function ContactForm({
     }
   }
 
+  const clearError = (name: keyof ContactErrors) => {
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
+    if (status.state === "error") setStatus({ state: "idle" });
+  };
+
   const describe = (name: keyof ContactErrors) => (errors[name] ? `${name}-error` : undefined);
   const errorText = (name: keyof ContactErrors) =>
     errors[name] ? (
@@ -95,7 +100,15 @@ export function ContactForm({
   }
 
   return (
-    <form method="post" action="/api/contact" onSubmit={onSubmit} noValidate className={box} aria-label="Contact form">
+    <form
+      method="post"
+      action="/api/contact"
+      onSubmit={onSubmit}
+      noValidate
+      className={box}
+      aria-label="Contact form"
+      aria-busy={status.state === "sending"}
+    >
       <fieldset className="flex flex-col gap-3">
         <legend className="mb-3 text-[15px] font-bold">What do you need?</legend>
         <div className="flex flex-wrap gap-2">
@@ -136,6 +149,7 @@ export function ContactForm({
             placeholder="Alex Johnson"
             aria-invalid={Boolean(errors.name)}
             aria-describedby={describe("name")}
+            onInput={() => clearError("name")}
             className={`${field} h-[52px]`}
           />
           {errorText("name")}
@@ -154,6 +168,7 @@ export function ContactForm({
             placeholder="alex@company.com"
             aria-invalid={Boolean(errors.email)}
             aria-describedby={describe("email")}
+            onInput={() => clearError("email")}
             className={`${field} h-[52px]`}
           />
           {errorText("email")}
@@ -178,6 +193,7 @@ export function ContactForm({
           placeholder="What the app does, what's working, and what's in the way."
           aria-invalid={Boolean(errors.message)}
           aria-describedby={describe("message")}
+          onInput={() => clearError("message")}
           className={`${field} resize-y py-3.5 leading-normal`}
         />
         {errorText("message")}
@@ -190,13 +206,25 @@ export function ContactForm({
       </div>
 
       {status.state === "error" && (
-        <p role="alert" className="rounded-xl border border-[#F2879F]/40 bg-[#F2879F]/10 px-4 py-3 text-base leading-normal">
-          Your message didn&apos;t send. Email me at{" "}
-          <a href={`mailto:${site.email}`} className="font-semibold text-accent underline underline-offset-2">
-            {site.email}
-          </a>{" "}
-          and I&apos;ll pick it up from there.
-        </p>
+        <div
+          role="alert"
+          className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#F2879F]/40 bg-[#F2879F]/10 px-4 py-3 text-base leading-normal"
+        >
+          <p className="flex-1">
+            Your message didn&apos;t send. Email me directly at{" "}
+            <a href={`mailto:${site.email}`} className="font-semibold text-accent underline underline-offset-2">
+              {site.email}
+            </a>{" "}
+            or try submitting again.
+          </p>
+          <button
+            type="button"
+            onClick={() => setStatus({ state: "idle" })}
+            className="rounded-lg border border-[#F2879F]/50 px-3 py-1 text-sm font-semibold text-text transition-colors hover:bg-[#F2879F]/20"
+          >
+            Dismiss
+          </button>
+        </div>
       )}
 
       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -207,8 +235,17 @@ export function ContactForm({
           disabled={status.state === "sending"}
           className="flex min-h-11 items-center gap-2.5 rounded-[14px] bg-accent px-[26px] py-4 text-[17px] font-bold text-on-accent transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-70"
         >
-          {status.state === "sending" ? "Sending…" : "Send message"}
-          <ArrowRight size={18} strokeWidth={2.2} />
+          {status.state === "sending" ? (
+            <>
+              <Spinner size={18} className="text-on-accent" />
+              <span>Sending…</span>
+            </>
+          ) : (
+            <>
+              <span>Send message</span>
+              <ArrowRight size={18} strokeWidth={2.2} />
+            </>
+          )}
         </button>
       </div>
     </form>
