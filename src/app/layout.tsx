@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { CursorFollower } from "@/components/CursorFollower";
 import { Footer } from "@/components/Footer";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <TileMotion />
         <TextReveal />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
