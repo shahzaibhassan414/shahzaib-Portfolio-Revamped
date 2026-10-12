@@ -10,7 +10,7 @@ import { ButtonLink } from "@/components/ui";
 import { experience } from "@/content/experience";
 import { testimonials } from "@/content/testimonials";
 import { primaryCta, site } from "@/content/site";
-import { pageMetadata, personSchema } from "@/lib/seo";
+import { absoluteUrl, pageMetadata, personSchema } from "@/lib/seo";
 
 // Copy: docs/copy-and-seo.md section 5. Layout: design/about.html.
 
@@ -98,11 +98,17 @@ export default function AboutPage() {
     <>
       <JsonLd
         data={{
-          ...personSchema,
-          description: site.description,
-          ...(current && { worksFor: { "@type": "Organization", name: current.company } }),
-          homeLocation: { "@type": "Country", name: "Pakistan" },
-          knowsAbout: toolkit.flatMap((t) => t.items),
+          "@type": "ProfilePage",
+          "@id": absoluteUrl("/about#profilepage"),
+          url: absoluteUrl("/about"),
+          name: `About ${site.name} — ${site.role}`,
+          mainEntity: {
+            ...personSchema,
+            description: site.description,
+            ...(current && { worksFor: { "@type": "Organization", name: current.company } }),
+            homeLocation: { "@type": "Country", name: "Pakistan" },
+            knowsAbout: toolkit.flatMap((t) => t.items),
+          },
         }}
       />
       <section className="wrap flex flex-wrap items-center gap-16 pt-8 md:pt-16">

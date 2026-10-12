@@ -17,8 +17,9 @@ import { ButtonLink, SectionTitle, TextLink } from "@/components/ui";
 import { experience } from "@/content/experience";
 import { appCountWord, publishedProjects } from "@/content/projects";
 import { featuredTestimonial } from "@/content/testimonials";
+import { JsonLd } from "@/components/JsonLd";
 import { openSource, playbooks, primaryCta, site, storeLinks } from "@/content/site";
-import { pageMetadata } from "@/lib/seo";
+import { absoluteUrl, pageMetadata, personSchema } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Senior Flutter Developer for iOS & Android | Shahzaib Hassan",
@@ -79,6 +80,32 @@ const sectionGap = "pt-[88px] md:pt-[136px]";
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": absoluteUrl("/#website"),
+              url: absoluteUrl("/"),
+              name: site.name,
+              alternateName: ["Shahzaib Dev", "shahzaib-dev.site"],
+              description: site.description,
+            },
+            {
+              "@type": "ProfilePage",
+              "@id": absoluteUrl("/#profilepage"),
+              url: absoluteUrl("/"),
+              name: `${site.name} — ${site.role} for iOS & Android`,
+              description: site.description,
+              mainEntity: {
+                ...personSchema,
+                description: site.description,
+                homeLocation: { "@type": "Country", name: "Pakistan" },
+              },
+            },
+          ],
+        }}
+      />
       {/* Hero */}
       {/* Full-width wrapper so the repel grid spans the screen behind the hero. */}
       <div className="relative isolate">
