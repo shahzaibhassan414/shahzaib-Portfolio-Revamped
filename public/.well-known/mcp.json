@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/schema/server-card.json",
+  "serverInfo": {
+    "name": "shahzaib-portfolio-mcp",
+    "version": "1.0.0"
+  },
+  "endpoint": "https://www.shahzaib-dev.site/api/contact",
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "submit_inquiry",
+      "description": "Send a project inquiry or contact request directly to Senior Flutter Developer Shahzaib Hassan",
+      "inputSchema": {
+        "type": "object",
+        "required": ["name", "email", "message"],
+        "properties": {
+          "name": { "type": "string", "description": "Sender name" },
+          "email": { "type": "string", "description": "Sender email" },
+          "message": { "type": "string", "description": "Project overview" },
+          "service": { "type": "string", "description": "Type of service requested" },
+          "budget": { "type": "string", "description": "Estimated budget" }
+        }
+      }
+    }
+  ]
+}

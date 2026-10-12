@@ -1,0 +1,75 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Shahzaib Hassan Portfolio API",
+    "description": "API for inquiring about mobile development services, Flutter engineering, and project collaborations with Shahzaib Hassan.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://www.shahzaib-dev.site",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/contact": {
+      "post": {
+        "summary": "Submit a project inquiry or contact message",
+        "operationId": "submitContactInquiry",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email", "message"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Sender's full name"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Sender's reply email address"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "Project overview, scope, or questions"
+                  },
+                  "service": {
+                    "type": "string",
+                    "description": "Desired service: new-app, app-rescue, maintenance, or advisory"
+                  },
+                  "budget": {
+                    "type": "string",
+                    "description": "Estimated project budget"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Inquiry successfully received",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": { "type": "boolean" },
+                    "message": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        }
+      }
+    }
+  }
+}

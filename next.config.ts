@@ -24,6 +24,46 @@ const nextConfig: NextConfig = {
       { source: "/blog/:path*", destination: "/#oss-title", permanent: true },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Signal",
+            value: "search=yes, ai-input=yes, ai-train=no",
+          },
+        ],
+      },
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value:
+              '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="ai-catalog", </index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"',
+          },
+        ],
+      },
+      {
+        source: "/.well-known/:path*",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "*",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

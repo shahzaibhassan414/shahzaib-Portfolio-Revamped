@@ -1,0 +1,31 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Shahzaib Hassan",
+    "identifier": "did:web:shahzaib-dev.site"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:shahzaib-dev.site:server:mcp",
+      "displayName": "Shahzaib Hassan Portfolio MCP",
+      "type": "application/mcp-server-card+json",
+      "url": "https://www.shahzaib-dev.site/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "hire senior flutter developer",
+        "inquire about iOS and Android app development",
+        "mobile application architecture review"
+      ]
+    },
+    {
+      "identifier": "urn:air:shahzaib-dev.site:agent:a2a",
+      "displayName": "Shahzaib Hassan A2A Agent",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://www.shahzaib-dev.site/.well-known/agent-card.json",
+      "representativeQueries": [
+        "inspect production flutter case studies",
+        "send inquiry to Shahzaib Hassan",
+        "flutter app rescue and performance optimization"
+      ]
+    }
+  ]
+}

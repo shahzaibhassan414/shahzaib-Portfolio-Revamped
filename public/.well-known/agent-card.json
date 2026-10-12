@@ -1,0 +1,29 @@
+{
+  "name": "Shahzaib Hassan Portfolio Agent",
+  "version": "1.0.0",
+  "description": "A2A discovery agent card for Shahzaib Hassan, Senior Flutter & Mobile App Developer.",
+  "url": "https://www.shahzaib-dev.site",
+  "supportedInterfaces": [
+    {
+      "url": "https://www.shahzaib-dev.site/api/contact",
+      "protocol": "http"
+    }
+  ],
+  "capabilities": [
+    "portfolio-inspection",
+    "contact-inquiry",
+    "flutter-architecture-advisory"
+  ],
+  "skills": [
+    {
+      "id": "contact-inquiry",
+      "name": "Submit Project Inquiry",
+      "description": "Submit a mobile app development or consulting inquiry to Shahzaib Hassan."
+    },
+    {
+      "id": "portfolio-overview",
+      "name": "Inspect Portfolio & Case Studies",
+      "description": "Inspect Flutter production apps (OnScene, ZERA, BePay, etc.) and architectural playbooks."
+    }
+  ]
+}

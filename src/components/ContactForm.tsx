@@ -108,6 +108,10 @@ export function ContactForm({
       className={box}
       aria-label="Contact form"
       aria-busy={status.state === "sending"}
+      {...({
+        toolname: "submit_project_inquiry",
+        tooldescription: "Submit a mobile app development project inquiry to Shahzaib Hassan",
+      })}
     >
       <fieldset className="flex flex-col gap-3">
         <legend className="mb-3 text-[15px] font-bold">What do you need?</legend>
@@ -151,6 +155,7 @@ export function ContactForm({
             aria-describedby={describe("name")}
             onInput={() => clearError("name")}
             className={`${field} h-[52px]`}
+            {...({ toolparamdescription: "Sender full name" })}
           />
           {errorText("name")}
         </div>
@@ -170,6 +175,7 @@ export function ContactForm({
             aria-describedby={describe("email")}
             onInput={() => clearError("email")}
             className={`${field} h-[52px]`}
+            {...({ toolparamdescription: "Sender contact email address" })}
           />
           {errorText("email")}
         </div>
@@ -195,6 +201,7 @@ export function ContactForm({
           aria-describedby={describe("message")}
           onInput={() => clearError("message")}
           className={`${field} resize-y py-3.5 leading-normal`}
+          {...({ toolparamdescription: "Detailed description of the mobile app project or inquiry" })}
         />
         {errorText("message")}
       </div>

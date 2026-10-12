@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "contact-inquiry",
+      "type": "skill-md",
+      "description": "Submit a project inquiry or consultation request to Shahzaib Hassan.",
+      "url": "/.well-known/agent-skills/contact-inquiry/SKILL.md",
+      "digest": "sha256:93d726cecc93501b474d8263c8011f91bb1ac46536f19e2074f5ac691305e620"
+    },
+    {
+      "name": "portfolio-overview",
+      "type": "skill-md",
+      "description": "Inspect Flutter projects, production architectures, and developer playbooks.",
+      "url": "/.well-known/agent-skills/portfolio-overview/SKILL.md",
+      "digest": "sha256:58316da0e40a6acf79f9bfcea0a180068e28241ec461275f0853698f2637c5a2"
+    }
+  ]
+}
